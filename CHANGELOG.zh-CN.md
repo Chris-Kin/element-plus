@@ -1,23 +1,115 @@
 ## Changelog
 
-### 1.0.1-beta.23
+### 1.0.2-beta.29
+
+*2021-01-25*
 
 #### New feature
-- New component `ElEmpty` (#1210)
+
+- Add type 'contextmenu' trigger for Dropdown (#1286)
+
 #### Bug fixes
+
+- Fix i18n bundle error (#1346)
+- Fix Drawer error size prop to support Number (#1335)
+- Fix affix to change target.value to props.target in judgement (#1343)
+- Fix carousel don't update the indicator and items when data change(#1244)
+- Fix fixed table height error when no data(#1332)
+- Fix table header checkbox can be triggered when disabled(#1333)
+- Repair table column width calculation abnormal (#1334)
+- Fix image incorrect custom object-fit ratio (#1338)
+- Fix color-picker can't select 8-digit hex color (#1323)
+
+### 1.0.2-beta.28
+
+*2021-01-20*
+
+#### New feature
+
+- Support vue-i18n@next (#1306)
+
+#### Bug fixes
+
+- Add tags and attributes completions for Vetur (#1303)
+- Fix table when the data changes, the table does not update the layout (#1315)
+- Fix table bug of table-column property watching (#1309)
+- Fix loading transition invalid (#1321)
+- Fix checkbox migrate error (#1293)
+- Fix notification style when its type set and title not set (#1288)
+- Fix tree node not render in lazy (#1298)
+- Fix slider can't drag in mobile (#1299)
+- Fix table column insertion disorder BUG
+- Fix table checkbox in table header style error (#1292)
+- Fix table migrate error (#1294)
+
+### 1.0.1-beta.27
+
+*2021-01-15*
+
+#### Bug fixes
+
+- Fix overlay overflowing issue (#1282)
+- Fix loading directive cannot dispatch for the second time (#1281)
+- Fix Date picker bind attr to panel error (#1277)
+
+### 1.0.1-beta.26
+
+*2021-01-14*
+
+#### New feature
+
+- New component `Affix` (#1210)
+
+#### Bug fixes
+
+- Fix overlay event triggering issue (#1235)
+- Fix form add missing emits (#1272)
+- Fix switch id of input can't be empty (#1273)
+- Fix table filter icon height of table header (#1233)
+- Fix col lacking props named tag (#1264)
+- Fix input-number increase/decrease button not work (#1259)
+
+### 1.0.1-beta.24
+
+*2021-01-11*
+
+#### Bug fixes
+
+- Fix time picker scroll bug (#1227)
+- Fix tree node don't update after push new node into parent (#1231)
+- Fix loading error show when parent's display is not block (#1250)
+- Fix input-number behavior error (#1252)
+- Fix select emptyText error show (#1213)
+- Fix select to replace symbols to strings to avoid individual importing symbol bug (#1224)
+
+### 1.0.1-beta.23
+
+*2021-01-07*
+
+#### New feature
+
+- New component `ElEmpty` (#1210)
+
+#### Bug fixes
+
 - Fix dropdown menu stop-popper-mouse-event (#1219)
 - Fix menu item group not working (#1217)
 
 #### Chore updates
+
 - Bumping dep versions (#1214)
+
 ### 1.0.1-beta.22
 
 *2021-01-06*
+
 #### Bug fixes
 
 - Fix menu item not expanding correctly (#1212)
 - Fix popover hijacking mouse event bug (#1201)
+
 #### Chore updates
+
 - Update contain doc style (#1204)
 
 ### 1.0.1-beta.21

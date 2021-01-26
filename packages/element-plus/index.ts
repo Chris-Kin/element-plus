@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import ElAffix from '@element-plus/affix'
 import ElAlert from '@element-plus/alert'
 import ElAside from '@element-plus/aside'
 import ElAutocomplete from '@element-plus/autocomplete'
@@ -88,23 +89,31 @@ import ElVirtualList from '@element-plus/virtual-list'
 import ElSpace from '@element-plus/space'
 import ElSkeleton from '@element-plus/skeleton'
 import ElSkeletonItem from '@element-plus/skeleton-item'
-import { use } from '@element-plus/locale'
+import { use, i18n } from '@element-plus/locale'
 // if you encountered problems alike "Can't resolve './version'"
 // please run `yarn bootstrap` first
 import { version as version_ } from './version'
-import { setConfig } from '@element-plus/utils/config'
 import type { InstallOptions } from '@element-plus/utils/config'
+import { setConfig } from '@element-plus/utils/config'
+import isServer from '@element-plus/utils/isServer'
+import dayjs from 'dayjs'
+
+// expose Day.js to window to make full bundle i18n work
+if (!isServer && !(window as any).dayjs) {
+  (window as any).dayjs = dayjs
+}
 
 const version = version_ // version_ to fix tsc issue
 
 const locale = use
 
-const defaultInstallOpt: InstallOptions =  {
+const defaultInstallOpt: InstallOptions = {
   size: '' as ComponentSize,
   zIndex: 2000,
 }
 
 const components = [
+  ElAffix,
   ElAlert,
   ElAside,
   ElAutocomplete,
@@ -202,6 +211,9 @@ const plugins = [
 const install = (app: App, opt: InstallOptions): void => {
   const option = Object.assign(defaultInstallOpt, opt)
   locale(option.locale)
+  if (option.i18n) {
+    i18n(option.i18n)
+  }
   app.config.globalProperties.$ELEMENT = option
   setConfig(option)
 
@@ -215,6 +227,7 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
+  ElAffix,
   ElAlert,
   ElAside,
   ElAutocomplete,
