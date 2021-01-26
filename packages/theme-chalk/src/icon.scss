@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="#{$namespace}icon-"], [class*=" #{$namespace}-icon-"] {
+[class^="#{$namespace}-icon-"], [class*=" #{$namespace}-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'element-icons' !important;
   speak: none;
