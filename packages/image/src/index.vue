@@ -1,22 +1,22 @@
 <template>
   <div
     ref="container"
-    :class="['el-image', $attrs.class]"
+    :class="['NAMESPACE-image', $attrs.class]"
     :style="$attrs.style"
   >
     <slot v-if="loading" name="placeholder">
-      <div class="el-image__placeholder"></div>
+      <div class="NAMESPACE-image__placeholder"></div>
     </slot>
     <slot v-else-if="hasLoadError" name="error">
-      <div class="el-image__error">{{ t('el.image.error') }}</div>
+      <div class="NAMESPACE-image__error">{{ t('el.image.error') }}</div>
     </slot>
     <img
       v-else
-      class="el-image__inner"
+      class="NAMESPACE-image__inner"
       v-bind="attrs"
       :src="src"
       :style="imageStyle"
-      :class="{ 'el-image__inner--center': alignCenter, 'el-image__preview': preview }"
+      :class="{ 'NAMESPACE-image__inner--center': alignCenter, 'NAMESPACE-image__preview': preview }"
       @click="clickHandler"
     >
     <template v-if="preview">
@@ -58,7 +58,7 @@ const ObjectFit = {
 let prevOverflow = ''
 
 export default defineComponent({
-  name: 'ElImage',
+  name: 'NAMESPACEImage',
   components: {
     ImageViewer,
   },
