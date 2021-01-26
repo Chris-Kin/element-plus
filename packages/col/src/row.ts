@@ -1,7 +1,7 @@
 import { defineComponent, computed, h, provide } from 'vue'
 
 export default defineComponent({
-  name: 'ElRow',
+  name: 'NAMESPACERow',
   props: {
     tag: {
       type: String,
@@ -25,7 +25,7 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    provide('ElRow', props.gutter)
+    provide('NAMESPACERow', props.gutter)
 
     const style = computed(() => {
       const ret = {
@@ -44,10 +44,10 @@ export default defineComponent({
         props.tag,
         {
           class: [
-            'el-row',
+            'NAMESPACE-row',
             props.justify !== 'start' ? `is-justify-${props.justify}` : '',
             props.align !== 'top' ? `is-align-${props.align}` : '',
-            props.type === 'flex' ? 'el-row--flex' : '',
+            props.type === 'flex' ? 'NAMESPACE-row--flex' : '',
           ],
           style: style.value,
         },

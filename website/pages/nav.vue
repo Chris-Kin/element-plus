@@ -10,11 +10,11 @@
     </div>
     <div class="block">
       <h3>{{ langConfig[5] }}</h3>
-      <el-row :gutter="20">
-        <el-col :span="9">
+      <NAMESPACE-row :gutter="20">
+        <NAMESPACE-col :span="9">
           <p>{{ langConfig[6] }}</p>
-        </el-col>
-        <el-col :span="15" class="nav-demos">
+        </NAMESPACE-col>
+        <NAMESPACE-col :span="15" class="nav-demos">
           <img src="~examples/assets/images/navbar_1.png" alt="{{ langConfig[7] }}" @click="enlarge(846, $event)">
           <h5>{{ langConfig[7] }}</h5>
           <p>{{ langConfig[8] }}</p>
@@ -24,20 +24,20 @@
           <img src="~examples/assets/images/navbar_3.png" alt="{{ langConfig[11] }}" @click="enlarge(846, $event)">
           <h5>{{ langConfig[11] }}</h5>
           <p>{{ langConfig[12] }}</p>
-        </el-col>
-      </el-row>
+        </NAMESPACE-col>
+      </NAMESPACE-row>
     </div>
     <div class="block">
       <h3>{{ langConfig[13] }}</h3>
-      <el-row>
-        <el-col :span="10">
+      <NAMESPACE-row>
+        <NAMESPACE-col :span="10">
           <p>{{ langConfig[14] }}</p>
-        </el-col>
-        <el-col :span="14" class="nav-demos">
+        </NAMESPACE-col>
+        <NAMESPACE-col :span="14" class="nav-demos">
           <img src="~examples/assets/images/navbar_0.png" alt="" @click="enlarge(846, $event)">
           <p>{{ langConfig[15] }}</p>
-        </el-col>
-      </el-row>
+        </NAMESPACE-col>
+      </NAMESPACE-row>
     </div>
     <transition name="fade">
       <div v-show="showDialog" class="mask" @click="showDialog = false"></div>

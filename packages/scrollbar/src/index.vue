@@ -1,11 +1,11 @@
 <template>
-  <div class="el-scrollbar">
+  <div class="NAMESPACE-scrollbar">
     <div
       ref="wrap"
       :class="[
         wrapClass,
-        'el-scrollbar__wrap',
-        native ? '' : 'el-scrollbar__wrap--hidden-default',
+        'NAMESPACE-scrollbar__wrap',
+        native ? '' : 'NAMESPACE-scrollbar__wrap--hidden-default',
       ]"
       :style="style"
       @scroll="handleScroll"
@@ -13,7 +13,7 @@
       <component
         :is="tag"
         ref="resize"
-        :class="['el-scrollbar__view', viewClass]"
+        :class="['NAMESPACE-scrollbar__view', viewClass]"
         :style="viewStyle"
       >
         <slot></slot>
@@ -43,7 +43,7 @@ import {
 import Bar from './bar'
 
 export default defineComponent({
-  name: 'ElScrollbar',
+  name: 'NAMESPACEScrollbar',
   components: { Bar },
   props: {
     native: {

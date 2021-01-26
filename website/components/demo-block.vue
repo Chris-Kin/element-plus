@@ -28,9 +28,9 @@
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
+      <NAMESPACE-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
-          <el-button
+          <NAMESPACE-button
             v-show="hovering || isExpanded"
             size="small"
             type="text"
@@ -38,9 +38,9 @@
             @click.stop="goCodepen"
           >
             {{ langConfig['button-text'] }}
-          </el-button>
+          </NAMESPACE-button>
         </transition>
-      </el-tooltip>
+      </NAMESPACE-tooltip>
     </div>
   </div>
 </template>
@@ -86,7 +86,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
+      return this.isExpanded ? 'NAMESPACE-icon-caret-top' : 'NAMESPACE-icon-caret-bottom'
     },
 
     controlText() {
@@ -116,7 +116,7 @@ export default {
         return
       }
       setTimeout(() => {
-        this.scrollParent = document.querySelector('.page-component__scroll > .el-scrollbar__wrap')
+        this.scrollParent = document.querySelector('.page-component__scroll > .NAMESPACE-scrollbar__wrap')
         this.scrollParent && this.scrollParent.addEventListener('scroll', this.scrollHandler)
         this.scrollHandler()
       }, 200)

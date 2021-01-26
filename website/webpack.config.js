@@ -27,11 +27,30 @@ const config = {
       {
         test: /\.vue$/,
         use: 'vue-loader',
+        use: [
+          'vue-loader',
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /NAMESPACE/g,
+              replace: 'xxl',
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [
+          'babel-loader',
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /NAMESPACE/g,
+              replace: 'xxl',
+            },
+          },
+        ],
       },
       {
         test: /\.md$/,
@@ -46,6 +65,13 @@ const config = {
           },
           {
             loader: path.resolve(__dirname, './md-loader/index.js'),
+          },
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /NAMESPACE/g,
+              replace: 'xxl',
+            },
           },
         ],
       },

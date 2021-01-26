@@ -1,5 +1,5 @@
 <template>
-  <footer class="el-footer" :style="{ height }">
+  <footer class="NAMESPACE-footer" :style="{ height }">
     <slot></slot>
   </footer>
 </template>
@@ -7,7 +7,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ElFooter',
+  name: 'NAMESPACEFooter',
   props: {
     height: {
       type: String,

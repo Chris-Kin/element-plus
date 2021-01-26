@@ -1,16 +1,16 @@
 <template>
-  <transition name="el-fade-in">
+  <transition name="NAMESPACE-fade-in">
     <div
       v-if="visible"
       :style="{
         'right': styleRight,
         'bottom': styleBottom
       }"
-      class="el-backtop"
+      class="NAMESPACE-backtop"
       @click.stop="handleClick"
     >
       <slot>
-        <i class="el-icon-caret-top"></i>
+        <i class="NAMESPACE-icon-caret-top"></i>
       </slot>
     </div>
   </transition>
@@ -30,7 +30,7 @@ interface IElBacktopProps {
 }
 
 export default defineComponent({
-  name: 'ElBacktop',
+  name: 'NAMESPACEBacktop',
   props: {
     visibilityHeight: {
       type: Number,

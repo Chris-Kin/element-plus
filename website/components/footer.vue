@@ -21,7 +21,7 @@
       </div>
       <div class="footer-social">
         <p class="footer-social-title">Element Team</p>
-        <el-popover
+        <NAMESPACE-popover
           ref="weixin"
           v-model:visible="footerVisible"
           placement="top"
@@ -36,7 +36,7 @@
             <div class="footer-popover-title">{{ langConfig.eleme }} UED</div>
             <img src="../assets/images/qrcode.png" alt="">
           </template>
-        </el-popover>
+        </NAMESPACE-popover>
         <a href="https://github.com/element-plus/element-plus" target="_blank">
           <i class="doc-icon-github elementdoc"></i>
         </a>
@@ -149,7 +149,7 @@ export default {
     }
   }
 
-  .el-popover.footer-popover {
+  .NAMESPACE-popover.footer-popover {
     padding: 0;
     min-width: 120px;
     line-height: normal;

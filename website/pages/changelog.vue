@@ -1,9 +1,9 @@
 <template>
   <div class="page-changelog">
     <div class="heading">
-      <el-button class="fr">
+      <NAMESPACE-button class="fr">
         <a href="https://github.com/element-plus/element-plus/releases" target="_blank">GitHub Releases</a>
-      </el-button>
+      </NAMESPACE-button>
       {{ langConfig[1] }}
     </div>
     <ul ref="timeline" class="timeline">
@@ -73,7 +73,7 @@ export default {
     .fr {
       float: right;
       padding: 0;
-      &.el-button {
+      &.NAMESPACE-button {
         transform: translateY(-3px);
       }
       a {

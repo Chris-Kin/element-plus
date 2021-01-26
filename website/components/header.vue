@@ -58,56 +58,56 @@
 
           <!-- 版本选择器 -->
           <li v-if="false" v-show="isComponentPage" class="nav-item nav-versions">
-            <el-dropdown
+            <NAMESPACE-dropdown
               trigger="click"
               class="nav-dropdown"
               :class="{ 'is-active': verDropdownVisible }"
             >
               <span>
                 {{ version }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
+                <i class="NAMESPACE-icon-arrow-down NAMESPACE-icon--right"></i>
               </span>
-              <el-dropdown-menu
+              <NAMESPACE-dropdown-menu
                 class="nav-dropdown-list"
                 @input="handleVerDropdownToggle"
               >
-                <el-dropdown-item
+                <NAMESPACE-dropdown-item
                   v-for="item in Object.keys(versions)"
                   :key="item"
                   @click="switchVersion(item)"
                 >
                   {{ item }}
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
+                </NAMESPACE-dropdown-item>
+              </NAMESPACE-dropdown-menu>
+            </NAMESPACE-dropdown>
           </li>
 
           <!-- 语言选择器 -->
           <li class="nav-item lang-item">
-            <el-dropdown
+            <NAMESPACE-dropdown
               trigger="click"
               class="nav-dropdown nav-lang"
               :class="{ 'is-active': langDropdownVisible }"
             >
               <span>
                 {{ displayedLang }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
+                <i class="NAMESPACE-icon-arrow-down NAMESPACE-icon--right"></i>
               </span>
               <template #dropdown>
-                <el-dropdown-menu
+                <NAMESPACE-dropdown-menu
                   class="nav-dropdown-list"
                   @input="handleLangDropdownToggle"
                 >
-                  <el-dropdown-item
+                  <NAMESPACE-dropdown-item
                     v-for="(value, key) in langs"
                     :key="key"
                     @click="switchLang(key)"
                   >
                     {{ value }}
-                  </el-dropdown-item>
-                </el-dropdown-menu>
+                  </NAMESPACE-dropdown-item>
+                </NAMESPACE-dropdown-menu>
               </template>
-            </el-dropdown>
+            </NAMESPACE-dropdown>
           </li>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <el-autocomplete
+  <NAMESPACE-autocomplete
     v-model="query"
     size="small"
     :popper-class="`algolia-search${ isEmpty ? ' is-empty' : '' }`"
@@ -39,7 +39,7 @@
         {{ emptyText }}
       </p>
     </template>
-  </el-autocomplete>
+  </NAMESPACE-autocomplete>
 </template>
 
 <script>
@@ -160,12 +160,12 @@ export default {
     width: 450px !important;
 
     &.is-empty {
-      .el-autocomplete-suggestion__list {
+      .NAMESPACE-autocomplete-suggestion__list {
         padding-bottom: 0;
       }
     }
 
-    .el-autocomplete-suggestion__list {
+    .NAMESPACE-autocomplete-suggestion__list {
       position: static !important;
       padding-bottom: 28px;
     }

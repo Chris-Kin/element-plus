@@ -1,5 +1,5 @@
 <template>
-  <main class="el-main">
+  <main class="NAMESPACE-main">
     <slot></slot>
   </main>
 </template>
@@ -7,6 +7,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ElMain',
+  name: 'NAMESPACEMain',
 })
 </script>

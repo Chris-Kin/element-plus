@@ -68,12 +68,12 @@ export default defineComponent({
     })
 
     return () => h('div', {
-      class: ['el-scrollbar__bar', 'is-' + bar.value.key],
+      class: ['NAMESPACE-scrollbar__bar', 'is-' + bar.value.key],
       onMousedown: clickTrackHandler,
     },
     h('div', {
       ref: thumb,
-      class: 'el-scrollbar__thumb',
+      class: 'NAMESPACE-scrollbar__thumb',
       onMousedown: clickThumbHandler,
       style: renderThumbStyle({
         size: props.size,

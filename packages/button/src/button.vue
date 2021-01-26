@@ -1,9 +1,9 @@
 <template>
   <button
     :class="[
-      'el-button',
-      type ? 'el-button--' + type : '',
-      buttonSize ? 'el-button--' + buttonSize : '',
+      'NAMESPACE-button',
+      type ? 'NAMESPACE-button--' + type : '',
+      buttonSize ? 'NAMESPACE-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,
@@ -17,7 +17,7 @@
     :type="nativeType"
     @click="handleClick"
   >
-    <i v-if="loading" class="el-icon-loading"></i>
+    <i v-if="loading" class="NAMESPACE-icon-loading"></i>
     <i v-if="icon && !loading" :class="icon"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
@@ -51,7 +51,7 @@ interface IButtonProps {
 type EmitFn = (evt: Event) => void
 
 export default defineComponent({
-  name: 'ElButton',
+  name: 'NAMESPACEButton',
 
   props: {
     type: {

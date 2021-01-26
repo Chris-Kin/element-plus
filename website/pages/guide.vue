@@ -1,13 +1,13 @@
 <template>
   <div class="page-container page-guide">
-    <el-row>
-      <el-col :xs="24" :sm="5">
+    <NAMESPACE-row>
+      <NAMESPACE-col :xs="24" :sm="5">
         <side-nav :data="navsData" :base="`/${ lang }/guide`" />
-      </el-col>
-      <el-col :xs="24" :sm="19">
+      </NAMESPACE-col>
+      <NAMESPACE-col :xs="24" :sm="19">
         <router-view class="content" />
-      </el-col>
-    </el-row>
+      </NAMESPACE-col>
+    </NAMESPACE-row>
   </div>
 </template>
 <script>

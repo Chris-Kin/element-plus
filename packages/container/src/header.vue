@@ -1,5 +1,5 @@
 <template>
-  <header class="el-header" :style="{ height }">
+  <header class="NAMESPACE-header" :style="{ height }">
     <slot></slot>
   </header>
 </template>
@@ -7,7 +7,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ElHeader',
+  name: 'NAMESPACEHeader',
   props: {
     height: {
       type: String,

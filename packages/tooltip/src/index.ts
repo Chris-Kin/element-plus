@@ -17,7 +17,7 @@ import type {
  * Tooltip shares the exact same API which v2 has, so that the user should be able to
  */
 export default defineComponent({
-  name: 'ElTooltip',
+  name: 'NAMESPACETooltip',
   components: {
     ElPopper,
   },
@@ -82,7 +82,7 @@ export default defineComponent({
     },
     transition: {
       type: String,
-      default: 'el-fade-in-linear',
+      default: 'NAMESPACE-fade-in-linear',
     },
     trigger: {
       type: [String, Array] as PropType<string | string[]>,
@@ -101,7 +101,7 @@ export default defineComponent({
   setup(props, ctx) {
     // when manual mode is true, v-model must be passed down
     if (props.manual && typeof props.modelValue === 'undefined') {
-      throwError('[ElTooltip]', 'You need to pass a v-model to el-tooltip when `manual` is true')
+      throwError('[NAMESPACETooltip]', 'You need to pass a v-model to NAMESPACE-tooltip when `manual` is true')
     }
 
     const popper = ref(null)

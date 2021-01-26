@@ -1,5 +1,5 @@
 <template>
-  <el-color-picker
+  <NAMESPACE-color-picker
     v-model="theme"
     class="theme-picker"
     popper-class="theme-picker-dropdown"
@@ -146,11 +146,11 @@ export default {
     // @utils-vertical-center;
   }
 
-  .theme-picker .el-color-picker__trigger {
+  .theme-picker .NAMESPACE-color-picker__trigger {
     vertical-align: middle;
   }
 
-  .theme-picker-dropdown .el-color-dropdown__link-btn {
+  .theme-picker-dropdown .NAMESPACE-color-dropdown__link-btn {
     display: none;
   }
 </style>
