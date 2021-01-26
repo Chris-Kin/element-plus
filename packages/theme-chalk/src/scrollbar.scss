@@ -9,7 +9,7 @@
   &:hover,
   &:active,
   &:focus {
-    > .el-scrollbar__bar {
+    > .#{$namespace}-scrollbar__bar {
       opacity: 1;
       transition: opacity 340ms ease-out;
     }
