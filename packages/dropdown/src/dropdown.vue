@@ -1,5 +1,5 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     ref="triggerVnode"
     v-model:visible="visible"
     :placement="placement"
@@ -7,7 +7,7 @@
     pure
     :manual-mode="true"
     :trigger="[trigger]"
-    popper-class="el-dropdown__popper"
+    popper-class="NAMESPACE-dropdown__popper"
     append-to-body
     transition="el-zoom-in-top"
     :stop-popper-mouse-event="false"
@@ -17,29 +17,29 @@
       <slot name="dropdown"></slot>
     </template>
     <template #trigger>
-      <div :class="['el-dropdown', dropdownSize ? 'el-dropdown--' + dropdownSize : '']">
+      <div :class="['NAMESPACE-dropdown', dropdownSize ? 'NAMESPACE-dropdown--' + dropdownSize : '']">
         <slot v-if="!splitButton" name="default"> </slot>
         <template v-else>
-          <el-button-group>
-            <el-button
+          <NAMESPACE-button-group>
+            <NAMESPACE-button
               :size="dropdownSize"
               :type="type"
               @click="handlerMainButtonClick"
             >
               <slot name="default"></slot>
-            </el-button>
-            <el-button
+            </NAMESPACE-button>
+            <NAMESPACE-button
               :size="dropdownSize"
               :type="type"
-              class="el-dropdown__caret-button"
+              class="NAMESPACE-dropdown__caret-button"
             >
-              <i class="el-dropdown__icon el-icon-arrow-down"></i>
-            </el-button>
-          </el-button-group>
+              <i class="NAMESPACE-dropdown__icon NAMESPACE-icon-arrow-down"></i>
+            </NAMESPACE-button>
+          </NAMESPACE-button-group>
         </template>
       </div>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 <script lang="ts">
 import {
@@ -53,17 +53,17 @@ import {
   ComponentPublicInstance,
 } from 'vue'
 import { on, addClass, removeClass } from '@element-plus/utils/dom'
-import ElButton from '@element-plus/button'
-import ElButtonGroup from '@element-plus/button-group'
-import ElPopper from '@element-plus/popper'
+import NAMESPACEButton from '@element-plus/button'
+import NAMESPACEButtonGroup from '@element-plus/button-group'
+import NAMESPACEPopper from '@element-plus/popper'
 import { useDropdown } from './useDropdown'
 
 export default defineComponent({
-  name: 'ElDropdown',
+  name: 'NAMESPACEDropdown',
   components: {
-    ElButton,
-    ElButtonGroup,
-    ElPopper,
+    NAMESPACEButton,
+    NAMESPACEButtonGroup,
+    NAMESPACEPopper,
   },
   props: {
     trigger: {

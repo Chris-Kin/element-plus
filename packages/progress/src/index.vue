@@ -1,12 +1,12 @@
 <template>
   <div
-    class="el-progress"
+    class="NAMESPACE-progress"
     :class="[
-      `el-progress--${type}`,
+      `NAMESPACE-progress--${type}`,
       status ? `is-${status}` : '',
       {
-        'el-progress--without-text': !showText,
-        'el-progress--text-inside': textInside,
+        'NAMESPACE-progress--without-text': !showText,
+        'NAMESPACE-progress--text-inside': textInside,
       }
     ]"
     role="progressbar"
@@ -14,17 +14,17 @@
     aria-valuemin="0"
     aria-valuemax="100"
   >
-    <div v-if="type === 'line'" class="el-progress-bar">
-      <div class="el-progress-bar__outer" :style="{height: `${strokeWidth}px`}">
-        <div class="el-progress-bar__inner" :style="barStyle">
-          <div v-if="showText && textInside" class="el-progress-bar__innerText">{{ content }}</div>
+    <div v-if="type === 'line'" class="NAMESPACE-progress-bar">
+      <div class="NAMESPACE-progress-bar__outer" :style="{height: `${strokeWidth}px`}">
+        <div class="NAMESPACE-progress-bar__inner" :style="barStyle">
+          <div v-if="showText && textInside" class="NAMESPACE-progress-bar__innerText">{{ content }}</div>
         </div>
       </div>
     </div>
-    <div v-else class="el-progress-circle" :style="{height: `${width}px`, width: `${width}px`}">
+    <div v-else class="NAMESPACE-progress-circle" :style="{height: `${width}px`, width: `${width}px`}">
       <svg viewBox="0 0 100 100">
         <path
-          class="el-progress-circle__track"
+          class="NAMESPACE-progress-circle__track"
           :d="trackPath"
           stroke="#e5e9f2"
           :stroke-width="relativeStrokeWidth"
@@ -32,7 +32,7 @@
           :style="trailPathStyle"
         />
         <path
-          class="el-progress-circle__path"
+          class="NAMESPACE-progress-circle__path"
           :d="trackPath"
           :stroke="stroke"
           fill="none"
@@ -44,7 +44,7 @@
     </div>
     <div
       v-if="showText && !textInside"
-      class="el-progress__text"
+      class="NAMESPACE-progress__text"
       :style="{fontSize: `${progressTextSize}px`}"
     >
       <template v-if="!status">{{ content }}</template>
@@ -72,7 +72,7 @@ interface IProgressProps {
 }
 
 export default defineComponent({
-  name: 'ElProgress',
+  name: 'NAMESPACEProgress',
   props: {
     type: {
       type: String,
@@ -202,12 +202,12 @@ export default defineComponent({
 
     const iconClass = computed(() => {
       if (props.status === 'warning') {
-        return 'el-icon-warning'
+        return 'NAMESPACE-icon-warning'
       }
       if (props.type === 'line') {
-        return props.status === 'success' ? 'el-icon-circle-check' : 'el-icon-circle-close'
+        return props.status === 'success' ? 'NAMESPACE-icon-circle-check' : 'NAMESPACE-icon-circle-close'
       } else {
-        return props.status === 'success' ? 'el-icon-check' : 'el-icon-close'
+        return props.status === 'success' ? 'NAMESPACE-icon-check' : 'NAMESPACE-icon-close'
       }
     })
 

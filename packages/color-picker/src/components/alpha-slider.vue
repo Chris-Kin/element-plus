@@ -1,8 +1,8 @@
 <template>
-  <div class="el-color-alpha-slider" :class="{ 'is-vertical': vertical }">
+  <div class="NAMESPACE-color-alpha-slider" :class="{ 'is-vertical': vertical }">
     <div
       ref="bar"
-      class="el-color-alpha-slider__bar"
+      class="NAMESPACE-color-alpha-slider__bar"
       :style="{
         background
       }"
@@ -11,7 +11,7 @@
     </div>
     <div
       ref="thumb"
-      class="el-color-alpha-slider__thumb"
+      class="NAMESPACE-color-alpha-slider__thumb"
       :style="{
         left: thumbLeft + 'px',
         top: thumbTop + 'px'
@@ -27,7 +27,7 @@ import type Color from '../color'
 import draggable from '../draggable'
 
 export default defineComponent({
-  name: 'ElColorAlphaSlider',
+  name: 'NAMESPACEColorAlphaSlider',
   props: {
     color: {
       type: Object as PropType<Color>,

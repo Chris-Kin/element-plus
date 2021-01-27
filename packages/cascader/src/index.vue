@@ -1,10 +1,10 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     ref="popper"
     v-model:visible="popperVisible"
     manual-mode
     placement="bottom-start"
-    :popper-class="`el-cascader__dropdown ${popperClass}`"
+    :popper-class="`NAMESPACE-cascader__dropdown ${popperClass}`"
     :popper-options="popperOptions"
     :stop-popper-mouse-event="false"
     transition="el-zoom-in-top"
@@ -17,8 +17,8 @@
       <div
         v-clickoutside:[popperPaneRef]="() => togglePopperVisible(false)"
         :class="[
-          'el-cascader',
-          realSize && `el-cascader--${realSize}`,
+          'NAMESPACE-cascader',
+          realSize && `NAMESPACE-cascader--${realSize}`,
           { 'is-disabled': isDisabled }
         ]"
         @click="() => togglePopperVisible(readonly ? undefined : true)"
@@ -26,7 +26,7 @@
         @mouseenter="inputHover = true"
         @mouseleave="inputHover = false"
       >
-        <el-input
+        <NAMESPACE-input
           ref="input"
           v-model.trim="inputValue"
           :placeholder="placeholder"
@@ -43,24 +43,24 @@
             <i
               v-if="clearBtnVisible"
               key="clear"
-              class="el-input__icon el-icon-circle-close"
+              class="NAMESPACE-input__icon NAMESPACE-icon-circle-close"
               @click.stop="handleClear"
             ></i>
             <i
               v-else
               key="arrow-down"
               :class="[
-                'el-input__icon',
-                'el-icon-arrow-down',
+                'NAMESPACE-input__icon',
+                'NAMESPACE-icon-arrow-down',
                 popperVisible && 'is-reverse'
               ]"
               @click.stop="togglePopperVisible()"
             ></i>
           </template>
-        </el-input>
+        </NAMESPACE-input>
 
-        <div v-if="multiple" ref="tagWrapper" class="el-cascader__tags">
-          <el-tag
+        <div v-if="multiple" ref="tagWrapper" class="NAMESPACE-cascader__tags">
+          <NAMESPACE-tag
             v-for="tag in presentTags"
             :key="tag.key"
             type="info"
@@ -71,12 +71,12 @@
             @close="deleteTag(tag)"
           >
             <span>{{ tag.text }}</span>
-          </el-tag>
+          </NAMESPACE-tag>
           <input
             v-if="filterable && !isDisabled"
             v-model.trim="searchInputValue"
             type="text"
-            class="el-cascader__search-input"
+            class="NAMESPACE-cascader__search-input"
             :placeholder="presentText ? '' : placeholder"
             @input="e => handleInput(searchInputValue, e)"
             @click.stop="togglePopperVisible(true)"
@@ -87,7 +87,7 @@
     </template>
 
     <template #default>
-      <el-cascader-panel
+      <NAMESPACE-cascader-panel
         v-show="!filtering"
         ref="panel"
         v-model="checkedValue"
@@ -98,35 +98,35 @@
         @expand-change="handleExpandChange"
         @close="togglePopperVisible(false)"
       />
-      <el-scrollbar
+      <NAMESPACE-scrollbar
         v-if="filterable"
         v-show="filtering"
         ref="suggestionPanel"
         tag="ul"
-        class="el-cascader__suggestion-panel"
-        view-class="el-cascader__suggestion-list"
+        class="NAMESPACE-cascader__suggestion-panel"
+        view-class="NAMESPACE-cascader__suggestion-list"
       >
         <template v-if="suggestions.length">
           <li
             v-for="item in suggestions"
             :key="item.uid"
             :class="[
-              'el-cascader__suggestion-item',
+              'NAMESPACE-cascader__suggestion-item',
               item.checked && 'is-checked'
             ]"
             :tabindex="-1"
             @click="handleSuggestionClick(item)"
           >
             <span>{{ item.text }}</span>
-            <i v-if="item.checked" class="el-icon-check"></i>
+            <i v-if="item.checked" class="NAMESPACE-icon-check"></i>
           </li>
         </template>
         <slot v-else name="empty">
-          <li class="el-cascader__empty-text">{{ t('el.cascader.noMatch') }}</li>
+          <li class="NAMESPACE-cascader__empty-text">{{ t('el.cascader.noMatch') }}</li>
         </slot>
-      </el-scrollbar>
+      </NAMESPACE-scrollbar>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 
 <script lang='ts'>
@@ -136,11 +136,11 @@ import {
   onMounted, onBeforeUnmount,
   Ref, ref, watch,
 } from 'vue'
-import ElCascaderPanel from '@element-plus/cascader-panel'
-import ElInput from '@element-plus/input'
-import ElPopper from '@element-plus/popper'
-import ElScrollbar from '@element-plus/scrollbar'
-import ElTag from '@element-plus/tag'
+import NAMESPACECascaderPanel from '@element-plus/cascader-panel'
+import NAMESPACEInput from '@element-plus/input'
+import NAMESPACEPopper from '@element-plus/popper'
+import NAMESPACEScrollbar from '@element-plus/scrollbar'
+import NAMESPACETag from '@element-plus/tag'
 import { ClickOutside as Clickoutside } from '@element-plus/directives'
 import { t } from '@element-plus/locale'
 import { isPromise } from '@vue/shared'
@@ -183,14 +183,14 @@ const popperOptions = {
 }
 
 export default defineComponent({
-  name: 'ElCascader',
+  name: 'NAMESPACECascader',
 
   components: {
-    ElCascaderPanel,
-    ElInput,
-    ElPopper,
-    ElScrollbar,
-    ElTag,
+    NAMESPACECascaderPanel,
+    NAMESPACEInput,
+    NAMESPACEPopper,
+    NAMESPACEScrollbar,
+    NAMESPACETag,
   },
 
   directives: {
@@ -408,9 +408,9 @@ export default defineComponent({
       let firstNode = null
 
       if (filtering.value && suggestionPanel.value) {
-        firstNode = suggestionPanel.value.$el.querySelector('.el-cascader__suggestion-item')
+        firstNode = suggestionPanel.value.$el.querySelector('.NAMESPACE-cascader__suggestion-item')
       } else {
-        firstNode = panel.value?.$el.querySelector('.el-cascader-node[tabindex="-1"]')
+        firstNode = panel.value?.$el.querySelector('.NAMESPACE-cascader-node[tabindex="-1"]')
       }
 
       if (firstNode) {
@@ -427,7 +427,7 @@ export default defineComponent({
       if (isServer || !inputInner) return
 
       if (suggestionPanelEl) {
-        const suggestionList = suggestionPanelEl.querySelector('.el-cascader__suggestion-list')
+        const suggestionList = suggestionPanelEl.querySelector('.NAMESPACE-cascader__suggestion-list')
         suggestionList.style.minWidth = inputInner.offsetWidth + 'px'
       }
 

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="radioGroup"
-    class="el-radio-group"
+    class="NAMESPACE-radio-group"
     role="radiogroup"
     @keydown="handleKeydown"
   >
@@ -32,9 +32,9 @@ import type { PropType } from 'vue'
 import type { ElFormItemContext } from '@element-plus/form'
 
 export default defineComponent({
-  name: 'ElRadioGroup',
+  name: 'NAMESPACERadioGroup',
 
-  componentName: 'ElRadioGroup',
+  componentname: 'NAMESPACERadioGroup',
 
   props: {
     modelValue: {
@@ -76,7 +76,7 @@ export default defineComponent({
     }
 
     provide(radioGroupKey, reactive({
-      name: 'ElRadioGroup',
+      name: 'NAMESPACERadioGroup',
       ...toRefs(props),
       radioGroupSize: radioGroupSize,
       changeEvent: changeEvent,

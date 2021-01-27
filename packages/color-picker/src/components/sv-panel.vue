@@ -1,14 +1,14 @@
 <template>
   <div
-    class="el-color-svpanel"
+    class="NAMESPACE-color-svpanel"
     :style="{
       backgroundColor: background
     }"
   >
-    <div class="el-color-svpanel__white"></div>
-    <div class="el-color-svpanel__black"></div>
+    <div class="NAMESPACE-color-svpanel__white"></div>
+    <div class="NAMESPACE-color-svpanel__black"></div>
     <div
-      class="el-color-svpanel__cursor"
+      class="NAMESPACE-color-svpanel__cursor"
       :style="{
         top: cursorTop + 'px',
         left: cursorLeft + 'px'
@@ -26,7 +26,7 @@ import type Color from '../color'
 import draggable from '../draggable'
 
 export default defineComponent({
-  name: 'ElSlPanel',
+  name: 'NAMESPACESlPanel',
 
   props: {
     color: {

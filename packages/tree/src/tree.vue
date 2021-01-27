@@ -1,16 +1,16 @@
 <template>
   <div
     ref="el$"
-    class="el-tree"
+    class="NAMESPACE-tree"
     :class="{
-      'el-tree--highlight-current': highlightCurrent,
+      'NAMESPACE-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
       'is-drop-inner': dragState.dropType === 'inner'
     }"
     role="tree"
   >
-    <el-tree-node
+    <NAMESPACE-tree-node
       v-for="child in root.childNodes"
       :key="getNodeKey(child)"
       :node="child"
@@ -20,13 +20,13 @@
       :render-content="renderContent"
       @node-expand="handleNodeExpand"
     />
-    <div v-if="isEmpty" class="el-tree__empty-block">
-      <span class="el-tree__empty-text">{{ emptyText }}</span>
+    <div v-if="isEmpty" class="NAMESPACE-tree__empty-block">
+      <span class="NAMESPACE-tree__empty-text">{{ emptyText }}</span>
     </div>
     <div
       v-show="dragState.showDropIndicator"
       ref="dropIndicator$"
-      class="el-tree__drop-indicator"
+      class="NAMESPACE-tree__drop-indicator"
     >
     </div>
   </div>
@@ -35,7 +35,7 @@
 import { defineComponent, ref, provide, computed, watch, PropType, getCurrentInstance, ComponentInternalInstance } from 'vue'
 import TreeStore from './model/tree-store'
 import { getNodeKey as getNodeKeyUtil } from './model/util'
-import ElTreeNode from './tree-node.vue'
+import NAMESPACETreeNode from './tree-node.vue'
 import { useNodeExpandEventBroadcast } from './model/useNodeExpandEventBroadcast'
 import { useDragNodeHandler } from './model/useDragNode'
 import { useKeydown } from './model/useKeydown'
@@ -50,8 +50,8 @@ import {
 } from './tree.type'
 
 export default defineComponent({
-  name: 'ElTree',
-  components: { ElTreeNode },
+  name: 'NAMESPACETree',
+  components: { NAMESPACETreeNode },
   props: {
     data: {
       type: Array,

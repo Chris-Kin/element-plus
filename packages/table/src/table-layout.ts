@@ -69,7 +69,7 @@ class TableLayout {
     if (height === null) return false
     const bodyWrapper = this.table.refs.bodyWrapper as HTMLElement
     if (this.table.vnode.el && bodyWrapper) {
-      const body = bodyWrapper.querySelector('.el-table__body') as HTMLElement
+      const body = bodyWrapper.querySelector('.NAMESPACE-table__body') as HTMLElement
       const prevScrollY = this.scrollY.value
       const scrollY = body.offsetHeight > this.bodyHeight.value
       this.scrollY.value = scrollY
@@ -131,7 +131,7 @@ class TableLayout {
 
     // fix issue (https://github.com/ElemeFE/element/pull/16956)
     const headerTrElm = headerWrapper
-      ? headerWrapper.querySelector('.el-table__header tr')
+      ? headerWrapper.querySelector('.NAMESPACE-table__header tr')
       : null
     const noneHeader = this.headerDisplayNone(headerTrElm as HTMLElement)
 

@@ -523,7 +523,7 @@ export const useSelect = (props, states: States, ctx) => {
   const scrollToOption = option => {
     const target = Array.isArray(option) ? option[0]?.$el : option.$el
     if (popper.value && target) {
-      const menu = popper.value?.$el?.querySelector?.('.el-select-dropdown__wrap')
+      const menu = popper.value?.$el?.querySelector?.('.NAMESPACE-select-dropdown__wrap')
       if (menu) {
         scrollIntoView(menu, target)
       }

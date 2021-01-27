@@ -1,8 +1,8 @@
 <template>
   <label
-    class="el-radio"
+    class="NAMESPACE-radio"
     :class="{
-      [`el-radio--${radioSize || ''}`]: border && radioSize,
+      [`NAMESPACE-radio--${radioSize || ''}`]: border && radioSize,
       'is-disabled': isDisabled,
       'is-focus': focus,
       'is-bordered': border,
@@ -15,17 +15,17 @@
     @keydown.space.stop.prevent="model = isDisabled ? model : label"
   >
     <span
-      class="el-radio__input"
+      class="NAMESPACE-radio__input"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': model === label
       }"
     >
-      <span class="el-radio__inner"></span>
+      <span class="NAMESPACE-radio__inner"></span>
       <input
         ref="radioRef"
         v-model="model"
-        class="el-radio__original"
+        class="NAMESPACE-radio__original"
         :value="label"
         type="radio"
         aria-hidden="true"
@@ -37,7 +37,7 @@
         @change="handleChange"
       >
     </span>
-    <span class="el-radio__label" @keydown.stop>
+    <span class="NAMESPACE-radio__label" @keydown.stop>
       <slot>
         {{ label }}
       </slot>
@@ -57,8 +57,8 @@ import { useRadio, useRadioAttrs } from './useRadio'
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElRadio',
-  componentName: 'ElRadio',
+  name: 'NAMESPACERadio',
+  componentname: 'NAMESPACERadio',
 
   props: {
     modelValue: {

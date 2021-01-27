@@ -6,7 +6,7 @@
     @click.self.prevent
   >
     <span v-if="nextText">{{ nextText }}</span>
-    <i v-else class="el-icon el-icon-arrow-right"></i>
+    <i v-else class="NAMESPACE-icon NAMESPACE-icon-arrow-right"></i>
   </button>
 </template>
 

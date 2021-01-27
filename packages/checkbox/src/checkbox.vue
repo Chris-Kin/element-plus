@@ -1,9 +1,9 @@
 <template>
   <label
     :id="id"
-    class="el-checkbox"
+    class="NAMESPACE-checkbox"
     :class="[
-      border && checkboxSize ? 'el-checkbox--' + checkboxSize : '',
+      border && checkboxSize ? 'NAMESPACE-checkbox--' + checkboxSize : '',
       { 'is-disabled': isDisabled },
       { 'is-bordered': border },
       { 'is-checked': isChecked }
@@ -11,7 +11,7 @@
     :aria-controls="indeterminate ? controls : null"
   >
     <span
-      class="el-checkbox__input"
+      class="NAMESPACE-checkbox__input"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': isChecked,
@@ -22,12 +22,12 @@
       :role="indeterminate ? 'checkbox' : false"
       :aria-checked="indeterminate ? 'mixed' : false"
     >
-      <span class="el-checkbox__inner"></span>
+      <span class="NAMESPACE-checkbox__inner"></span>
       <input
         v-if="trueLabel || falseLabel"
         v-model="model"
         :checked="isChecked"
-        class="el-checkbox__original"
+        class="NAMESPACE-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :name="name"
@@ -41,7 +41,7 @@
       <input
         v-else
         v-model="model"
-        class="el-checkbox__original"
+        class="NAMESPACE-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :disabled="isDisabled"
@@ -52,7 +52,7 @@
         @blur="focus = false"
       >
     </span>
-    <span v-if="$slots.default || label" class="el-checkbox__label">
+    <span v-if="$slots.default || label" class="NAMESPACE-checkbox__label">
       <slot></slot>
       <template v-if="!$slots.default">{{ label }}</template>
     </span>
@@ -68,7 +68,7 @@ import { isValidComponentSize } from '@element-plus/utils/validators'
 import { useCheckbox } from './useCheckbox'
 
 export default defineComponent({
-  name: 'ElCheckbox',
+  name: 'NAMESPACECheckbox',
   props: {
     modelValue: {
       type: [Boolean, Number, String],

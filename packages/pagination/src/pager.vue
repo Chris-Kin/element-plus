@@ -1,5 +1,5 @@
 <template>
-  <ul class="el-pager" @click="onPagerClick">
+  <ul class="NAMESPACE-pager" @click="onPagerClick">
     <li
       v-if="pageCount > 0"
       :class="{ active: currentPage === 1, disabled }"
@@ -9,10 +9,10 @@
     </li>
     <li
       v-if="showPrevMore"
-      class="el-icon more btn-quickprev"
+      class="NAMESPACE-icon more btn-quickprev"
       :class="[quickprevIconClass, { disabled }]"
       @mouseenter="onMouseenter('left')"
-      @mouseleave="quickprevIconClass = 'el-icon-more'"
+      @mouseleave="quickprevIconClass = 'NAMESPACE-icon-more'"
     >
     </li>
     <li
@@ -25,10 +25,10 @@
     </li>
     <li
       v-if="showNextMore"
-      class="el-icon more btn-quicknext"
+      class="NAMESPACE-icon more btn-quicknext"
       :class="[quicknextIconClass, { disabled }]"
       @mouseenter="onMouseenter('right')"
-      @mouseleave="quicknextIconClass = 'el-icon-more'"
+      @mouseleave="quicknextIconClass = 'NAMESPACE-icon-more'"
     >
     </li>
     <li
@@ -49,7 +49,7 @@ import {
 } from 'vue'
 
 export default defineComponent({
-  name: 'ElPager',
+  name: 'NAMESPACEPager',
   props: {
     currentPage: {
       type: Number,
@@ -68,8 +68,8 @@ export default defineComponent({
   setup(props, { emit }) {
     const showPrevMore = ref(false)
     const showNextMore = ref(false)
-    const quicknextIconClass = ref('el-icon-more')
-    const quickprevIconClass = ref('el-icon-more')
+    const quicknextIconClass = ref('NAMESPACE-icon-more')
+    const quickprevIconClass = ref('NAMESPACE-icon-more')
     const pagers = computed(() => {
       const pagerCount = props.pagerCount
       const halfPagerCount = (pagerCount - 1) / 2
@@ -127,18 +127,18 @@ export default defineComponent({
     })
 
     watchEffect(() => {
-      if(!showPrevMore.value) quickprevIconClass.value = 'el-icon-more'
+      if(!showPrevMore.value) quickprevIconClass.value = 'NAMESPACE-icon-more'
     })
     watchEffect(() => {
-      if(!showNextMore.value) quicknextIconClass.value = 'el-icon-more'
+      if(!showNextMore.value) quicknextIconClass.value = 'NAMESPACE-icon-more'
     })
 
     function onMouseenter(direction: 'left' | 'right') {
       if (props.disabled) return
       if (direction === 'left') {
-        quickprevIconClass.value = 'el-icon-d-arrow-left'
+        quickprevIconClass.value = 'NAMESPACE-icon-d-arrow-left'
       } else {
-        quicknextIconClass.value = 'el-icon-d-arrow-right'
+        quicknextIconClass.value = 'NAMESPACE-icon-d-arrow-right'
       }
     }
 

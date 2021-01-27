@@ -1,25 +1,25 @@
 <template>
-  <transition name="el-alert-fade">
+  <transition name="NAMESPACE-alert-fade">
     <div
       v-show="visible"
-      class="el-alert"
+      class="NAMESPACE-alert"
       :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
       role="alert"
     >
-      <i v-if="showIcon" class="el-alert__icon" :class="[ iconClass, isBigIcon ]"></i>
-      <div class="el-alert__content">
-        <span v-if="title || $slots.title" class="el-alert__title" :class="[ isBoldTitle ]">
+      <i v-if="showIcon" class="NAMESPACE-alert__icon" :class="[ iconClass, isBigIcon ]"></i>
+      <div class="NAMESPACE-alert__content">
+        <span v-if="title || $slots.title" class="NAMESPACE-alert__title" :class="[ isBoldTitle ]">
           <slot name="title">{{ title }}</slot>
         </span>
-        <p v-if="$slots.default || !!description" class="el-alert__description">
+        <p v-if="$slots.default || !!description" class="NAMESPACE-alert__description">
           <slot>
             {{ description }}
           </slot>
         </p>
         <i
           v-if="closable"
-          class="el-alert__closebtn"
-          :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
+          class="NAMESPACE-alert__closebtn"
+          :class="{ 'is-customed': closeText !== '', 'NAMESPACE-icon-close': closeText === '' }"
           @click="close"
         >
           {{ closeText }}
@@ -32,13 +32,13 @@
 import { defineComponent, computed, ref, PropType } from 'vue'
 
 const TYPE_CLASSES_MAP = {
-  'success': 'el-icon-success',
-  'warning': 'el-icon-warning',
-  'error': 'el-icon-error',
+  'success': 'NAMESPACE-icon-success',
+  'warning': 'NAMESPACE-icon-warning',
+  'error': 'NAMESPACE-icon-error',
 }
 
 export default defineComponent({
-  name: 'ElAlert',
+  name: 'NAMESPACEAlert',
   props: {
     title: {
       type: String,
@@ -74,8 +74,8 @@ export default defineComponent({
     const visible = ref(true)
 
     // computed
-    const typeClass = computed(() => `el-alert--${ props.type }`)
-    const iconClass = computed(() => TYPE_CLASSES_MAP[props.type] || 'el-icon-info')
+    const typeClass = computed(() => `NAMESPACE-alert--${ props.type }`)
+    const iconClass = computed(() => TYPE_CLASSES_MAP[props.type] || 'NAMESPACE-icon-info')
     const isBigIcon = computed(() => props.description || ctx.slots.default ? 'is-big' : '')
     const isBoldTitle = computed(() => props.description || ctx.slots.default ? 'is-bold' : '')
 

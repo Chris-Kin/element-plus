@@ -14,7 +14,7 @@ export const useRadio = () => {
   const elFormItem = inject(elFormItemKey, {} as ElFormItemContext)
   const radioGroup = inject(radioGroupKey, {} as RadioGroupContext)
   const focus = ref(false)
-  const isGroup = computed(() => radioGroup?.name === 'ElRadioGroup')
+  const isGroup = computed(() => radioGroup?.name === 'NAMESPACERadioGroup')
   const elFormItemSize = computed(() => elFormItem.size || ELEMENT.size)
 
   return {

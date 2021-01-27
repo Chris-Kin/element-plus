@@ -21,7 +21,7 @@ import {
 } from '@element-plus/utils/resize-event'
 
 export default defineComponent({
-  name: 'ElLabelWrap',
+  name: 'NAMESPACELabelWrap',
   props: {
     isAutoWidth: Boolean,
     updateAll: Boolean,
@@ -88,7 +88,7 @@ export default defineComponent({
           'div',
           {
             ref: el,
-            class: ['el-form-item__label-wrap'],
+            class: ['NAMESPACE-form-item__label-wrap'],
             style,
           },
           slots.default?.(),

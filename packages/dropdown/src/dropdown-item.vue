@@ -1,9 +1,9 @@
 <template>
   <li
-    class="el-dropdown-menu__item"
+    class="NAMESPACE-dropdown-menu__item"
     :class="{
       'is-disabled': disabled,
-      'el-dropdown-menu__item--divided': divided
+      'NAMESPACE-dropdown-menu__item--divided': divided
     }"
     :aria-disabled="disabled"
     :tabindex="disabled ? null : -1"
@@ -18,7 +18,7 @@ import { defineComponent, getCurrentInstance } from 'vue'
 import { useDropdown } from './useDropdown'
 
 export default defineComponent({
-  name: 'ElDropdownItem',
+  name: 'NAMESPACEDropdownItem',
   props: {
     command: {
       type: [Object, String, Number],

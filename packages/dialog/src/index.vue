@@ -6,7 +6,7 @@
       @after-leave="afterLeave"
       @before-leave="beforeLeave"
     >
-      <el-overlay
+      <NAMESPACE-overlay
         v-show="visible"
         :mask="modal"
         :overlay-class="modalClass"
@@ -17,10 +17,10 @@
           ref="dialogRef"
           v-trap-focus
           :class="[
-            'el-dialog',
+            'NAMESPACE-dialog',
             {
               'is-fullscreen': fullscreen,
-              'el-dialog--center': center,
+              'NAMESPACE-dialog--center': center,
             },
             customClass,
           ]"
@@ -30,32 +30,32 @@
           :style="style"
           @click.stop=""
         >
-          <div class="el-dialog__header">
+          <div class="NAMESPACE-dialog__header">
             <slot name="title">
-              <span class="el-dialog__title">
+              <span class="NAMESPACE-dialog__title">
                 {{ title }}
               </span>
             </slot>
             <button
               v-if="showClose"
               aria-label="close"
-              class="el-dialog__headerbtn"
+              class="NAMESPACE-dialog__headerbtn"
               type="button"
               @click="handleClose"
             >
-              <i class="el-dialog__close el-icon el-icon-close"></i>
+              <i class="NAMESPACE-dialog__close NAMESPACE-icon NAMESPACE-icon-close"></i>
             </button>
           </div>
           <template v-if="rendered">
-            <div class="el-dialog__body">
+            <div class="NAMESPACE-dialog__body">
               <slot></slot>
             </div>
           </template>
-          <div v-if="$slots.footer" class="el-dialog__footer">
+          <div v-if="$slots.footer" class="NAMESPACE-dialog__footer">
             <slot name="footer"></slot>
           </div>
         </div>
-      </el-overlay>
+      </NAMESPACE-overlay>
     </transition>
   </teleport>
 </template>
@@ -79,9 +79,9 @@ import type { PropType, SetupContext } from 'vue'
 
 
 export default defineComponent({
-  name: 'ElDialog',
+  name: 'NAMESPACEDialog',
   components: {
-    'el-overlay': Overlay,
+    'NAMESPACE-overlay': Overlay,
   },
   directives: {
     TrapFocus,

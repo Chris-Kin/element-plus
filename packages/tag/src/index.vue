@@ -8,11 +8,11 @@
     <slot></slot>
     <i
       v-if="closable"
-      class="el-tag__close el-icon-close"
+      class="NAMESPACE-tag__close NAMESPACE-icon-close"
       @click="handleClose"
     ></i>
   </span>
-  <transition v-else name="el-zoom-in-center">
+  <transition v-else name="NAMESPACE-zoom-in-center">
     <span
       :class="classes"
       :style="{ backgroundColor: color }"
@@ -21,7 +21,7 @@
       <slot></slot>
       <i
         v-if="closable"
-        class="el-tag__close el-icon-close"
+        class="NAMESPACE-tag__close NAMESPACE-icon-close"
         @click="handleClose"
       ></i>
     </span>
@@ -36,7 +36,7 @@ import { isValidComponentSize } from '@element-plus/utils/validators'
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElTag',
+  name: 'NAMESPACETag',
   props: {
     closable: Boolean,
     type: {
@@ -71,10 +71,10 @@ export default defineComponent({
     const classes = computed(() => {
       const { type, hit, effect } = props
       return [
-        'el-tag',
-        type ? `el-tag--${type}` : '',
-        tagSize.value ? `el-tag--${tagSize.value}` : '',
-        effect ? `el-tag--${effect}` : '',
+        'NAMESPACE-tag',
+        type ? `NAMESPACE-tag--${type}` : '',
+        tagSize.value ? `NAMESPACE-tag--${tagSize.value}` : '',
+        effect ? `NAMESPACE-tag--${effect}` : '',
         hit && 'is-hit',
       ]
     })

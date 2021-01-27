@@ -7,7 +7,7 @@
     :aria-expanded="inExpandingPath"
     :tabindex="expandable ? -1 : null"
     :class="[
-      'el-cascader-node',
+      'NAMESPACE-cascader-node',
       checkStrictly && 'is-selectable',
       inExpandingPath && 'in-active-path',
       inCheckedPath && 'in-checked-path',
@@ -19,7 +19,7 @@
     @click="handleClick"
   >
     <!-- prefix -->
-    <el-checkbox
+    <NAMESPACE-checkbox
       v-if="multiple"
       :model-value="node.checked"
       :indeterminate="node.indeterminate"
@@ -27,7 +27,7 @@
       @click.stop
       @update:model-value="handleCheck"
     />
-    <el-radio
+    <NAMESPACE-radio
       v-else-if="checkStrictly"
       :model-value="checkedNodeId"
       :label="node.uid"
@@ -40,24 +40,24 @@
         do not use empty fragment here for https://github.com/vuejs/vue-next/pull/2485
       -->
       <span></span>
-    </el-radio>
-    <i v-else-if="isLeaf && node.checked" class="el-icon-check el-cascader-node__prefix"></i>
+    </NAMESPACE-radio>
+    <i v-else-if="isLeaf && node.checked" class="NAMESPACE-icon-check NAMESPACE-cascader-node__prefix"></i>
 
     <!-- content -->
     <node-content />
 
     <!-- postfix -->
     <template v-if="!isLeaf">
-      <i v-if="node.loading" class="el-icon-loading el-cascader-node__postfix"></i>
-      <i v-else class="el-icon-arrow-right el-cascader-node__postfix"></i>
+      <i v-if="node.loading" class="NAMESPACE-icon-loading NAMESPACE-cascader-node__postfix"></i>
+      <i v-else class="NAMESPACE-icon-arrow-right NAMESPACE-cascader-node__postfix"></i>
     </template>
   </li>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, inject, h } from 'vue'
-import ElCheckbox from '@element-plus/checkbox'
-import ElRadio from '@element-plus/radio'
+import NAMESPACECheckbox from '@element-plus/checkbox'
+import NAMESPACERadio from '@element-plus/radio'
 import {
   CascaderNode,
   CASCADER_PANEL_INJECTION_KEY,
@@ -66,11 +66,11 @@ import {
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElCascaderNode',
+  name: 'NAMESPACECascaderNode',
 
   components: {
-    ElCheckbox,
-    ElRadio,
+    NAMESPACECheckbox,
+    NAMESPACERadio,
     NodeContent: {
       render () {
         const { node, panel } = this.$parent
@@ -78,7 +78,7 @@ export default defineComponent({
         const { renderLabelFn } = panel
         return h(
           'span',
-          { class: 'el-cascader-node__label' },
+          { class: 'NAMESPACE-cascader-node__label' },
           renderLabelFn ? renderLabelFn({ node, data }) : label,
         )
       },

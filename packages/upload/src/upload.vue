@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['el-upload', `el-upload--${listType}`]"
+    :class="['NAMESPACE-upload', `NAMESPACE-upload--${listType}`]"
     tabindex="0"
     @click="handleClick"
     @keydown.self.enter.space="handleKeydown"
@@ -15,7 +15,7 @@
     </template>
     <input
       ref="inputRef"
-      class="el-upload__input"
+      class="NAMESPACE-upload__input"
       type="file"
       :name="name"
       :multiple="multiple"

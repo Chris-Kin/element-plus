@@ -1,26 +1,26 @@
 <template>
-  <span class="el-pagination__sizes">
-    <el-select
+  <span class="NAMESPACE-pagination__sizes">
+    <NAMESPACE-select
       :model-value="innerPageSize"
       :disabled="disabled"
       :popper-class="popperClass"
       size="mini"
       @change="handleChange"
     >
-      <el-option
+      <NAMESPACE-option
         v-for="item in innerPagesizes"
         :key="item"
         :value="item"
         :label="item + t('el.pagination.pagesize')"
       />
-    </el-select>
+    </NAMESPACE-select>
   </span>
 </template>
 
 <script lang="ts">
 import { defineComponent, watch, computed, ref } from 'vue'
-import ElSelect from '@element-plus/select'
-import ElOption from '@element-plus/option'
+import NAMESPACESelect from '@element-plus/select'
+import NAMESPACEOption from '@element-plus/option'
 import { t } from '@element-plus/locale'
 import isEqual from 'lodash/isEqual'
 import { usePagination } from './usePagination'
@@ -28,8 +28,8 @@ import { usePagination } from './usePagination'
 export default defineComponent({
   name: 'Sizes',
   components: {
-    ElSelect,
-    ElOption,
+    NAMESPACESelect,
+    NAMESPACEOption,
   },
   props: {
     pageSize: Number,

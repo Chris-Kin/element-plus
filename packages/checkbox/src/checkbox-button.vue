@@ -1,8 +1,8 @@
 <template>
   <label
-    class="el-checkbox-button"
+    class="NAMESPACE-checkbox-button"
     :class="[
-      size ? 'el-checkbox-button--' + size : '',
+      size ? 'NAMESPACE-checkbox-button--' + size : '',
       { 'is-disabled': isDisabled },
       { 'is-checked': isChecked },
       { 'is-focus': focus },
@@ -15,7 +15,7 @@
       v-if="trueLabel || falseLabel"
       v-model="model"
       :checked="isChecked"
-      class="el-checkbox-button__original"
+      class="NAMESPACE-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -28,7 +28,7 @@
     <input
       v-else
       v-model="model"
-      class="el-checkbox-button__original"
+      class="NAMESPACE-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -40,7 +40,7 @@
 
     <span
       v-if="$slots.default || label"
-      class="el-checkbox-button__inner"
+      class="NAMESPACE-checkbox-button__inner"
       :style="isChecked ? activeStyle : null"
     >
       <slot>{{ label }}</slot>
@@ -57,7 +57,7 @@ import { UPDATE_MODEL_EVENT } from '@element-plus/utils/constants'
 import { useCheckbox, useCheckboxGroup } from './useCheckbox'
 
 export default defineComponent({
-  name: 'ElCheckboxButton',
+  name: 'NAMESPACECheckboxButton',
   props: {
     modelValue: {
       type: [Boolean, Number, String],

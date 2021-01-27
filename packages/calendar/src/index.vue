@@ -1,30 +1,30 @@
 <template>
-  <div class="el-calendar">
-    <div class="el-calendar__header">
-      <div class="el-calendar__title">{{ i18nDate }}</div>
-      <div v-if="validatedRange.length === 0" class="el-calendar__button-group">
-        <el-button-group>
-          <el-button
+  <div class="NAMESPACE-calendar">
+    <div class="NAMESPACE-calendar__header">
+      <div class="NAMESPACE-calendar__title">{{ i18nDate }}</div>
+      <div v-if="validatedRange.length === 0" class="NAMESPACE-calendar__button-group">
+        <NAMESPACE-button-group>
+          <NAMESPACE-button
             size="mini"
             @click="selectDate('prev-month')"
           >
             {{ t('el.datepicker.prevMonth') }}
-          </el-button>
-          <el-button size="mini" @click="selectDate('today')">
+          </NAMESPACE-button>
+          <NAMESPACE-button size="mini" @click="selectDate('today')">
             {{
               t('el.datepicker.today')
             }}
-          </el-button>
-          <el-button
+          </NAMESPACE-button>
+          <NAMESPACE-button
             size="mini"
             @click="selectDate('next-month')"
           >
             {{ t('el.datepicker.nextMonth') }}
-          </el-button>
-        </el-button-group>
+          </NAMESPACE-button>
+        </NAMESPACE-button-group>
       </div>
     </div>
-    <div v-if="validatedRange.length === 0" class="el-calendar__body">
+    <div v-if="validatedRange.length === 0" class="NAMESPACE-calendar__body">
       <date-table
         :date="date"
         :selected-day="realSelectedDay"
@@ -35,7 +35,7 @@
         </template>
       </date-table>
     </div>
-    <div v-else class="el-calendar__body">
+    <div v-else class="NAMESPACE-calendar__body">
       <date-table
         v-for="(range_, index) in validatedRange"
         :key="index"
@@ -55,8 +55,8 @@
 
 <script lang="ts">
 import { t } from '@element-plus/locale'
-import ElButton from '@element-plus/button'
-import ElButtonGroup from '@element-plus/button-group'
+import NAMESPACEButton from '@element-plus/button'
+import NAMESPACEButtonGroup from '@element-plus/button-group'
 import DateTable from './date-table.vue'
 import {
   ref,
@@ -68,12 +68,12 @@ import {
 import dayjs, { Dayjs } from 'dayjs'
 
 export default defineComponent({
-  name: 'ElCalendar',
+  name: 'NAMESPACECalendar',
 
   components: {
     DateTable,
-    ElButton,
-    ElButtonGroup,
+    NAMESPACEButton,
+    NAMESPACEButtonGroup,
   },
 
   props: {

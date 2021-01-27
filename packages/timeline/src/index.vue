@@ -2,7 +2,7 @@
 import { h, provide, defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ElTimeline',
+  name: 'NAMESPACETimeline',
   setup(props, ctx) {
     provide('timeline', ctx)
 
@@ -30,7 +30,7 @@ export default defineComponent({
       return h(
         'ul',
         {
-          class: { 'el-timeline': true },
+          class: { 'NAMESPACE-timeline': true },
         },
         ctx.slots.default?.(),
       )

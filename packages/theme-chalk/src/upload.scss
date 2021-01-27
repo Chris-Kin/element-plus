@@ -234,7 +234,7 @@
     transition: color .3s;
     white-space: nowrap;
 
-    [class^="#{$namespace}icon"] {
+    [class^="#{$namespace}-icon"] {
       height: 100%;
       margin-right: 7px;
       color: $--color-text-secondary;

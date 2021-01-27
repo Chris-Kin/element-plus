@@ -1,5 +1,5 @@
 <template>
-  <el-select
+  <NAMESPACE-select
     v-model="value"
     :disabled="!editable"
     :clearable="clearable"
@@ -17,7 +17,7 @@
     @blur="(event) => $emit('blur', event)"
     @focus="(event) => $emit('focus', event)"
   >
-    <el-option
+    <NAMESPACE-option
       v-for="item in items"
       :key="item.value"
       :label="item.value"
@@ -25,15 +25,15 @@
       :disabled="item.disabled"
     />
     <template #prefix>
-      <i :class="`el-input__icon ${prefixIcon}`"></i>
+      <i :class="`NAMESPACE-input__icon ${prefixIcon}`"></i>
     </template>
-  </el-select>
+  </NAMESPACE-select>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue'
-import ElSelect from '@element-plus/select'
-import ElOption from '@element-plus/option'
+import NAMESPACESelect from '@element-plus/select'
+import NAMESPACEOption from '@element-plus/option'
 interface Time {
   hours: number
   minutes: number
@@ -82,9 +82,9 @@ const nextTime = (time: string, step: string): string => {
 }
 
 export default defineComponent({
-  name: 'ElTimeSelect',
+  name: 'NAMESPACETimeSelect',
 
-  components: { ElSelect, ElOption },
+  components: { NAMESPACESelect, NAMESPACEOption },
   model: {
     prop: 'value',
     event: 'change',
@@ -134,11 +134,11 @@ export default defineComponent({
     },
     prefixIcon: {
       type: String,
-      default: 'el-icon-time',
+      default: 'NAMESPACE-icon-time',
     },
     clearIcon: {
       type: String,
-      default: 'el-icon-circle-close',
+      default: 'NAMESPACE-icon-circle-close',
     },
   },
   emits: ['change', 'blur', 'focus', 'update:modelValue'],

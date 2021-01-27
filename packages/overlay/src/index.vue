@@ -3,7 +3,7 @@ import { createVNode, defineComponent, renderSlot, h } from 'vue'
 import { PatchFlags } from '@element-plus/utils/vnode'
 
 export default defineComponent({
-  name: 'ElOverlay',
+  name: 'NAMESPACEOverlay',
   props: {
     mask: {
       type: Boolean,
@@ -42,7 +42,7 @@ export default defineComponent({
         ? createVNode(
           'div',
           {
-            class: ['el-overlay', props.overlayClass],
+            class: ['NAMESPACE-overlay', props.overlayClass],
             style: {
               zIndex: props.zIndex,
             },

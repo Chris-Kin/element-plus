@@ -1,8 +1,8 @@
 <template>
-  <ul v-show="visible" class="el-select-group__wrap">
-    <li class="el-select-group__title">{{ label }}</li>
+  <ul v-show="visible" class="NAMESPACE-select-group__wrap">
+    <li class="NAMESPACE-select-group__title">{{ label }}</li>
     <li>
-      <ul class="el-select-group">
+      <ul class="NAMESPACE-select-group">
         <slot></slot>
       </ul>
     </li>
@@ -14,8 +14,8 @@ import { defineComponent, provide, inject, ref, reactive, toRefs } from 'vue'
 import { selectGroupKey, selectKey, selectEvents } from './token'
 
 export default defineComponent({
-  name: 'ElOptionGroup',
-  componentName: 'ElOptionGroup',
+  name: 'NAMESPACEOptionGroup',
+  componentname: 'NAMESPACEOptionGroup',
 
   props: {
     label: String,

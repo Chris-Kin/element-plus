@@ -8,21 +8,21 @@
 
 ```html
 <template>
-  <el-space wrap>
-    <el-card class="box-card" style="width: 250px" v-for="i in 3" :key="i">
+  <NAMESPACE-space wrap>
+    <NAMESPACE-card class="box-card" style="width: 250px" v-for="i in 3" :key="i">
       <template #header>
         <div class="clearfix">
           <span>Card name</span>
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >Operation button</el-button
+          <NAMESPACE-button style="float: right; padding: 3px 0" type="text"
+            >Operation button</NAMESPACE-button
           >
         </div>
       </template>
       <div v-for="o in 4" :key="o" class="text item">
         {{ 'List item ' + o }}
       </div>
-    </el-card>
-  </el-space>
+    </NAMESPACE-card>
+  </NAMESPACE-space>
 </template>
 ```
 :::
@@ -34,21 +34,21 @@
 
 ```html
 <template>
-  <el-space direction="vertical">
-    <el-card class="box-card" style="width: 250px" v-for="i in 2" :key="i">
+  <NAMESPACE-space direction="vertical">
+    <NAMESPACE-card class="box-card" style="width: 250px" v-for="i in 2" :key="i">
       <template #header>
         <div class="clearfix">
           <span>Card name</span>
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >Operation button</el-button
+          <NAMESPACE-button style="float: right; padding: 3px 0" type="text"
+            >Operation button</NAMESPACE-button
           >
         </div>
       </template>
       <div v-for="o in 4" :key="o" class="text item">
         {{ 'List item ' + o }}
       </div>
-    </el-card>
-  </el-space>
+    </NAMESPACE-card>
+  </NAMESPACE-space>
 </template>
 ```
 
@@ -64,30 +64,30 @@
 
 ```html
 <template>
-  <el-space direction="vertical" alignment="start" :size="30">
-  <el-radio-group v-model="size">
-    <el-radio :label="'mini'">迷你</el-radio>
-    <el-radio :label="'small'">小</el-radio>
-    <el-radio :label="'medium'">中等</el-radio>
-    <el-radio :label="'large'">大号</el-radio>
-  </el-radio-group>
+  <NAMESPACE-space direction="vertical" alignment="start" :size="30">
+  <NAMESPACE-radio-group v-model="size">
+    <NAMESPACE-radio :label="'mini'">迷你</NAMESPACE-radio>
+    <NAMESPACE-radio :label="'small'">小</NAMESPACE-radio>
+    <NAMESPACE-radio :label="'medium'">中等</NAMESPACE-radio>
+    <NAMESPACE-radio :label="'large'">大号</NAMESPACE-radio>
+  </NAMESPACE-radio-group>
 
-  <el-space wrap :size="size">
-    <el-card class="box-card" style="width: 250px" v-for="i in 3" :key="i">
+  <NAMESPACE-space wrap :size="size">
+    <NAMESPACE-card class="box-card" style="width: 250px" v-for="i in 3" :key="i">
       <template #header>
         <div class="clearfix">
           <span>Card name</span>
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >Operation button</el-button
+          <NAMESPACE-button style="float: right; padding: 3px 0" type="text"
+            >Operation button</NAMESPACE-button
           >
         </div>
       </template>
       <div v-for="o in 4" :key="o" class="text item">
         {{ 'List item ' + o }}
       </div>
-    </el-card>
-  </el-space>
-  </el-space>
+    </NAMESPACE-card>
+  </NAMESPACE-space>
+  </NAMESPACE-space>
 </template>
 
 <script>
@@ -110,22 +110,22 @@ export default {
 :::demo
 ```html
 <template>
-  <el-slider v-model="size" />
-  <el-space wrap :size="size">
-    <el-card class="box-card" style="width: 250px" v-for="i in 2" :key="i">
+  <NAMESPACE-slider v-model="size" />
+  <NAMESPACE-space wrap :size="size">
+    <NAMESPACE-card class="box-card" style="width: 250px" v-for="i in 2" :key="i">
       <template #header>
         <div class="clearfix">
           <span>Card name</span>
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >Operation button</el-button
+          <NAMESPACE-button style="float: right; padding: 3px 0" type="text"
+            >Operation button</NAMESPACE-button
           >
         </div>
       </template>
       <div v-for="o in 4" :key="o" class="text item">
         {{ 'List item ' + o }}
       </div>
-    </el-card>
-  </el-space>
+    </NAMESPACE-card>
+  </NAMESPACE-space>
 </template>
 
 <script>
@@ -151,13 +151,13 @@ export default {
 :::demo 利用 `wrap` 控制换行
 
 ```html
-<el-space wrap>
+<NAMESPACE-space wrap>
   <div v-for="i in 20" :key="i">
-    <el-button type="text">
+    <NAMESPACE-button type="text">
       文字按钮
-    </el-button>
+    </NAMESPACE-button>
   </div>
-</el-space>
+</NAMESPACE-space>
 ```
 :::
 
@@ -170,13 +170,13 @@ export default {
 
 ```html
 <template>
- <el-space :size="size" spacer="|">
+ <NAMESPACE-space :size="size" spacer="|">
     <div v-for="i in 2" :key="i">
-      <el-button>
+      <NAMESPACE-button>
         button {{ i }}
-      </el-button>
+      </NAMESPACE-button>
     </div>
-  </el-space>
+  </NAMESPACE-space>
 </template>
 
 <script>
@@ -197,13 +197,13 @@ export default {
 :::demo
 ```html
 <template>
- <el-space :size="size" :spacer="spacer">
+ <NAMESPACE-space :size="size" :spacer="spacer">
     <div v-for="i in 2" :key="i">
-      <el-button>
+      <NAMESPACE-button>
         button {{ i }}
-      </el-button>
+      </NAMESPACE-button>
     </div>
-  </el-space>
+  </NAMESPACE-space>
 </template>
 
 <script>
@@ -231,46 +231,46 @@ export default {
 
 <template>
   <div style="width: 240px;margin-bottom: 20px;padding: 8px;border: 1px solid #ccc;">
-    <el-space>
+    <NAMESPACE-space>
       string
-      <el-button>
+      <NAMESPACE-button>
         button
-      </el-button>
-      <el-card>
+      </NAMESPACE-button>
+      <NAMESPACE-card>
         <template #header>
           header
         </template>
         body
-      </el-card>
-    </el-space>
+      </NAMESPACE-card>
+    </NAMESPACE-space>
   </div>
   <div style="width: 240px;margin-bottom: 20px;padding: 8px;border: 1px solid #ccc;">
-    <el-space alignment="flex-start">
+    <NAMESPACE-space alignment="flex-start">
       string
-      <el-button>
+      <NAMESPACE-button>
         button
-      </el-button>
-      <el-card>
+      </NAMESPACE-button>
+      <NAMESPACE-card>
         <template #header>
           header
         </template>
         body
-      </el-card>
-    </el-space>
+      </NAMESPACE-card>
+    </NAMESPACE-space>
   </div>
   <div style="width: 240px;margin-bottom: 20px;padding: 8px;border: 1px solid #ccc;">
-    <el-space alignment="flex-end">
+    <NAMESPACE-space alignment="flex-end">
       string
-      <el-button>
+      <NAMESPACE-button>
         button
-      </el-button>
-      <el-card>
+      </NAMESPACE-button>
+      <NAMESPACE-card>
         <template #header>
           header
         </template>
         body
-      </el-card>
-    </el-space>
+      </NAMESPACE-card>
+    </NAMESPACE-space>
   </div>
 </template>
 
@@ -284,7 +284,7 @@ export default {
 | alignment | 对齐的方式 | string | [align-items](https://developer.mozilla.org/zh-CN/docs/Web/CSS/align-items) | 'center' |
 | class     | 类名      | string / Array<Object \| String> / Object | - | - |
 | direction | 排列的方向 | string | vertical/horizontal | horizontal |
-| prefixCls | 给 space-items 的类名前缀 | string | el-space | - |
+| prefixCls | 给 space-items 的类名前缀 | string | NAMESPACE-space | - |
 | style     | 额外样式   | string / Array<Object \| String> / Object | - | - |
 | spacer    | 间隔符     | string / number / VNode | - | - |
 | size      | 间隔大小   | string / number / [number, number] | - | 'small' |

@@ -8,10 +8,10 @@
 <div class="demo-image">
   <div class="block" v-for="fit in fits" :key="fit">
     <span class="demonstration">{{ fit }}</span>
-    <el-image
+    <NAMESPACE-image
       style="width: 100px; height: 100px"
       :src="url"
-      :fit="fit"></el-image>
+      :fit="fit"></NAMESPACE-image>
   </div>
 </div>
 
@@ -35,17 +35,17 @@
 <div class="demo-image__placeholder">
   <div class="block">
     <span class="demonstration">默认</span>
-    <el-image :src="src"></el-image>
+    <NAMESPACE-image :src="src"></NAMESPACE-image>
   </div>
   <div class="block">
     <span class="demonstration">自定义</span>
-    <el-image :src="src">
+    <NAMESPACE-image :src="src">
       <template #placeholder>
         <div class="image-slot">
           加载中<span class="dot">...</span>
         </div>
       </template>
-    </el-image>
+    </NAMESPACE-image>
   </div>
 </div>
 
@@ -68,17 +68,17 @@
 <div class="demo-image__error">
   <div class="block">
     <span class="demonstration">默认</span>
-    <el-image></el-image>
+    <NAMESPACE-image></NAMESPACE-image>
   </div>
   <div class="block">
     <span class="demonstration">自定义</span>
-    <el-image>
+    <NAMESPACE-image>
       <template #error>
         <div class="image-slot">
-          <i class="el-icon-picture-outline"></i>
+          <i class="NAMESPACE-icon-picture-outline"></i>
         </div>
       </template>
-    </el-image>
+    </NAMESPACE-image>
   </div>
 </div>
 ```
@@ -89,7 +89,7 @@
 :::demo 可通过`lazy`开启懒加载功能，当图片滚动到可视范围内才会加载。可通过`scroll-container`来设置滚动容器，若未定义，则为最近一个`overflow`值为`auto`或`scroll`的父元素。
 ```html
 <div class="demo-image__lazy">
-  <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>
+  <NAMESPACE-image v-for="url in urls" :key="url" :src="url" lazy></NAMESPACE-image>
 </div>
 
 <script>
@@ -117,11 +117,11 @@
 :::demo 可通过 `previewSrcList` 开启预览大图的功能。
 ```html
 <div class="demo-image__preview">
-  <el-image
+  <NAMESPACE-image
     style="width: 100px; height: 100px"
     :src="url"
     :preview-src-list="srcList">
-  </el-image>
+  </NAMESPACE-image>
 </div>
 
 <script>

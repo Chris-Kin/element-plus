@@ -45,7 +45,7 @@ export interface Pane {
 export type UpdatePaneStateCallback = (pane: Pane) => void
 
 export default defineComponent({
-  name: 'ElTabs',
+  name: 'NAMESPACETabs',
   components: { TabNav },
   props: {
     type: {
@@ -114,7 +114,7 @@ export default defineComponent({
       Array.from((vnode.children || []) as ArrayLike<VNode>).forEach(node => {
         let type = node.type
         type = (type as Component).name || type
-        if (type === 'ElTabPane' && node.component) {
+        if (type === 'NAMESPACETabPane' && node.component) {
           paneInstanceList.push(node.component)
         } else if(type === Fragment || type === 'template') {
           getPaneInstanceFromSlot(node, paneInstanceList)
@@ -128,7 +128,7 @@ export default defineComponent({
         const children = instance.subTree.children
 
         const content = Array.from(children as ArrayLike<VNode>).find(({ props }) => {
-          return props.class === 'el-tabs__content'
+          return props.class === 'NAMESPACE-tabs__content'
         })
 
         if(!content) return
@@ -224,18 +224,18 @@ export default defineComponent({
     const newButton = editable || addable ? h(
       'span',
       {
-        class: 'el-tabs__new-tab',
+        class: 'NAMESPACE-tabs__new-tab',
         tabindex: '0',
         onClick: handleTabAdd,
         onKeydown: ev => { if (ev.code === EVENT_CODE.enter) { handleTabAdd() }},
       },
-      [h('i', { class: 'el-icon-plus' })],
+      [h('i', { class: 'NAMESPACE-icon-plus' })],
     ) : null
 
     const header = h(
       'div',
       {
-        class: ['el-tabs__header', `is-${tabPosition}`],
+        class: ['NAMESPACE-tabs__header', `is-${tabPosition}`],
       },
       [
         newButton,
@@ -258,7 +258,7 @@ export default defineComponent({
     const panels = h(
       'div',
       {
-        class: 'el-tabs__content',
+        class: 'NAMESPACE-tabs__content',
       },
       this.$slots?.default(),
     )
@@ -267,10 +267,10 @@ export default defineComponent({
       'div',
       {
         class: {
-          'el-tabs': true,
-          'el-tabs--card': type === 'card',
-          [`el-tabs--${tabPosition}`]: true,
-          'el-tabs--border-card': type === 'border-card',
+          'NAMESPACE-tabs': true,
+          'NAMESPACE-tabs--card': type === 'card',
+          [`NAMESPACE-tabs--${tabPosition}`]: true,
+          'NAMESPACE-tabs--border-card': type === 'border-card',
         },
       },
       tabPosition !== 'bottom' ? [header, panels] : [panels, header],

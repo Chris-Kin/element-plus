@@ -1,13 +1,13 @@
 <template>
-  <div class="el-time-spinner" :class="{ 'has-seconds': showSeconds }">
+  <div class="NAMESPACE-time-spinner" :class="{ 'has-seconds': showSeconds }">
     <template v-if="!arrowControl">
-      <el-scrollbar
+      <NAMESPACE-scrollbar
         v-for="item in spinnerItems"
         :key="item"
         :ref="getRefId(item)"
-        class="el-time-spinner__wrapper"
+        class="NAMESPACE-time-spinner__wrapper"
         wrap-style="max-height: inherit;"
-        view-class="el-time-spinner__list"
+        view-class="NAMESPACE-time-spinner__list"
         noresize
         tag="ul"
         @mouseenter="emitSelectRange(item)"
@@ -16,7 +16,7 @@
         <li
           v-for="(disabled, key) in listMap[item].value"
           :key="key"
-          class="el-time-spinner__item"
+          class="NAMESPACE-time-spinner__item"
           :class="{ 'active': key === timePartsMap[item].value, disabled }"
           @click="handleClick(item, { value: key, disabled })"
         >
@@ -27,22 +27,22 @@
             {{ ('0' + key).slice(-2) }}
           </template>
         </li>
-      </el-scrollbar>
+      </NAMESPACE-scrollbar>
     </template>
     <template v-if="arrowControl">
       <div
         v-for="item in spinnerItems"
         :key="item"
-        class="el-time-spinner__wrapper is-arrow"
+        class="NAMESPACE-time-spinner__wrapper is-arrow"
         @mouseenter="emitSelectRange(item)"
       >
-        <i v-repeat-click="onDecreaseClick" class="el-time-spinner__arrow el-icon-arrow-up"></i>
-        <i v-repeat-click="onIncreaseClick" class="el-time-spinner__arrow el-icon-arrow-down"></i>
-        <ul class="el-time-spinner__list">
+        <i v-repeat-click="onDecreaseClick" class="NAMESPACE-time-spinner__arrow NAMESPACE-icon-arrow-up"></i>
+        <i v-repeat-click="onIncreaseClick" class="NAMESPACE-time-spinner__arrow NAMESPACE-icon-arrow-down"></i>
+        <ul class="NAMESPACE-time-spinner__list">
           <li
             v-for="(time, key) in arrowListMap[item].value"
             :key="key"
-            class="el-time-spinner__item"
+            class="NAMESPACE-time-spinner__item"
             :class="{ 'active': time === timePartsMap[item].value, 'disabled': listMap[item].value[time] }"
           >
             {{ time === undefined ? '' : ('0' + (amPmMode ? (time % 12 || 12) : time )).slice(-2) + getAmPmFlag(time) }}
@@ -66,7 +66,7 @@ import {
 import { Dayjs } from 'dayjs'
 import debounce from 'lodash/debounce'
 import { RepeatClick } from '@element-plus/directives'
-import ElScrollbar from '@element-plus/scrollbar'
+import NAMESPACEScrollbar from '@element-plus/scrollbar'
 import { getTimeLists } from './useTimePicker'
 
 export default defineComponent({
@@ -76,7 +76,7 @@ export default defineComponent({
   },
 
   components: {
-    ElScrollbar,
+    NAMESPACEScrollbar,
   },
 
   props: {
@@ -223,7 +223,7 @@ export default defineComponent({
       if (props.arrowControl) return
       const el = listRefsMap[type]
       if (el.value) {
-        el.value.$el.querySelector('.el-scrollbar__wrap').scrollTop = Math.max(0, value * typeItemHeight(type))
+        el.value.$el.querySelector('.NAMESPACE-scrollbar__wrap').scrollTop = Math.max(0, value * typeItemHeight(type))
       }
     }
 
@@ -292,7 +292,7 @@ export default defineComponent({
     const handleScroll = type => {
       isScrolling = true
       debouncedResetScroll(type)
-      const value = Math.min(Math.round((listRefsMap[type].value.$el.querySelector('.el-scrollbar__wrap').scrollTop - (scrollBarHeight(type) * 0.5 - 10) / typeItemHeight(type) + 3) / typeItemHeight(type)), (type === 'hours' ? 23 : 59))
+      const value = Math.min(Math.round((listRefsMap[type].value.$el.querySelector('.NAMESPACE-scrollbar__wrap').scrollTop - (scrollBarHeight(type) * 0.5 - 10) / typeItemHeight(type) + 3) / typeItemHeight(type)), (type === 'hours' ? 23 : 59))
       modifyDateField(type, value)
     }
 
@@ -303,7 +303,7 @@ export default defineComponent({
     const bindScrollEvent = () => {
       const bindFuntion = type => {
         if (listRefsMap[type].value) {
-          listRefsMap[type].value.$el.querySelector('.el-scrollbar__wrap').onscroll = () => {
+          listRefsMap[type].value.$el.querySelector('.NAMESPACE-scrollbar__wrap').onscroll = () => {
           // TODO: scroll is emitted when set scrollTop programatically
           // should find better solutions in the future!
             handleScroll(type)

@@ -1,8 +1,8 @@
 <template>
-  <span class="el-pagination__jump">
+  <span class="NAMESPACE-pagination__jump">
     {{ t('el.pagination.goto') }}
-    <el-input
-      class="el-pagination__editor is-in-pagination"
+    <NAMESPACE-input
+      class="NAMESPACE-pagination__editor is-in-pagination"
       :min="1"
       :max="pageCount"
       :disabled="disabled"
@@ -22,12 +22,12 @@ import {
   ref,
 } from 'vue'
 import { t } from '@element-plus/locale'
-import ElInput from '@element-plus/input'
+import NAMESPACEInput from '@element-plus/input'
 import { usePagination } from './usePagination'
 
 export default defineComponent({
   components: {
-    ElInput,
+    NAMESPACEInput,
   },
   setup() {
     const { pagination, pageCount, disabled, currentPage } = usePagination()

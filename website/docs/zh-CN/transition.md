@@ -4,18 +4,18 @@ Element Plus 内应用在部分组件的过渡动画，你也可以直接使用�
 
 ### fade 淡入淡出
 
-:::demo 提供 `el-fade-in-linear` 和 `el-fade-in` 两种效果。
+:::demo 提供 `NAMESPACE-fade-in-linear` 和 `NAMESPACE-fade-in` 两种效果。
 ```html
 <template>
   <div>
-    <el-button @click="show = !show">Click Me</el-button>
+    <NAMESPACE-button @click="show = !show">Click Me</NAMESPACE-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-fade-in-linear">
-        <div v-show="show" class="transition-box">.el-fade-in-linear</div>
+      <transition name="NAMESPACE-fade-in-linear">
+        <div v-show="show" class="transition-box">.NAMESPACE-fade-in-linear</div>
       </transition>
-      <transition name="el-fade-in">
-        <div v-show="show" class="transition-box">.el-fade-in</div>
+      <transition name="NAMESPACE-fade-in">
+        <div v-show="show" class="transition-box">.NAMESPACE-fade-in</div>
       </transition>
     </div>
   </div>
@@ -48,23 +48,23 @@ Element Plus 内应用在部分组件的过渡动画，你也可以直接使用�
 
 ### zoom 缩放
 
-:::demo 提供 `el-zoom-in-center`，`el-zoom-in-top` 和 `el-zoom-in-bottom` 三种效果。
+:::demo 提供 `NAMESPACE-zoom-in-center`，`NAMESPACE-zoom-in-top` 和 `NAMESPACE-zoom-in-bottom` 三种效果。
 ```html
 <template>
   <div>
-    <el-button @click="show2 = !show2">Click Me</el-button>
+    <NAMESPACE-button @click="show2 = !show2">Click Me</NAMESPACE-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-zoom-in-center">
-        <div v-show="show2" class="transition-box">.el-zoom-in-center</div>
+      <transition name="NAMESPACE-zoom-in-center">
+        <div v-show="show2" class="transition-box">.NAMESPACE-zoom-in-center</div>
       </transition>
 
-      <transition name="el-zoom-in-top">
-        <div v-show="show2" class="transition-box">.el-zoom-in-top</div>
+      <transition name="NAMESPACE-zoom-in-top">
+        <div v-show="show2" class="transition-box">.NAMESPACE-zoom-in-top</div>
       </transition>
 
-      <transition name="el-zoom-in-bottom">
-        <div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
+      <transition name="NAMESPACE-zoom-in-bottom">
+        <div v-show="show2" class="transition-box">.NAMESPACE-zoom-in-bottom</div>
       </transition>
     </div>
   </div>
@@ -98,21 +98,21 @@ Element Plus 内应用在部分组件的过渡动画，你也可以直接使用�
 
 ### collapse 展开折叠
 
-使用 `el-collapse-transition` 组件实现折叠展开效果。
+使用 `NAMESPACE-collapse-transition` 组件实现折叠展开效果。
 
 :::demo
 ```html
 <template>
   <div>
-    <el-button @click="show3 = !show3">Click Me</el-button>
+    <NAMESPACE-button @click="show3 = !show3">Click Me</NAMESPACE-button>
 
     <div style="margin-top: 20px; height: 200px;">
-      <el-collapse-transition>
+      <NAMESPACE-collapse-transition>
         <div v-show="show3">
-          <div class="transition-box">el-collapse-transition</div>
-          <div class="transition-box">el-collapse-transition</div>
+          <div class="transition-box">NAMESPACE-collapse-transition</div>
+          <div class="transition-box">NAMESPACE-collapse-transition</div>
         </div>
-      </el-collapse-transition>
+      </NAMESPACE-collapse-transition>
     </div>
   </div>
 </template>

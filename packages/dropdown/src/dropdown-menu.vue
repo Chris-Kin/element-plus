@@ -1,8 +1,8 @@
 <template>
   <ul
     v-clickOutside:[triggerElm]="innerHide"
-    :class="[size && `el-dropdown-menu--${size}`]"
-    class="el-dropdown-menu"
+    :class="[size && `NAMESPACE-dropdown-menu--${size}`]"
+    class="NAMESPACE-dropdown-menu"
     @mouseenter.stop="show"
     @mouseleave.stop="hide"
   >
@@ -15,7 +15,7 @@ import { ClickOutside } from '@element-plus/directives'
 import { useDropdown, initDropdownDomEvent } from './useDropdown'
 
 export default defineComponent({
-  name: 'ElDropdownMenu',
+  name: 'NAMESPACEDropdownMenu',
   directives: {
     ClickOutside,
   },

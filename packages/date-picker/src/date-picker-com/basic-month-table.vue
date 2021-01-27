@@ -1,5 +1,5 @@
 <template>
-  <table class="el-month-table" @click="handleMonthTableClick" @mousemove="handleMouseMove">
+  <table class="NAMESPACE-month-table" @click="handleMonthTableClick" @mousemove="handleMouseMove">
     <tbody>
       <tr v-for="(row, key) in rows" :key="key">
         <td v-for="(cell, key_) in row" :key="key_" :class="getCellStyle(cell)">

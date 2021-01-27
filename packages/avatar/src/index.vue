@@ -18,7 +18,7 @@ import { defineComponent, computed, ref, PropType } from 'vue'
 
 const ERROR_EVENT = 'error'
 export default defineComponent({
-  name: 'ElAvatar',
+  name: 'NAMESPACEAvatar',
   props: {
     size: {
       type: [Number, String] as PropType<number | string>,
@@ -52,15 +52,15 @@ export default defineComponent({
 
     const avatarClass = computed(() => {
       const { size, icon, shape } = props
-      let classList = ['el-avatar']
+      let classList = ['NAMESPACE-avatar']
       if (size && typeof size === 'string') {
-        classList.push(`el-avatar--${size}`)
+        classList.push(`NAMESPACE-avatar--${size}`)
       }
       if (icon) {
-        classList.push('el-avatar--icon')
+        classList.push('NAMESPACE-avatar--icon')
       }
       if (shape) {
-        classList.push(`el-avatar--${shape}`)
+        classList.push(`NAMESPACE-avatar--${shape}`)
       }
       return classList
     })

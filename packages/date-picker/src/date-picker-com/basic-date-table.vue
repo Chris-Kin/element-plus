@@ -2,7 +2,7 @@
   <table
     cellspacing="0"
     cellpadding="0"
-    class="el-date-table"
+    class="NAMESPACE-date-table"
     :class="{ 'is-week-mode': selectionMode === 'week' }"
     @click="handleClick"
     @mousemove="handleMouseMove"
@@ -15,7 +15,7 @@
       <tr
         v-for="(row, key) in rows"
         :key="key"
-        class="el-date-table__row"
+        class="NAMESPACE-date-table__row"
         :class="{ current: isWeekActive(row[1]) }"
       >
         <td

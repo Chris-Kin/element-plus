@@ -1,7 +1,7 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
 
-[class*="#{$namespace}col-"] {
+[class*="#{$namespace}-col-"] {
   float: left;
   box-sizing: border-box;
 }

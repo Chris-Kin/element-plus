@@ -13,30 +13,30 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，相关属性可以参照 D
 <template>
   <div class="block">
     <span class="demonstration">默认</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value1"
       type="datetime"
       placeholder="选择日期时间">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">带快捷选项</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value2"
       type="datetime"
       placeholder="选择日期时间"
       align="right"
       :shortcuts="shortcuts">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">设置默认时间</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value3"
       type="datetime"
       placeholder="选择日期时间"
       :default-time="defaultTime">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
 </template>
 
@@ -80,17 +80,17 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，相关属性可以参照 D
 <template>
   <div class="block">
     <span class="demonstration">默认</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value1"
       type="datetimerange"
       range-separator="至"
       start-placeholder="开始日期"
       end-placeholder="结束日期">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">带快捷选项</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value2"
       type="datetimerange"
       :shortcuts="shortcuts"
@@ -98,7 +98,7 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，相关属性可以参照 D
       start-placeholder="开始日期"
       end-placeholder="结束日期"
       align="right">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
 </template>
 
@@ -147,24 +147,24 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，相关属性可以参照 D
 <template>
   <div class="block">
     <span class="demonstration">起始日期时刻为 12:00:00</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value1"
       type="datetimerange"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
       :default-time="defaultTime1">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">起始日期时刻为 12:00:00，结束日期时刻为 08:00:00</span>
-    <el-date-picker
+    <NAMESPACE-date-picker
       v-model="value2"
       type="datetimerange"
       align="right"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
       :default-time="defaultTime2">
-    </el-date-picker>
+    </NAMESPACE-date-picker>
   </div>
 </template>
 
@@ -210,8 +210,8 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，相关属性可以参照 D
 | default-time | 选中日期后的默认具体时刻 | Date / 范围选择时：Date[] | 非范围选择时：Date 对象；范围选择时：数组，长度为 2，每项值为 Date 对象，第一项指定开始日期的时刻，第二项指定结束日期的时刻。不指定会使用时刻 `00:00:00` | — |
 | name | 原生属性 | string | — | — |
 | unlink-panels | 在范围选择器里取消两个日期面板之间的联动 | boolean | — | false |
-| prefix-icon | 自定义头部图标的类名 | string | — | el-icon-date |
-| clear-icon | 自定义清空图标的类名 | string | — | el-icon-circle-close |
+| prefix-icon | 自定义头部图标的类名 | string | — | NAMESPACE-icon-date |
+| clear-icon | 自定义清空图标的类名 | string | — | NAMESPACE-icon-circle-close |
 | shortcuts | 设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表 | Object[] | — | — |
 | disabledDate | 设置禁用状态，参数为当前日期，要求返回 Boolean | Function | — | — |
 | cellClassName | 设置日期的 className | Function(Date) | — | — |

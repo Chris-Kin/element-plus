@@ -6,15 +6,15 @@
 
 提供几个固定的时间点供用户选择
 
-:::demo 使用 el-time-select 标签，分别通过`start`、`end`和`step`指定可选的起始时间、结束时间和步长
+:::demo 使用 NAMESPACE-time-select 标签，分别通过`start`、`end`和`step`指定可选的起始时间、结束时间和步长
 ```html
-<el-time-select
+<NAMESPACE-time-select
   v-model="value"
   start='08:30'
   step='00:15'
   end='18:30'
   placeholder="选择时间">
-</el-time-select>
+</NAMESPACE-time-select>
 
 <script>
   export default {
@@ -35,21 +35,21 @@
 :::demo
 ```html
 <template>
-  <el-time-select
+  <NAMESPACE-time-select
     placeholder="起始时间"
     v-model="startTime"
     start='08:30'
   step='00:15'
   end='18:30'>
-  </el-time-select>
-  <el-time-select
+  </NAMESPACE-time-select>
+  <NAMESPACE-time-select
     placeholder="结束时间"
     v-model="endTime"
     start='08:30'
     step='00:15'
     end='18:30'
     :minTime="startTime">
-  </el-time-select>
+  </NAMESPACE-time-select>
 </template>
 
 <script>
@@ -74,8 +74,8 @@
 | size          | 输入框尺寸     | string          | medium / small / mini  | — |
 | placeholder | 非范围选择时的占位内容 | string | — | — |
 | name | 原生属性 | string | — | — |
-| prefix-icon | 自定义头部图标的类名 | string | — | el-icon-time |
-| clear-icon | 自定义清空图标的类名 | string | — | el-icon-circle-close |
+| prefix-icon | 自定义头部图标的类名 | string | — | NAMESPACE-icon-time |
+| clear-icon | 自定义清空图标的类名 | string | — | NAMESPACE-icon-circle-close |
 | start | 开始时间 | string | — | 09:00 |
 | end | 结束时间 | string | — | 18:00 |
 | step | 间隔时间 | string | — | 00:30 |

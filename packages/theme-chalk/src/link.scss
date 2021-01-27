@@ -38,7 +38,7 @@ $typeMap: (
     cursor: not-allowed;
   } 
 
-  & [class*="#{$namespace}icon-"] {
+  & [class*="#{$namespace}-icon-"] {
     & + span {
       margin-left: 5px;
     }

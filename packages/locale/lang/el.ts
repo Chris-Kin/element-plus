@@ -1,5 +1,5 @@
 export default {
-  name: 'el',
+  name: 'NAMESPACE',
   el: {
     colorpicker: {
       confirm: 'Εντάξει',

@@ -1,23 +1,23 @@
 <template>
-  <div class="el-transfer-panel">
-    <p class="el-transfer-panel__header">
-      <el-checkbox
+  <div class="NAMESPACE-transfer-panel">
+    <p class="NAMESPACE-transfer-panel__header">
+      <NAMESPACE-checkbox
         v-model="allChecked"
         :indeterminate="isIndeterminate"
         @change="handleAllCheckedChange"
       >
         {{ title }}
         <span>{{ checkedSummary }}</span>
-      </el-checkbox>
+      </NAMESPACE-checkbox>
     </p>
 
     <div
-      :class="['el-transfer-panel__body', hasFooter ? 'is-with-footer' : '']"
+      :class="['NAMESPACE-transfer-panel__body', hasFooter ? 'is-with-footer' : '']"
     >
-      <el-input
+      <NAMESPACE-input
         v-if="filterable"
         v-model="query"
-        class="el-transfer-panel__filter"
+        class="NAMESPACE-transfer-panel__filter"
         size="small"
         :placeholder="placeholder"
         @mouseenter="inputHover = true"
@@ -25,34 +25,34 @@
       >
         <template #prefix>
           <i
-            :class="['el-input__icon', 'el-icon-' + inputIcon]"
+            :class="['NAMESPACE-input__icon', 'NAMESPACE-icon-' + inputIcon]"
             @click="clearQuery"
           ></i>
         </template>
-      </el-input>
-      <el-checkbox-group
+      </NAMESPACE-input>
+      <NAMESPACE-checkbox-group
         v-show="!hasNoMatch && data.length > 0"
         v-model="checked"
         :class="{ 'is-filterable': filterable }"
-        class="el-transfer-panel__list"
+        class="NAMESPACE-transfer-panel__list"
       >
-        <el-checkbox
+        <NAMESPACE-checkbox
           v-for="item in filteredData"
           :key="item[keyProp]"
-          class="el-transfer-panel__item"
+          class="NAMESPACE-transfer-panel__item"
           :label="item[keyProp]"
           :disabled="item[disabledProp]"
         >
           <option-content
             :option="optionRender(item)"
           />
-        </el-checkbox>
-      </el-checkbox-group>
-      <p v-show="hasNoMatch || data.length === 0" class="el-transfer-panel__empty">
+        </NAMESPACE-checkbox>
+      </NAMESPACE-checkbox-group>
+      <p v-show="hasNoMatch || data.length === 0" class="NAMESPACE-transfer-panel__empty">
         {{ hasNoMatch ? t('el.transfer.noMatch') : t('el.transfer.noData') }}
       </p>
     </div>
-    <p v-if="hasFooter" class="el-transfer-panel__footer">
+    <p v-if="hasFooter" class="NAMESPACE-transfer-panel__footer">
       <slot></slot>
     </p>
   </div>
@@ -61,18 +61,18 @@
 <script lang="ts">
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 import { t } from '@element-plus/locale'
-import ElCheckbox from '@element-plus/checkbox'
-import ElCheckboxGroup from '@element-plus/checkbox-group'
-import ElInput from '@element-plus/input'
+import NAMESPACECheckbox from '@element-plus/checkbox'
+import NAMESPACECheckboxGroup from '@element-plus/checkbox-group'
+import NAMESPACEInput from '@element-plus/input'
 import { useCheck, CHECKED_CHANGE_EVENT } from './useCheck'
 
 export default defineComponent({
-  name: 'ElTransferPanel',
+  name: 'NAMESPACETransferPanel',
 
   components: {
-    ElCheckboxGroup,
-    ElCheckbox,
-    ElInput,
+    NAMESPACECheckboxGroup,
+    NAMESPACECheckbox,
+    NAMESPACEInput,
     OptionContent: ({ option }) => option,
   },
 

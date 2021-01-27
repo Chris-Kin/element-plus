@@ -19,7 +19,7 @@ export const useCheckboxGroup = () => {
   const elForm = inject(elFormKey, {} as ElFormContext)
   const elFormItem = inject(elFormItemKey, {} as ElFormItemContext)
   const checkboxGroup = inject<ICheckboxGroupInstance>('CheckboxGroup', {})
-  const isGroup = computed(() => checkboxGroup && checkboxGroup?.name === 'ElCheckboxGroup')
+  const isGroup = computed(() => checkboxGroup && checkboxGroup?.name === 'NAMESPACECheckboxGroup')
   const elFormItemSize = computed(() => {
     return elFormItem.size
   })

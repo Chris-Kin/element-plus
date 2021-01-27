@@ -1,5 +1,5 @@
 <template>
-  <span class="el-pagination__total">
+  <span class="NAMESPACE-pagination__total">
     {{
       t('el.pagination.total', {
         total,

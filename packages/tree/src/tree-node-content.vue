@@ -3,7 +3,7 @@ import { h, defineComponent, inject, ComponentInternalInstance } from 'vue'
 import { RootTreeType } from './tree.type'
 
 export default defineComponent({
-  name: 'ElTreeNodeContent',
+  name: 'NAMESPACETreeNodeContent',
   props: {
     node: {
       type: Object,
@@ -22,7 +22,7 @@ export default defineComponent({
           ? props.renderContent(h, { _self: nodeInstance, node, data, store })
           : tree.ctx.slots.default
             ? tree.ctx.slots.default({ node, data })
-            :  h('span', { class: 'el-tree-node__label' }, [node.label])
+            :  h('span', { class: 'NAMESPACE-tree-node__label' }, [node.label])
       )
     }
   },

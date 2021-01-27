@@ -2,40 +2,40 @@
   <div
     :style="style"
     :class="[
-      'el-step',
+      'NAMESPACE-step',
       isSimple ? 'is-simple' : `is-${parent.props.direction}`,
       isLast && !space && !isCenter && 'is-flex',
       isCenter && !isVertical && !isSimple && 'is-center'
     ]"
   >
     <!-- icon & line -->
-    <div :class="['el-step__head', `is-${currentStatus}`]">
-      <div class="el-step__line">
-        <i class="el-step__line-inner" :style="lineStyle"></i>
+    <div :class="['NAMESPACE-step__head', `is-${currentStatus}`]">
+      <div class="NAMESPACE-step__line">
+        <i class="NAMESPACE-step__line-inner" :style="lineStyle"></i>
       </div>
 
-      <div :class="['el-step__icon', `is-${icon ? 'icon' : 'text'}`]">
+      <div :class="['NAMESPACE-step__icon', `is-${icon ? 'icon' : 'text'}`]">
         <slot
           v-if="currentStatus !== 'success' && currentStatus !== 'error'"
           name="icon"
         >
-          <i v-if="icon" :class="['el-step__icon-inner', icon]"></i>
-          <div v-if="!icon && !isSimple" class="el-step__icon-inner">{{ index + 1 }}</div>
+          <i v-if="icon" :class="['NAMESPACE-step__icon-inner', icon]"></i>
+          <div v-if="!icon && !isSimple" class="NAMESPACE-step__icon-inner">{{ index + 1 }}</div>
         </slot>
         <i
           v-else
-          :class="['el-step__icon-inner', 'is-status', `el-icon-${currentStatus === 'success' ? 'check' : 'close'}`]"
+          :class="['NAMESPACE-step__icon-inner', 'is-status', `NAMESPACE-icon-${currentStatus === 'success' ? 'check' : 'close'}`]"
         >
         </i>
       </div>
     </div>
     <!-- title & description -->
-    <div class="el-step__main">
-      <div :class="['el-step__title', `is-${currentStatus}`]">
+    <div class="NAMESPACE-step__main">
+      <div :class="['NAMESPACE-step__title', `is-${currentStatus}`]">
         <slot name="title">{{ title }}</slot>
       </div>
-      <div v-if="isSimple" class="el-step__arrow"></div>
-      <div v-else :class="['el-step__description', `is-${currentStatus}`]">
+      <div v-if="isSimple" class="NAMESPACE-step__arrow"></div>
+      <div v-else :class="['NAMESPACE-step__description', `is-${currentStatus}`]">
         <slot name="description">{{ description }}</slot>
       </div>
     </div>
@@ -72,7 +72,7 @@ interface IStepsInject {
 }
 
 export default defineComponent({
-  name: 'ElStep',
+  name: 'NAMESPACEStep',
   props: {
     title: {
       type: String,

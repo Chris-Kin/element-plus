@@ -1,13 +1,13 @@
 <template>
-  <li class="el-timeline-item">
-    <div class="el-timeline-item__tail"></div>
+  <li class="NAMESPACE-timeline-item">
+    <div class="NAMESPACE-timeline-item__tail"></div>
 
     <div
       v-if="!$slots.dot"
-      class="el-timeline-item__node"
+      class="NAMESPACE-timeline-item__node"
       :class="[
-        `el-timeline-item__node--${size || ''}`,
-        `el-timeline-item__node--${type || ''}`
+        `NAMESPACE-timeline-item__node--${size || ''}`,
+        `NAMESPACE-timeline-item__node--${type || ''}`
       ]"
       :style="{
         backgroundColor: color
@@ -15,29 +15,29 @@
     >
       <i
         v-if="icon"
-        class="el-timeline-item__icon"
+        class="NAMESPACE-timeline-item__icon"
         :class="icon"
       ></i>
     </div>
-    <div v-if="$slots.dot" class="el-timeline-item__dot">
+    <div v-if="$slots.dot" class="NAMESPACE-timeline-item__dot">
       <slot name="dot"></slot>
     </div>
 
-    <div class="el-timeline-item__wrapper">
+    <div class="NAMESPACE-timeline-item__wrapper">
       <div
         v-if="!hideTimestamp && placement === 'top'"
-        class="el-timeline-item__timestamp is-top"
+        class="NAMESPACE-timeline-item__timestamp is-top"
       >
         {{ timestamp }}
       </div>
 
-      <div class="el-timeline-item__content">
+      <div class="NAMESPACE-timeline-item__content">
         <slot></slot>
       </div>
 
       <div
         v-if="!hideTimestamp && placement === 'bottom'"
-        class="el-timeline-item__timestamp is-bottom"
+        class="NAMESPACE-timeline-item__timestamp is-bottom"
       >
         {{ timestamp }}
       </div>
@@ -59,7 +59,7 @@ interface ITimeLineItemProps {
 }
 
 export default defineComponent({
-  name: 'ElTimelineItem',
+  name: 'NAMESPACETimelineItem',
   props: {
     timestamp: {
       type: String,

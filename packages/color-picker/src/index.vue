@@ -1,5 +1,5 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     ref="popper"
     v-model:visible="showPicker"
     effect="light"
@@ -9,12 +9,12 @@
     :offset="0"
     transition="el-zoom-in-top"
     :gpu-acceleration="false"
-    :popper-class="`el-color-picker__panel el-color-dropdown ${popperClass}`"
+    :popper-class="`NAMESPACE-color-picker__panel NAMESPACE-color-dropdown ${popperClass}`"
     :stop-popper-mouse-event="false"
   >
     <template #default>
       <div v-click-outside="hide">
-        <div class="el-color-dropdown__main-wrapper">
+        <div class="NAMESPACE-color-dropdown__main-wrapper">
           <hue-slider
             ref="hue"
             class="hue-slider"
@@ -30,9 +30,9 @@
           :color="color"
           :colors="predefine"
         />
-        <div class="el-color-dropdown__btns">
-          <span class="el-color-dropdown__value">
-            <el-input
+        <div class="NAMESPACE-color-dropdown__btns">
+          <span class="NAMESPACE-color-dropdown__value">
+            <NAMESPACE-input
               v-model="customInput"
               :validate-event="false"
               size="mini"
@@ -40,49 +40,49 @@
               @blur="handleConfirm"
             />
           </span>
-          <el-button
+          <NAMESPACE-button
             size="mini"
             type="text"
-            class="el-color-dropdown__link-btn"
+            class="NAMESPACE-color-dropdown__link-btn"
             @click="clear"
           >
             {{ t('el.colorpicker.clear') }}
-          </el-button>
-          <el-button
+          </NAMESPACE-button>
+          <NAMESPACE-button
             plain
             size="mini"
-            class="el-color-dropdown__btn"
+            class="NAMESPACE-color-dropdown__btn"
             @click="confirmValue"
           >
             {{ t('el.colorpicker.confirm') }}
-          </el-button>
+          </NAMESPACE-button>
         </div>
       </div>
     </template>
     <template #trigger>
       <div
         :class="[
-          'el-color-picker',
+          'NAMESPACE-color-picker',
           colorDisabled ? 'is-disabled' : '',
-          colorSize ? `el-color-picker--${ colorSize }` : ''
+          colorSize ? `NAMESPACE-color-picker--${ colorSize }` : ''
         ]"
       >
-        <div v-if="colorDisabled" class="el-color-picker__mask"></div>
-        <div class="el-color-picker__trigger" @click="handleTrigger">
-          <span class="el-color-picker__color" :class="{ 'is-alpha': showAlpha }">
+        <div v-if="colorDisabled" class="NAMESPACE-color-picker__mask"></div>
+        <div class="NAMESPACE-color-picker__trigger" @click="handleTrigger">
+          <span class="NAMESPACE-color-picker__color" :class="{ 'is-alpha': showAlpha }">
             <span
-              class="el-color-picker__color-inner"
+              class="NAMESPACE-color-picker__color-inner"
               :style="{
                 backgroundColor: displayedColor
               }"
             ></span>
-            <span v-if="!modelValue && !showPanelColor" class="el-color-picker__empty el-icon-close"></span>
+            <span v-if="!modelValue && !showPanelColor" class="NAMESPACE-color-picker__empty NAMESPACE-icon-close"></span>
           </span>
-          <span v-show="modelValue || showPanelColor" class="el-color-picker__icon el-icon-arrow-down"></span>
+          <span v-show="modelValue || showPanelColor" class="NAMESPACE-color-picker__icon NAMESPACE-icon-arrow-down"></span>
         </div>
       </div>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 
 <script lang="ts">
@@ -98,9 +98,9 @@ import SvPanel from './components/sv-panel.vue'
 import HueSlider from './components/hue-slider.vue'
 import AlphaSlider from './components/alpha-slider.vue'
 import Predefine from './components/predefine.vue'
-import ElPopper from '@element-plus/popper'
-import ElButton from '@element-plus/button'
-import ElInput from '@element-plus/input'
+import NAMESPACEPopper from '@element-plus/popper'
+import NAMESPACEButton from '@element-plus/button'
+import NAMESPACEInput from '@element-plus/input'
 import { t } from '@element-plus/locale'
 import { UPDATE_MODEL_EVENT }  from '@element-plus/utils/constants'
 import { useGlobalConfig } from '@element-plus/utils/util'
@@ -122,14 +122,14 @@ export const useOptions = () => {
 }
 
 export default defineComponent( {
-  name: 'ElColorPicker',
+  name: 'NAMESPACEColorPicker',
   components: {
-    ElPopper,
-    ElInput,
+    NAMESPACEPopper,
+    NAMESPACEInput,
     SvPanel,
     HueSlider,
     AlphaSlider,
-    ElButton,
+    NAMESPACEButton,
     Predefine,
   },
   directives: {

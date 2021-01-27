@@ -8,13 +8,13 @@ Popconfirm 的属性与 Popover 很类似，因此对于重复属性，请参考
 :::demo 在 Popconfirm 中，只有 `title` 属性可用，`content` 属性不会被展示。
 ```html
 <template>
-<el-popconfirm
+<NAMESPACE-popconfirm
   title="这是一段内容确定删除吗？"
 >
 <template #reference>
-  <el-button>删除</el-button>
+  <NAMESPACE-button>删除</NAMESPACE-button>
   </template>
-</el-popconfirm>
+</NAMESPACE-popconfirm>
 </template>
 ````
 :::
@@ -25,17 +25,17 @@ Popconfirm 的属性与 Popover 很类似，因此对于重复属性，请参考
 :::demo
 ```html
 <template>
-<el-popconfirm
+<NAMESPACE-popconfirm
   confirmButtonText='好的'
   cancelButtonText='不用了'
-  icon="el-icon-info"
+  icon="NAMESPACE-icon-info"
   iconColor="red"
   title="这是一段内容确定删除吗？"
 >
 <template #reference>
-  <el-button>删除</el-button>
+  <NAMESPACE-button>删除</NAMESPACE-button>
   </template>
-</el-popconfirm>
+</NAMESPACE-popconfirm>
 </template>
 ```
 :::
@@ -48,7 +48,7 @@ Popconfirm 的属性与 Popover 很类似，因此对于重复属性，请参考
 |  cancelButtonText              | 取消按钮文字 | String | — | — |
 |  confirmButtonType              | 确认按钮类型 | String | — | Primary |
 |  cancelButtonType              | 取消按钮类型 | String | — | Text |
-|  icon              | Icon | String | — | el-icon-question |
+|  icon              | Icon | String | — | NAMESPACE-icon-question |
 |  iconColor              | Icon 颜色 | String | — | #f90 |
 |  hideIcon              | 是否隐藏 Icon | Boolean | — | false |
 

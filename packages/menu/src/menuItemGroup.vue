@@ -1,7 +1,7 @@
 <template>
-  <li class="el-menu-item-group">
+  <li class="NAMESPACE-menu-item-group">
     <div
-      class="el-menu-item-group__title"
+      class="NAMESPACE-menu-item-group__title"
       :style="{ paddingLeft: levelPadding + 'px' }"
     >
       <template v-if="!slots.title">{{ title }}</template>
@@ -24,8 +24,8 @@ import {
 import { IMenuGroupProps, RootMenuProvider } from './menu'
 
 export default defineComponent({
-  name: 'ElMenuItemGroup',
-  componentName: 'ElMenuItemGroup',
+  name: 'NAMESPACEMenuItemGroup',
+  componentname: 'NAMESPACEMenuItemGroup',
 
   props: {
     title: {
@@ -44,7 +44,7 @@ export default defineComponent({
       let parent = instance.parent
       if (rootProps.collapse) return 20
       while (parent && parent.type.name !== 'ElMenu') {
-        if (parent.type.name === 'ElSubmenu') {
+        if (parent.type.name === 'NAMESPACESubmenu') {
           padding += 20
         }
         parent = parent.parent

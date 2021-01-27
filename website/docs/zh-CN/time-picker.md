@@ -6,24 +6,24 @@
 
 可以选择任意时间
 
-:::demo 使用 el-time-picker 标签，通过 `disabledHours` `disabledMinutes` 和 `disabledSeconds` 限制可选时间范围。提供了两种交互方式：默认情况下通过鼠标滚轮进行选择，打开`arrow-control`属性则通过界面上的箭头进行选择。
+:::demo 使用 NAMESPACE-ESPACE-time-picker 标签，通过 `disabledHours` `disabledMinutes` 和 `disabledSeconds` 限制可选时间范围。提供了两种交互方式：默认情况下通过鼠标滚轮进行选择，打开`arrow-control`属性则通过界面上的箭头进行选择。
 ```html
 <template>
-  <el-time-picker
+  <NAMESPACE-time-picker
     v-model="value1"
     :disabled-hours="disabledHours"
     :disabled-minutes="disabledMinutes"
     :disabled-seconds="disabledSeconds"
     placeholder="任意时间点">
-  </el-time-picker>
-  <el-time-picker
+  </NAMESPACE-time-picker>
+  <NAMESPACE-time-picker
     arrow-control
     v-model="value2"
     :disabled-hours="disabledHours"
     :disabled-minutes="disabledMinutes"
     :disabled-seconds="disabledSeconds"
     placeholder="任意时间点">
-  </el-time-picker>
+  </NAMESPACE-time-picker>
 </template>
 
 <script>
@@ -72,15 +72,15 @@
 :::demo 添加`is-range`属性即可选择时间范围，同样支持`arrow-control`属性。
 ```html
 <template>
-  <el-time-picker
+  <NAMESPACE-time-picker
     is-range
     v-model="value1"
     range-separator="至"
     start-placeholder="开始时间"
     end-placeholder="结束时间"
     placeholder="选择时间范围">
-  </el-time-picker>
-  <el-time-picker
+  </NAMESPACE-time-picker>
+  <NAMESPACE-time-picker
     is-range
     arrow-control
     v-model="value2"
@@ -88,7 +88,7 @@
     start-placeholder="开始时间"
     end-placeholder="结束时间"
     placeholder="选择时间范围">
-  </el-time-picker>
+  </NAMESPACE-time-picker>
 </template>
 
 <script>
@@ -124,8 +124,8 @@
 | string | 见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi) | — |
 | default-value | 可选，选择器打开时默认显示的时间 | Date(TimePicker) / string(TimeSelect) | 可被`new Date()`解析(TimePicker) / 可选值(TimeSelect) | — |
 | name | 原生属性 | string | — | — |
-| prefix-icon | 自定义头部图标的类名 | string | — | el-icon-time |
-| clear-icon | 自定义清空图标的类名 | string | — | el-icon-circle-close |
+| prefix-icon | 自定义头部图标的类名 | string | — | NAMESPACE-ESPACE-icon-time |
+| clear-icon | 自定义清空图标的类名 | string | — | NAMESPACE-ESPACE-icon-circle-close |
 | disabledHours | 禁止选择部分小时选项 | function | — | - |
 | disabledMinutes | 禁止选择部分分钟选项 | function(selectedHour) | — | - |
 | disabledSeconds | 禁止选择部分秒选项 | function(selectedHour, selectedMinute) | — | - |

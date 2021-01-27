@@ -1,6 +1,6 @@
 <template>
   <li
-    class="el-menu-item"
+    class="NAMESPACE-menu-item"
     role="menuitem"
     tabindex="-1"
     :style="[paddingStyle, itemStyle, { backgroundColor }]"
@@ -14,9 +14,9 @@
     @blur="onMouseLeave"
     @mouseleave="onMouseLeave"
   >
-    <el-tooltip
+    <NAMESPACE-tooltip
       v-if="
-        parentMenu.type.name === 'ElMenu' &&
+        parentMenu.type.name === 'NAMESPACEMenu' &&
           rootMenu.props.collapse &&
           slots.title
       "
@@ -31,7 +31,7 @@
       >
         <slot></slot>
       </div>
-    </el-tooltip>
+    </NAMESPACE-tooltip>
     <template v-else>
       <slot></slot>
       <slot name="title"></slot>
@@ -49,14 +49,14 @@ import {
 } from 'vue'
 import { IMenuItemProps, RootMenuProvider, SubMenuProvider } from './menu'
 import useMenu from './useMenu'
-import ElTooltip from '@element-plus/tooltip'
+import NAMESPACETooltip from '@element-plus/tooltip'
 
 export default defineComponent({
-  name: 'ElMenuItem',
+  name: 'NAMESPACEMenuItem',
 
-  componentName: 'ElMenuItem',
+  componentname: 'NAMESPACEMenuItem',
 
-  components: { ElTooltip },
+  components: { NAMESPACETooltip },
 
   props: {
     index: {

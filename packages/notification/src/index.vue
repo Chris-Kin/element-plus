@@ -1,9 +1,9 @@
 <template>
-  <transition name="el-notification-fade">
+  <transition name="NAMESPACE-notification-fade">
     <div
       v-show="visible"
       :id="id"
-      :class="['el-notification', customClass, horizontalClass]"
+      :class="['NAMESPACE-notification', customClass, horizontalClass]"
       :style="positionStyle"
       role="alert"
       @mouseenter="clearTimer()"
@@ -12,15 +12,15 @@
     >
       <i
         v-if="type || iconClass"
-        class="el-notification__icon"
+        class="NAMESPACE-notification__icon"
         :class="[typeClass, iconClass]"
       ></i>
       <div
-        class="el-notification__group"
+        class="NAMESPACE-notification__group"
         :class="{ 'is-with-icon': typeClass || iconClass }"
       >
-        <h2 class="el-notification__title" v-text="title"></h2>
-        <div v-show="message" class="el-notification__content" :style="!!title ? null : 'margin: 0'">
+        <h2 class="NAMESPACE-notification__title" v-text="title"></h2>
+        <div v-show="message" class="NAMESPACE-notification__content" :style="!!title ? null : 'margin: 0'">
           <slot>
             <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
             <!-- Caution here, message could've been compromized, nerver use user's input as message -->
@@ -30,7 +30,7 @@
         </div>
         <div
           v-if="showClose"
-          class="el-notification__closeBtn el-icon-close"
+          class="NAMESPACE-notification__closeBtn NAMESPACE-icon-close"
           @click.stop="close"
         ></div>
       </div>
@@ -52,7 +52,7 @@ const TypeMap: Indexable<string> = {
 }
 
 export default defineComponent({
-  name: 'ElNotification',
+  name: 'NAMESPACENotification',
   props: {
     customClass: { type: String, default: '' },
     dangerouslyUseHTMLString: { type: Boolean, default: false },
@@ -86,7 +86,7 @@ export default defineComponent({
 
     const typeClass = computed(() => {
       const type = props.type
-      return type && TypeMap[type] ? `el-icon-${TypeMap[type]}` : ''
+      return type && TypeMap[type] ? `NAMESPACE-icon-${TypeMap[type]}` : ''
     })
 
     const horizontalClass = computed(() => {

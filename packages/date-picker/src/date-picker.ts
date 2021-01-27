@@ -33,7 +33,7 @@ const getPanel = function(type) {
 }
 
 export default defineComponent({
-  name: 'ElDatePicker',
+  name: 'NAMESPACEDatePicker',
   install: null,
   props: {
     ...defaultProps,

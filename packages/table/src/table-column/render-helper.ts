@@ -70,7 +70,7 @@ function useRender(props: TableColumnCtx, slots, owner: ComputedRef<any>) {
       check(children)
     }
     function check(item) {
-      if (item?.type?.name === 'ElTableColumn') {
+      if (item?.type?.name === 'NAMESPACETableColumn') {
         item.vParent = instance
       }
     }
@@ -121,7 +121,7 @@ function useRender(props: TableColumnCtx, slots, owner: ComputedRef<any>) {
           style: {},
         }
         if (column.showOverflowTooltip) {
-          props.class += ' el-tooltip'
+          props.class += ' NAMESPACE-tooltip'
           props.style = {
             width: (data.column.realWidth || data.column.width) - 1 + 'px',
           }

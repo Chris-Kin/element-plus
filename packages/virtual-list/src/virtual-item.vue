@@ -1,5 +1,5 @@
 <template>
-  <div ref="itemRef" class="el-vl__item">
+  <div ref="itemRef" class="NAMESPACE-vl__item">
     <slot>
     </slot>
   </div>
@@ -11,7 +11,7 @@ import { defineComponent, onMounted, onUpdated, ref } from 'vue'
 // import type { Direction } from './useVirtualScroll'
 
 export default defineComponent({
-  name: 'ElVirtualListItem',
+  name: 'NAMESPACEVirtualListItem',
   props: {
 
   },

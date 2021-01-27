@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'el-upload-dragger': true,
+      'NAMESPACE-upload-dragger': true,
       'is-dragover': dragover
     }"
     @drop.prevent="onDrop"
@@ -17,7 +17,7 @@ import { defineComponent, ref, inject } from 'vue'
 import type { ElUpload } from './upload.type'
 
 export default defineComponent({
-  name: 'ElUploadDrag',
+  name: 'NAMESPACEUploadDrag',
   props: {
     disabled: {
       type: Boolean,

@@ -1,16 +1,16 @@
 <template>
   <div
     :class="[
-      type === 'textarea' ? 'el-textarea' : 'el-input',
-      inputSize ? 'el-input--' + inputSize : '',
+      type === 'textarea' ? 'NAMESPACE-textarea' : 'NAMESPACE-input',
+      inputSize ? 'NAMESPACE-input--' + inputSize : '',
       {
         'is-disabled': inputDisabled,
         'is-exceed': inputExceed,
-        'el-input-group': $slots.prepend || $slots.append,
-        'el-input-group--append': $slots.append,
-        'el-input-group--prepend': $slots.prepend,
-        'el-input--prefix': $slots.prefix || prefixIcon,
-        'el-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
+        'NAMESPACE-input-group': $slots.prepend || $slots.append,
+        'NAMESPACE-input-group--append': $slots.append,
+        'NAMESPACE-input-group--prepend': $slots.prepend,
+        'NAMESPACE-input--prefix': $slots.prefix || prefixIcon,
+        'NAMESPACE-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
       },
       $attrs.class
     ]"
@@ -20,13 +20,13 @@
   >
     <template v-if="type !== 'textarea'">
       <!-- 前置元素 -->
-      <div v-if="$slots.prepend" class="el-input-group__prepend">
+      <div v-if="$slots.prepend" class="NAMESPACE-input-group__prepend">
         <slot name="prepend"></slot>
       </div>
       <input
         v-if="type !== 'textarea'"
         ref="input"
-        class="el-input__inner"
+        class="NAMESPACE-input__inner"
         v-bind="attrs"
         :type="showPassword ? (passwordVisible ? 'text': 'password') : type"
         :disabled="inputDisabled"
@@ -45,44 +45,44 @@
         @keydown="handleKeydown"
       >
       <!-- 前置内容 -->
-      <span v-if="$slots.prefix || prefixIcon" class="el-input__prefix">
+      <span v-if="$slots.prefix || prefixIcon" class="NAMESPACE-input__prefix">
         <slot name="prefix"></slot>
         <i
           v-if="prefixIcon"
-          :class="['el-input__icon', prefixIcon]"
+          :class="['NAMESPACE-input__icon', prefixIcon]"
         ></i>
       </span>
       <!-- 后置内容 -->
-      <span v-if="getSuffixVisible()" class="el-input__suffix">
-        <span class="el-input__suffix-inner">
+      <span v-if="getSuffixVisible()" class="NAMESPACE-input__suffix">
+        <span class="NAMESPACE-input__suffix-inner">
           <template v-if="!showClear || !showPwdVisible || !isWordLimitVisible">
             <slot name="suffix"></slot>
-            <i v-if="suffixIcon" :class="['el-input__icon', suffixIcon]"></i>
+            <i v-if="suffixIcon" :class="['NAMESPACE-input__icon', suffixIcon]"></i>
           </template>
           <i
             v-if="showClear"
-            class="el-input__icon el-icon-circle-close el-input__clear"
+            class="NAMESPACE-input__icon NAMESPACE-icon-circle-close NAMESPACE-input__clear"
             @mousedown.prevent
             @click="clear"
           ></i>
-          <i v-if="showPwdVisible" class="el-input__icon el-icon-view el-input__clear" @click="handlePasswordVisible"></i>
-          <span v-if="isWordLimitVisible" class="el-input__count">
-            <span class="el-input__count-inner">
+          <i v-if="showPwdVisible" class="NAMESPACE-input__icon NAMESPACE-icon-view NAMESPACE-input__clear" @click="handlePasswordVisible"></i>
+          <span v-if="isWordLimitVisible" class="NAMESPACE-input__count">
+            <span class="NAMESPACE-input__count-inner">
               {{ textLength }}/{{ upperLimit }}
             </span>
           </span>
         </span>
-        <i v-if="validateState" :class="['el-input__icon', 'el-input__validateIcon', validateIcon]"></i>
+        <i v-if="validateState" :class="['NAMESPACE-input__icon', 'NAMESPACE-input__validateIcon', validateIcon]"></i>
       </span>
       <!-- 后置元素 -->
-      <div v-if="$slots.append" class="el-input-group__append">
+      <div v-if="$slots.append" class="NAMESPACE-input-group__append">
         <slot name="append"></slot>
       </div>
     </template>
     <textarea
       v-else
       ref="textarea"
-      class="el-textarea__inner"
+      class="NAMESPACE-textarea__inner"
       v-bind="attrs"
       :tabindex="tabindex"
       :disabled="inputDisabled"
@@ -100,7 +100,7 @@
       @change="handleChange"
     >
     </textarea>
-    <span v-if="isWordLimitVisible && type === 'textarea'" class="el-input__count">{{ textLength }}/{{ upperLimit }}</span>
+    <span v-if="isWordLimitVisible && type === 'textarea'" class="NAMESPACE-input__count">{{ textLength }}/{{ upperLimit }}</span>
   </div>
 </template>
 
@@ -140,7 +140,7 @@ const PENDANT_MAP = {
 }
 
 export default defineComponent({
-  name: 'ElInput',
+  name: 'NAMESPACEInput',
 
   inheritAttrs: false,
 

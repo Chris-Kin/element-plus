@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['el-tabs__active-bar', `is-${ rootTabs.props.tabPosition }`]"
+    :class="['NAMESPACE-tabs__active-bar', `is-${ rootTabs.props.tabPosition }`]"
     :style="barStyle"
   ></div>
 </template>
@@ -10,7 +10,7 @@ import { capitalize } from '@vue/shared'
 import { Pane, RootTabs } from './tabs.vue'
 
 export default defineComponent({
-  name: 'ElTabBar',
+  name: 'NAMESPACETabBar',
   props: {
     tabs: {
       type: Array as PropType<Pane[]>,
@@ -20,7 +20,7 @@ export default defineComponent({
   setup(props) {
     const rootTabs = inject<RootTabs>('rootTabs')
     if (!rootTabs) {
-      throw new Error(`ElTabBar must use with ElTabs`)
+      throw new Error(`NAMESPACETabBar must use with ElTabs`)
     }
     const instance = getCurrentInstance()
 

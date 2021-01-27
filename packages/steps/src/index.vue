@@ -1,5 +1,5 @@
 <template>
-  <div :class="['el-steps', simple ? 'el-steps--simple' : `el-steps--${direction}`]">
+  <div :class="['NAMESPACE-steps', simple ? 'NAMESPACE-steps--simple' : `NAMESPACE-steps--${direction}`]">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@ import { defineComponent, watch, ref, provide } from 'vue'
 import { CHANGE_EVENT } from '@element-plus/utils/constants'
 
 export default defineComponent({
-  name: 'ElSteps',
+  name: 'NAMESPACESteps',
   props: {
     space: {
       type: [Number, String],

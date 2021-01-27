@@ -1,7 +1,7 @@
 <template>
   <div
     ref="breadcrumb"
-    class="el-breadcrumb"
+    class="NAMESPACE-breadcrumb"
     aria-label="Breadcrumb"
     role="navigation"
   >
@@ -18,7 +18,7 @@ interface IBreadcrumbProps {
 }
 
 export default defineComponent({
-  name: 'ElBreadcrumb',
+  name: 'NAMESPACEBreadcrumb',
   props: {
     separator: {
       type: String,
@@ -35,7 +35,7 @@ export default defineComponent({
     provide('breadcrumb', props)
 
     onMounted(() => {
-      const items = breadcrumb.value.querySelectorAll('.el-breadcrumb__item')
+      const items = breadcrumb.value.querySelectorAll('.NAMESPACE-breadcrumb__item')
       if (items.length) {
         items[items.length - 1].setAttribute('aria-current', 'page')
       }

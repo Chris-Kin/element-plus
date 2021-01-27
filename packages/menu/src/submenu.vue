@@ -1,7 +1,7 @@
 <!-- <template>
   <li
     :class="[
-      'el-submenu',
+      'NAMESPACE-submenu',
       active && 'is-active',
       opened && 'is-opened',
       disabled && 'is-disabled',
@@ -13,7 +13,7 @@
     @mouseleave="() => handleMouseleave(false)"
     @focus="handleMouseenter"
   >
-    <el-popper
+    <NAMESPACE-popper
       v-if="isMenuPopup"
       ref="popperVnode"
       v-model:visible="opened"
@@ -31,7 +31,7 @@
           <div
             v-show="opened"
             ref="menu"
-            :class="[`el-menu--${mode}`, props.popperClass]"
+            :class="[`NAMESPACE-menu--${mode}`, props.popperClass]"
             @mouseenter="$event => handleMouseenter($event, 100)"
             @mouseleave="() => handleMouseleave(true)"
             @focus="$event => handleMouseenter($event, 100)"
@@ -39,8 +39,8 @@
             <ul
               role="menu"
               :class="[
-                'el-menu el-menu--popup',
-                `el-menu--popup-${data.currentPlacement}`,
+                'NAMESPACE-menu NAMESPACE-menu--popup',
+                `NAMESPACE-menu--popup-${data.currentPlacement}`,
               ]"
               :style="{ backgroundColor: rootProps.backgroundColor || '' }"
             >
@@ -51,39 +51,39 @@
       </template>
       <template #trigger>
         <div
-          class="el-submenu__title"
+          class="NAMESPACE-submenu__title"
           :style="[paddingStyle, titleStyle, { backgroundColor }]"
           @click="handleClick"
           @mouseenter="handleTitleMouseenter"
           @mouseleave="handleTitleMouseleave"
         >
           <slot name="title"></slot>
-          <i :class="['el-submenu__icon-arrow', submenuTitleIcon]"></i>
+          <i :class="['NAMESPACE-submenu__icon-arrow', submenuTitleIcon]"></i>
         </div>
       </template>
-    </el-popper>
+    </NAMESPACE-popper>
     <div
       v-if="!isMenuPopup"
       ref="verticalTitleRef"
-      class="el-submenu__title"
+      class="NAMESPACE-submenu__title"
       :style="[paddingStyle, titleStyle, { backgroundColor }]"
       @click="handleClick"
       @mouseenter="handleTitleMouseenter"
       @mouseleave="handleTitleMouseleave"
     >
       <slot name="title"></slot>
-      <i :class="['el-submenu__icon-arrow', submenuTitleIcon]"></i>
+      <i :class="['NAMESPACE-submenu__icon-arrow', submenuTitleIcon]"></i>
     </div>
-    <el-collapse-transition v-if="!isMenuPopup">
+    <NAMESPACE-collapse-transition v-if="!isMenuPopup">
       <ul
         v-show="opened"
         role="menu"
-        class="el-menu el-menu--inline"
+        class="NAMESPACE-menu NAMESPACE-menu--inline"
         :style="{ backgroundColor: rootProps.backgroundColor || '' }"
       >
         <slot></slot>
       </ul>
-    </el-collapse-transition>
+    </NAMESPACE-collapse-transition>
   </li>
 </template> -->
 
@@ -112,8 +112,8 @@ import useMenu from './useMenu'
 import ElPopper from '@element-plus/popper'
 
 export default defineComponent({
-  name: 'ElSubmenu',
-  componentName: 'ElSubmenu',
+  name: 'NAMESPACESubmenu',
+  componentname: 'NAMESPACESubmenu',
   props: {
     index: {
       type: String,
@@ -176,8 +176,8 @@ export default defineComponent({
     const submenuTitleIcon = computed(() => {
       return (mode.value === 'horizontal' && isFirstLevel.value) ||
         (mode.value === 'vertical' && !rootProps.collapse)
-        ? 'el-icon-arrow-down'
-        : 'el-icon-arrow-right'
+        ? 'NAMESPACE-icon-arrow-down'
+        : 'NAMESPACE-icon-arrow-right'
     })
     const isFirstLevel = computed(() => {
       let isFirstLevel = true
@@ -198,7 +198,7 @@ export default defineComponent({
         : Boolean(props.popperAppendToBody)
     })
     const menuTransitionName = computed(() => {
-      return rootProps.collapse ? 'el-zoom-in-left' : 'el-zoom-in-top'
+      return rootProps.collapse ? 'NAMESPACE-zoom-in-left' : 'NAMESPACE-zoom-in-top'
     })
     const opened = computed(() => {
       return openedMenus.value.includes(props.index)
@@ -333,7 +333,7 @@ export default defineComponent({
       }, props.hideTimeout)
 
       if (appendToBody.value && deepDispatch) {
-        if (instance.parent.type.name === 'ElSubmenu') {
+        if (instance.parent.type.name === 'NAMESPACESubmenu') {
           parentHandleMouseleave(true)
         }
       }
@@ -438,7 +438,7 @@ export default defineComponent({
     const titleTag = [
       this.$slots.title?.(),
       h('i', {
-        class: ['el-submenu__icon-arrow', this.submenuTitleIcon],
+        class: ['NAMESPACE-submenu__icon-arrow', this.submenuTitleIcon],
       }, null)]
     const ulStyle = {
       backgroundColor: this.rootProps.backgroundColor || '',
@@ -470,7 +470,7 @@ export default defineComponent({
               h('div', {
                 ref: 'menu',
                 class: [
-                  `el-menu--${this.mode}`,
+                  `NAMESPACE-menu--${this.mode}`,
                   this.popperClass,
                 ],
                 onMouseenter: ($event: Event) => this.handleMouseenter($event, 100),
@@ -479,8 +479,8 @@ export default defineComponent({
               }, [
                 h('ul', {
                   class: [
-                    'el-menu el-menu--popup',
-                    `el-menu--popup-${this.data.currentPlacement}`,
+                    'NAMESPACE-menu NAMESPACE-menu--popup',
+                    `NAMESPACE-menu--popup-${this.data.currentPlacement}`,
                   ],
                   style: ulStyle,
                 }, [this.$slots.default?.()]),
@@ -489,7 +489,7 @@ export default defineComponent({
           },
         ),
         trigger: () => h('div', {
-          class: 'el-submenu__title',
+          class: 'NAMESPACE-submenu__title',
           style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.backgroundColor }],
           onClick: this.handleClick,
           onMouseenter: this.handleTitleMouseenter,
@@ -498,7 +498,7 @@ export default defineComponent({
       })
       : h(Fragment, {}, [
         h('div', {
-          class: 'el-submenu__title',
+          class: 'NAMESPACE-submenu__title',
           style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.backgroundColor }],
           ref: 'verticalTitleRef',
           onClick: this.handleClick,
@@ -509,7 +509,7 @@ export default defineComponent({
           default: () => withDirectives(
             h('ul', {
               role: 'menu',
-              class: 'el-menu el-menu--inline',
+              class: 'NAMESPACE-menu NAMESPACE-menu--inline',
               style: ulStyle,
             }, [this.$slots.default?.()]),
             [[vShow, this.opened]]),
@@ -518,7 +518,7 @@ export default defineComponent({
 
     return h('li', {
       class: [
-        'el-submenu',
+        'NAMESPACE-submenu',
         {
           'is-active': this.active,
           'is-opened': this.opened,

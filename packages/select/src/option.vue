@@ -1,7 +1,7 @@
 <template>
   <li
     v-show="visible"
-    class="el-select-dropdown__item"
+    class="NAMESPACE-select-dropdown__item"
     :class="{
       'selected': itemSelected,
       'is-disabled': isDisabled,
@@ -27,8 +27,8 @@ import { useOption } from './useOption'
 
 
 export default defineComponent({
-  name: 'ElOption',
-  componentName: 'ElOption',
+  name: 'NAMESPACEOption',
+  componentname: 'NAMESPACEOption',
 
   props: {
     value: {

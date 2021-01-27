@@ -2,7 +2,7 @@
 import { computed, defineComponent, h, PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElMarker',
+  name: 'NAMESPACEMarker',
   props: {
     mark: {
       type: [String, Object] as PropType<string | Record<string, unknown>>,
@@ -20,7 +20,7 @@ export default defineComponent({
   },
   render() {
     return h('div', {
-      class: 'el-slider__marks-text',
+      class: 'NAMESPACE-slider__marks-text',
       style: this.mark?.style,
     }, this.label)
   },

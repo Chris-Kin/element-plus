@@ -1,12 +1,12 @@
 <template>
   <div
     :class="[
-      'el-cascader-panel',
+      'NAMESPACE-cascader-panel',
       border && 'is-bordered'
     ]"
     @keydown="handleKeyDown"
   >
-    <el-cascader-menu
+    <NAMESPACE-cascader-menu
       v-for="(menu, index) in menus"
       :key="index"
       :ref="item => menuList[index] = item"
@@ -23,7 +23,7 @@ import {
   provide, reactive,
   Ref, ref, watch,
 } from 'vue'
-import ElCascaderMenu from './menu.vue'
+import NAMESPACECascaderMenu from './menu.vue'
 import Store from './store'
 import Node from './node'
 import isEqual from 'lodash/isEqual'
@@ -58,10 +58,10 @@ import type {
 } from './types'
 
 export default defineComponent({
-  name: 'ElCascaderPanel',
+  name: 'NAMESPACECascaderPanel',
 
   components: {
-    ElCascaderMenu,
+    NAMESPACECascaderMenu,
   },
 
   props: {
@@ -244,9 +244,9 @@ export default defineComponent({
       menuList.value.forEach(menu => {
         const menuElement = menu?.$el
         if (menuElement) {
-          const container = menuElement.querySelector('.el-scrollbar__wrap')
-          const activeNode = menuElement.querySelector('.el-cascader-node.is-active') ||
-            menuElement.querySelector('.el-cascader-node.in-active-path')
+          const container = menuElement.querySelector('.NAMESPACE-scrollbar__wrap')
+          const activeNode = menuElement.querySelector('.NAMESPACE-cascader-node.is-active') ||
+            menuElement.querySelector('.NAMESPACE-cascader-node.in-active-path')
           scrollIntoView(container, activeNode)
         }
       })
@@ -264,12 +264,12 @@ export default defineComponent({
           break
         case EVENT_CODE.left:
           const preMenu = menuList.value[getMenuIndex(target) - 1]
-          const expandedNode = preMenu?.$el.querySelector('.el-cascader-node[aria-expanded="true"]')
+          const expandedNode = preMenu?.$el.querySelector('.NAMESPACE-cascader-node[aria-expanded="true"]')
           focusNode(expandedNode)
           break
         case EVENT_CODE.right:
           const nextMenu = menuList.value[getMenuIndex(target) + 1]
-          const firstNode = nextMenu?.$el.querySelector('.el-cascader-node[tabindex="-1"]')
+          const firstNode = nextMenu?.$el.querySelector('.NAMESPACE-cascader-node[tabindex="-1"]')
           focusNode(firstNode)
           break
         case EVENT_CODE.enter:

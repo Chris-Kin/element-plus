@@ -8,9 +8,9 @@
 
 :::demo 通过设置 `offset` 属性来改变吸顶距离，默认值为 0。
 ```html
-<el-affix :offset="120">
-  <el-button type="primary">距离顶部 120px</el-button>
-</el-affix>
+<NAMESPACE-affix :offset="120">
+  <NAMESPACE-button type="primary">距离顶部 120px</NAMESPACE-button>
+</NAMESPACE-affix>
 ```
 :::
 
@@ -21,9 +21,9 @@
 :::demo 请注意容器避免出现滚动条。
 ```html
 <div class="affix-container">
-  <el-affix target=".affix-container" :offset="80">
-    <el-button type="primary">指定容器</el-button>
-  </el-affix>
+  <NAMESPACE-affix target=".affix-container" :offset="80">
+    <NAMESPACE-button type="primary">指定容器</NAMESPACE-button>
+  </NAMESPACE-affix>
 </div>
 ```
 :::
@@ -34,9 +34,9 @@ Affix 组件提供了两个固定位置：`top` 和 `bottom`。
 
 :::demo 通过设置 `position` 属性来改变固定位置，默认值为 `top` 。
 ```html
-<el-affix position="bottom" :offset="20">
-  <el-button type="primary">距离底部 20px</el-button>
-</el-affix>
+<NAMESPACE-affix position="bottom" :offset="20">
+  <NAMESPACE-button type="primary">距离底部 20px</NAMESPACE-button>
+</NAMESPACE-affix>
 ```
 :::
 

@@ -1,17 +1,17 @@
 <template>
   <div
-    class="el-collapse-item"
+    class="NAMESPACE-collapse-item"
     :class="{'is-active': isActive, 'is-disabled': disabled }"
   >
     <div
       role="tab"
       :aria-expanded="isActive"
-      :aria-controls="`el-collapse-content-${id}`"
-      :aria-describedby="`el-collapse-content-${id}`"
+      :aria-controls="`NAMESPACE-collapse-content-${id}`"
+      :aria-describedby="`NAMESPACE-collapse-content-${id}`"
     >
       <div
-        :id="`el-collapse-head-${id}`"
-        class="el-collapse-item__header"
+        :id="`NAMESPACE-collapse-head-${id}`"
+        class="NAMESPACE-collapse-item__header"
         role="button"
         :tabindex="disabled ? -1 : 0"
         :class="{
@@ -25,37 +25,37 @@
       >
         <slot name="title">{{ title }}</slot>
         <i
-          class="el-collapse-item__arrow el-icon-arrow-right"
+          class="NAMESPACE-collapse-item__arrow NAMESPACE-icon-arrow-right"
           :class="{'is-active': isActive}"
         >
         </i>
       </div>
     </div>
-    <el-collapse-transition>
+    <NAMESPACE-collapse-transition>
       <div
         v-show="isActive"
-        :id="`el-collapse-content-${id}`"
-        class="el-collapse-item__wrap"
+        :id="`NAMESPACE-collapse-content-${id}`"
+        class="NAMESPACE-collapse-item__wrap"
         role="tabpanel"
         :aria-hidden="!isActive"
-        :aria-labelledby="`el-collapse-head-${id}`"
+        :aria-labelledby="`NAMESPACE-collapse-head-${id}`"
       >
-        <div class="el-collapse-item__content">
+        <div class="NAMESPACE-collapse-item__content">
           <slot></slot>
         </div>
       </div>
-    </el-collapse-transition>
+    </NAMESPACE-collapse-transition>
   </div>
 </template>
 <script lang='ts'>
 import { defineComponent, PropType, inject, computed, ref } from 'vue'
 import { CollapseProvider } from './collapse'
 import { generateId } from '@element-plus/utils/util'
-import ElCollapseTransition from '@element-plus/collapse-transition'
+import NAMESPACECollapseTransition from '@element-plus/collapse-transition'
 
 export default defineComponent({
-  name: 'ElCollapseItem',
-  components: { ElCollapseTransition },
+  name: 'NAMESPACECollapseItem',
+  components: { NAMESPACECollapseTransition },
   props: {
     title: {
       type: String,

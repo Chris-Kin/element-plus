@@ -2,16 +2,16 @@
   <div
     ref="selectWrapper"
     v-click-outside:[popperPaneRef]="handleClose"
-    class="el-select"
-    :class="[selectSize ? 'el-select--' + selectSize : '']"
+    class="NAMESPACE-select"
+    :class="[selectSize ? 'NAMESPACE-select--' + selectSize : '']"
     @click.stop="toggleMenu"
   >
-    <el-popper
+    <NAMESPACE-popper
       ref="popper"
       v-model:visible="dropMenuVisible"
       placement="bottom-start"
       :append-to-body="popperAppendToBody"
-      :popper-class="`el-select__popper ${popperClass}`"
+      :popper-class="`NAMESPACE-select__popper ${popperClass}`"
       manual-mode
       effect="light"
       pure
@@ -26,11 +26,11 @@
           <div
             v-if="multiple"
             ref="tags"
-            class="el-select__tags"
+            class="NAMESPACE-select__tags"
             :style="{ 'max-width': inputWidth - 32 + 'px', width: '100%' }"
           >
             <span v-if="collapseTags && selected.length">
-              <el-tag
+              <NAMESPACE-tag
                 :closable="!selectDisabled"
                 :size="collapseTagSize"
                 :hit="selected[0].hitState"
@@ -38,22 +38,22 @@
                 disable-transitions
                 @close="deleteTag($event, selected[0])"
               >
-                <span class="el-select__tags-text" :style="{ 'max-width': inputWidth - 123 + 'px' }">{{ selected[0].currentLabel }}</span>
-              </el-tag>
-              <el-tag
+                <span class="NAMESPACE-select__tags-text" :style="{ 'max-width': inputWidth - 123 + 'px' }">{{ selected[0].currentLabel }}</span>
+              </NAMESPACE-tag>
+              <NAMESPACE-tag
                 v-if="selected.length > 1"
                 :closable="false"
                 :size="collapseTagSize"
                 type="info"
                 disable-transitions
               >
-                <span class="el-select__tags-text">+ {{ selected.length - 1 }}</span>
-              </el-tag>
+                <span class="NAMESPACE-select__tags-text">+ {{ selected.length - 1 }}</span>
+              </NAMESPACE-tag>
             </span>
             <!-- <div> -->
             <transition v-if="!collapseTags" @after-leave="resetInputHeight">
               <span>
-                <el-tag
+                <NAMESPACE-tag
                   v-for="item in selected"
                   :key="getValueKey(item)"
                   :closable="!selectDisabled"
@@ -63,8 +63,8 @@
                   disable-transitions
                   @close="deleteTag($event, item)"
                 >
-                  <span class="el-select__tags-text" :style="{ 'max-width': inputWidth - 75 + 'px' }">{{ item.currentLabel }}</span>
-                </el-tag>
+                  <span class="NAMESPACE-select__tags-text" :style="{ 'max-width': inputWidth - 75 + 'px' }">{{ item.currentLabel }}</span>
+                </NAMESPACE-tag>
               </span>
             </transition>
             <!-- </div> -->
@@ -73,7 +73,7 @@
               ref="input"
               v-model="query"
               type="text"
-              class="el-select__input"
+              class="NAMESPACE-select__input"
               :class="[selectSize ? `is-${ selectSize }` : '']"
               :disabled="selectDisabled"
               :autocomplete="autocomplete"
@@ -94,7 +94,7 @@
               @input="debouncedQueryChange"
             >
           </div>
-          <el-input
+          <NAMESPACE-input
             :id="id"
             ref="reference"
             v-model="selectedLabel"
@@ -124,42 +124,42 @@
               <slot name="prefix"></slot>
             </template>
             <template #suffix>
-              <i v-show="!showClose" :class="['el-select__caret', 'el-input__icon', 'el-icon-' + iconClass]"></i>
+              <i v-show="!showClose" :class="['NAMESPACE-select__caret', 'NAMESPACE-input__icon', 'NAMESPACE-icon-' + iconClass]"></i>
               <i
                 v-if="showClose"
-                :class="`el-select__caret el-input__icon ${clearIcon}`"
+                :class="`NAMESPACE-select__caret NAMESPACE-input__icon ${clearIcon}`"
                 @click="handleClearClick"
               ></i>
             </template>
-          </el-input>
+          </NAMESPACE-input>
         </div>
       </template>
       <template #default>
-        <el-select-menu>
-          <el-scrollbar
+        <NAMESPACE-select-menu>
+          <NAMESPACE-scrollbar
             v-show="options.length > 0 && !loading"
             ref="scrollbar"
             tag="ul"
-            wrap-class="el-select-dropdown__wrap"
-            view-class="el-select-dropdown__list"
+            wrap-class="NAMESPACE-select-dropdown__wrap"
+            view-class="NAMESPACE-select-dropdown__list"
             :class="{ 'is-empty': !allowCreate && query && filteredOptionsCount === 0 }"
           >
-            <el-option
+            <NAMESPACE-option
               v-if="showNewOption"
               :value="query"
               :created="true"
             />
             <slot></slot>
-          </el-scrollbar>
+          </NAMESPACE-scrollbar>
           <template v-if="emptyText && (!allowCreate || loading || (allowCreate && options.length === 0 ))">
             <slot v-if="$slots.empty" name="empty"></slot>
-            <p v-else class="el-select-dropdown__empty">
+            <p v-else class="NAMESPACE-select-dropdown__empty">
               {{ emptyText }}
             </p>
           </template>
-        </el-select-menu>
+        </NAMESPACE-select-menu>
       </template>
-    </el-popper>
+    </NAMESPACE-popper>
   </div>
 </template>
 
@@ -174,12 +174,12 @@ import {
   provide,
   computed,
 } from 'vue'
-import ElInput from '@element-plus/input'
-import ElOption from './option.vue'
-import ElSelectMenu from './select-dropdown.vue'
-import ElTag from '@element-plus/tag'
-import ElPopper from '@element-plus/popper'
-import ElScrollbar from '@element-plus/scrollbar'
+import NAMESPACEInput from '@element-plus/input'
+import NAMESPACEOption from './option.vue'
+import NAMESPACESelectMenu from './select-dropdown.vue'
+import NAMESPACETag from '@element-plus/tag'
+import NAMESPACEPopper from '@element-plus/popper'
+import NAMESPACEScrollbar from '@element-plus/scrollbar'
 import { ClickOutside } from '@element-plus/directives'
 import { addResizeListener, removeResizeListener } from '@element-plus/utils/resize-event'
 import { t } from '@element-plus/locale'
@@ -192,15 +192,15 @@ import { useFocus } from '@element-plus/hooks'
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElSelect',
-  componentName: 'ElSelect',
+  name: 'NAMESPACESelect',
+  componentname: 'NAMESPACESelect',
   components: {
-    ElInput,
-    ElSelectMenu,
-    ElOption,
-    ElTag,
-    ElScrollbar,
-    ElPopper,
+    NAMESPACEInput,
+    NAMESPACESelectMenu,
+    NAMESPACEOption,
+    NAMESPACETag,
+    NAMESPACEScrollbar,
+    NAMESPACEPopper,
   },
   directives: { ClickOutside },
   props: {
@@ -252,7 +252,7 @@ export default defineComponent({
     },
     clearIcon: {
       type: String,
-      default: 'el-icon-circle-close',
+      default: 'NAMESPACE-icon-circle-close',
     },
   },
   emits: [UPDATE_MODEL_EVENT, CHANGE_EVENT, 'remove-tag', 'clear', 'visible-change', 'focus', 'blur'],

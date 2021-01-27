@@ -1,27 +1,27 @@
 <template>
-  <el-menu-collapse-transition v-if="props.collapseTransition">
+  <NAMESPACE-menu-collapse-transition v-if="props.collapseTransition">
     <ul
       :key="+props.collapse"
       role="menubar"
       :style="{ backgroundColor: props.backgroundColor || '' }"
       :class="{
-        'el-menu': true,
-        'el-menu--horizontal': mode === 'horizontal',
-        'el-menu--collapse': props.collapse,
+        'NAMESPACE-menu': true,
+        'NAMESPACE-menu--horizontal': mode === 'horizontal',
+        'NAMESPACE-menu--collapse': props.collapse,
       }"
     >
       <slot></slot>
     </ul>
-  </el-menu-collapse-transition>
+  </NAMESPACE-menu-collapse-transition>
   <ul
     v-else
     :key="+props.collapse"
     role="menubar"
     :style="{ backgroundColor: props.backgroundColor || '' }"
     :class="{
-      'el-menu': true,
-      'el-menu--horizontal': mode === 'horizontal',
-      'el-menu--collapse': props.collapse,
+      'NAMESPACE-menu': true,
+      'NAMESPACE-menu--horizontal': mode === 'horizontal',
+      'NAMESPACE-menu--collapse': props.collapse,
     }"
   >
     <slot></slot>
@@ -48,14 +48,14 @@ import {
   SubMenuProvider,
 } from './menu'
 import Menubar from '@element-plus/utils/menu/menu-bar'
-import ElMenuCollapseTransition from './menu-collapse-transition.vue'
+import NAMESPACEMenuCollapseTransition from './menu-collapse-transition.vue'
 import useMenuColor from './useMenuColor'
 
 export default defineComponent({
-  name: 'ElMenu',
-  componentName: 'ElMenu',
+  name: 'NAMESPACEMenu',
+  componentname: 'NAMESPACEMenu',
   components: {
-    ElMenuCollapseTransition,
+    NAMESPACEMenuCollapseTransition,
   },
   props: {
     mode: {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-select-dropdown"
+    class="NAMESPACE-select-dropdown"
     :class="[{ 'is-multiple': isMultiple }, popperClass]"
     :style="{ minWidth: minWidth }"
   >
@@ -24,9 +24,9 @@ import {
 
 
 export default defineComponent({
-  name: 'ElSelectDropdown',
+  name: 'NAMESPACESelectDropdown',
 
-  componentName: 'ElSelectDropdown',
+  componentname: 'NAMESPACESelectDropdown',
 
   setup() {
     const select = inject(selectKey)

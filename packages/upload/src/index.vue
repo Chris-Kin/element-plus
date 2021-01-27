@@ -30,7 +30,7 @@ type PFileHandler<T> = PropType<FileHandler<T>>
 type PFileResultHandler<T = any> = PropType<FileResultHandler<T>>
 
 export default defineComponent({
-  name: 'ElUpload',
+  name: 'NAMESPACEUpload',
   components: {
     Upload,
     UploadList,

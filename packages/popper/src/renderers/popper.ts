@@ -48,7 +48,7 @@ export default function renderPopper(
 
   const kls = [
     popperClass,
-    'el-popper',
+    'NAMESPACE-popper',
     'is-' + effect,
     pure ? 'is-pure' : '',
   ]

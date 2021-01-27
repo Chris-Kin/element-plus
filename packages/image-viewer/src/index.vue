@@ -3,49 +3,49 @@
     <div
       ref="wrapper"
       :tabindex="-1"
-      class="el-image-viewer__wrapper"
+      class="NAMESPACE-image-viewer__wrapper"
       :style="{ zIndex }"
     >
       <div
-        class="el-image-viewer__mask"
+        class="NAMESPACE-image-viewer__mask"
         @click.self="hideOnClickModal && hide()"
       >
       </div>
       <!-- CLOSE -->
-      <span class="el-image-viewer__btn el-image-viewer__close" @click="hide">
-        <i class="el-icon-close"></i>
+      <span class="NAMESPACE-image-viewer__btn NAMESPACE-image-viewer__close" @click="hide">
+        <i class="NAMESPACE-icon-close"></i>
       </span>
       <!-- ARROW -->
       <template v-if="!isSingle">
         <span
-          class="el-image-viewer__btn el-image-viewer__prev"
+          class="NAMESPACE-image-viewer__btn NAMESPACE-image-viewer__prev"
           :class="{ 'is-disabled': !infinite && isFirst }"
           @click="prev"
         >
-          <i class="el-icon-arrow-left"></i>
+          <i class="NAMESPACE-icon-arrow-left"></i>
         </span>
         <span
-          class="el-image-viewer__btn el-image-viewer__next"
+          class="NAMESPACE-image-viewer__btn NAMESPACE-image-viewer__next"
           :class="{ 'is-disabled': !infinite && isLast }"
           @click="next"
         >
-          <i class="el-icon-arrow-right"></i>
+          <i class="NAMESPACE-icon-arrow-right"></i>
         </span>
       </template>
       <!-- ACTIONS -->
-      <div class="el-image-viewer__btn el-image-viewer__actions">
-        <div class="el-image-viewer__actions__inner">
-          <i class="el-icon-zoom-out" @click="handleActions('zoomOut')"></i>
-          <i class="el-icon-zoom-in" @click="handleActions('zoomIn')"></i>
-          <i class="el-image-viewer__actions__divider"></i>
+      <div class="NAMESPACE-image-viewer__btn NAMESPACE-image-viewer__actions">
+        <div class="NAMESPACE-image-viewer__actions__inner">
+          <i class="NAMESPACE-icon-zoom-out" @click="handleActions('zoomOut')"></i>
+          <i class="NAMESPACE-icon-zoom-in" @click="handleActions('zoomIn')"></i>
+          <i class="NAMESPACE-image-viewer__actions__divider"></i>
           <i :class="mode.icon" @click="toggleMode"></i>
-          <i class="el-image-viewer__actions__divider"></i>
-          <i class="el-icon-refresh-left" @click="handleActions('anticlocelise')"></i>
-          <i class="el-icon-refresh-right" @click="handleActions('clocelise')"></i>
+          <i class="NAMESPACE-image-viewer__actions__divider"></i>
+          <i class="NAMESPACE-icon-refresh-left" @click="handleActions('anticlocelise')"></i>
+          <i class="NAMESPACE-icon-refresh-right" @click="handleActions('clocelise')"></i>
         </div>
       </div>
       <!-- CANVAS -->
-      <div class="el-image-viewer__canvas">
+      <div class="NAMESPACE-image-viewer__canvas">
         <img
           v-for="(url, i) in urlList"
           v-show="i === index"
@@ -53,7 +53,7 @@
           :key="url"
           :src="currentImg"
           :style="imgStyle"
-          class="el-image-viewer__img"
+          class="NAMESPACE-image-viewer__img"
           @load="handleImgLoad"
           @error="handleImgError"
           @mousedown="handleMouseDown"
@@ -74,11 +74,11 @@ import { t } from '@element-plus/locale'
 const Mode = {
   CONTAIN: {
     name: 'contain',
-    icon: 'el-icon-full-screen',
+    icon: 'NAMESPACE-icon-full-screen',
   },
   ORIGINAL: {
     name: 'original',
-    icon: 'el-icon-c-scale-to-original',
+    icon: 'NAMESPACE-icon-c-scale-to-original',
   },
 }
 
@@ -88,7 +88,7 @@ const SWITCH_EVENT = 'switch'
 export type ImageViewerAction = 'zoomIn' | 'zoomOut' | 'clocelise' | 'anticlocelise'
 
 export default defineComponent({
-  name: 'ElImageViewer',
+  name: 'NAMESPACEImageViewer',
   props: {
     urlList: {
       type: Array as PropType<string[]>,

@@ -1,11 +1,11 @@
 <template>
-  <transition name="el-message-fade">
+  <transition name="NAMESPACE-message-fade">
     <div
       v-show="visible"
       :id="id"
       :class="[
-        'el-message',
-        type && !iconClass ? `el-message--${type}` : '',
+        'NAMESPACE-message',
+        type && !iconClass ? `NAMESPACE-message--${type}` : '',
         center ? 'is-center' : '',
         showClose ? 'is-closable' : '',
         customClass,
@@ -17,16 +17,16 @@
     >
       <i v-if="type || iconClass" :class="[typeClass, iconClass]"></i>
       <slot>
-        <p v-if="!dangerouslyUseHTMLString" class="el-message__content">
+        <p v-if="!dangerouslyUseHTMLString" class="NAMESPACE-message__content">
           {{ message }}
         </p>
         <!-- Caution here, message could've been compromised, never use user's input as message -->
         <!--  eslint-disable-next-line -->
-        <p v-else class="el-message__content" v-html="message"></p>
+        <p v-else class="NAMESPACE-message__content" v-html="message"></p>
       </slot>
       <div
         v-if="showClose"
-        class="el-message__closeBtn el-icon-close"
+        class="NAMESPACE-message__closeBtn NAMESPACE-icon-close"
         @click.stop="close"
       ></div>
     </div>
@@ -47,7 +47,7 @@ const TypeMap: Indexable<string> = {
 }
 
 export default defineComponent({
-  name: 'ElMessage',
+  name: 'NAMESPACEMessage',
   props: {
     customClass: { type: String, default: '' },
     center: { type: Boolean, default: false },
@@ -72,7 +72,7 @@ export default defineComponent({
     const typeClass = computed(() => {
       const type = props.type
       return type && TypeMap[type]
-        ? `el-message__icon el-icon-${TypeMap[type]}`
+        ? `NAMESPACE-message__icon NAMESPACE-icon-${TypeMap[type]}`
         : ''
     })
 

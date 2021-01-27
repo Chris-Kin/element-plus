@@ -1,29 +1,29 @@
 <template>
   <div
-    class="el-picker-panel el-date-range-picker"
+    class="NAMESPACE-picker-panel NAMESPACE-date-range-picker"
     :class="[{
       'has-sidebar': $slots.sidebar || hasShortcuts
     }]"
   >
-    <div class="el-picker-panel__body-wrapper">
-      <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
-      <div v-if="hasShortcuts" class="el-picker-panel__sidebar">
+    <div class="NAMESPACE-picker-panel__body-wrapper">
+      <slot name="sidebar" class="NAMESPACE-picker-panel__sidebar"></slot>
+      <div v-if="hasShortcuts" class="NAMESPACE-picker-panel__sidebar">
         <button
           v-for="(shortcut, key) in shortcuts"
           :key="key"
           type="button"
-          class="el-picker-panel__shortcut"
+          class="NAMESPACE-picker-panel__shortcut"
           @click="handleShortcutClick(shortcut)"
         >
           {{ shortcut.text }}
         </button>
       </div>
-      <div class="el-picker-panel__body">
-        <div class="el-picker-panel__content el-date-range-picker__content is-left">
-          <div class="el-date-range-picker__header">
+      <div class="NAMESPACE-picker-panel__body">
+        <div class="NAMESPACE-picker-panel__content NAMESPACE-date-range-picker__content is-left">
+          <div class="NAMESPACE-date-range-picker__header">
             <button
               type="button"
-              class="el-picker-panel__icon-btn el-icon-d-arrow-left"
+              class="NAMESPACE-picker-panel__icon-btn NAMESPACE-icon-d-arrow-left"
               @click="leftPrevYear"
             ></button>
             <button
@@ -31,7 +31,7 @@
               type="button"
               :disabled="!enableYearArrow"
               :class="{ 'is-disabled': !enableYearArrow }"
-              class="el-picker-panel__icon-btn el-icon-d-arrow-right"
+              class="NAMESPACE-picker-panel__icon-btn NAMESPACE-icon-d-arrow-right"
               @click="leftNextYear"
             ></button>
             <div>{{ leftLabel }}</div>
@@ -48,19 +48,19 @@
             @select="onSelect"
           />
         </div>
-        <div class="el-picker-panel__content el-date-range-picker__content is-right">
-          <div class="el-date-range-picker__header">
+        <div class="NAMESPACE-picker-panel__content NAMESPACE-date-range-picker__content is-right">
+          <div class="NAMESPACE-date-range-picker__header">
             <button
               v-if="unlinkPanels"
               type="button"
               :disabled="!enableYearArrow"
               :class="{ 'is-disabled': !enableYearArrow }"
-              class="el-picker-panel__icon-btn el-icon-d-arrow-left"
+              class="NAMESPACE-picker-panel__icon-btn NAMESPACE-icon-d-arrow-left"
               @click="rightPrevYear"
             ></button>
             <button
               type="button"
-              class="el-picker-panel__icon-btn el-icon-d-arrow-right"
+              class="NAMESPACE-picker-panel__icon-btn NAMESPACE-icon-d-arrow-right"
               @click="rightNextYear"
             ></button>
             <div>{{ rightLabel }}</div>

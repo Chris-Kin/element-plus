@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-form-item"
+    class="NAMESPACE-form-item"
     :class="formItemClass"
   >
     <LabelWrap
@@ -10,24 +10,24 @@
       <label
         v-if="label || $slots.label"
         :for="labelFor"
-        class="el-form-item__label"
+        class="NAMESPACE-form-item__label"
         :style="labelStyle"
       >
         <slot name="label">{{ label + elForm.labelSuffix }}</slot>
       </label>
     </LabelWrap>
-    <div class="el-form-item__content" :style="contentStyle">
+    <div class="NAMESPACE-form-item__content" :style="contentStyle">
       <slot></slot>
-      <transition name="el-zoom-in-top">
+      <transition name="NAMESPACE-zoom-in-top">
         <slot
           v-if="shouldShowError"
           name="error"
           :error="validateMessage"
         >
           <div
-            class="el-form-item__error"
+            class="NAMESPACE-form-item__error"
             :class="{
-              'el-form-item__error--inline':
+              'NAMESPACE-form-item__error--inline':
                 typeof inlineMessage === 'boolean'
                   ? inlineMessage
                   : elForm.inlineMessage || false
@@ -69,8 +69,8 @@ import type { PropType } from 'vue'
 import type { ElFormContext, ValidateFieldCallback } from './token'
 
 export default defineComponent({
-  name: 'ElFormItem',
-  componentName: 'ElFormItem',
+  name: 'NAMESPACEFormItem',
+  componentname: 'NAMESPACEFormItem',
   components: {
     LabelWrap,
   },
@@ -114,7 +114,7 @@ export default defineComponent({
     const isNested = computed(() => {
       let parent = vm.parent
       while (parent && parent.type.name !== 'ElForm') {
-        if (parent.type.name === 'ElFormItem') {
+        if (parent.type.name === 'NAMESPACEFormItem') {
           return true
         }
         parent = parent.parent
@@ -356,14 +356,14 @@ export default defineComponent({
 
     const formItemClass = computed(() => [
       {
-        'el-form-item--feedback': elForm.statusIcon,
+        'NAMESPACE-form-item--feedback': elForm.statusIcon,
         'is-error': validateState.value === 'error',
         'is-validating': validateState.value === 'validating',
         'is-success': validateState.value === 'success',
         'is-required': isRequired.value || props.required,
         'is-no-asterisk': elForm.hideRequiredAsterisk,
       },
-      sizeClass.value ? 'el-form-item--' + sizeClass.value : '',
+      sizeClass.value ? 'NAMESPACE-form-item--' + sizeClass.value : '',
     ])
 
     const shouldShowError = computed(() => {

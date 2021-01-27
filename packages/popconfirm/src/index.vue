@@ -1,56 +1,56 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     v-model:visible="visible"
     trigger="click"
     effect="light"
-    popper-class="el-popover"
+    popper-class="NAMESPACE-popover"
     append-to-body
   >
-    <div class="el-popconfirm">
-      <p class="el-popconfirm__main">
+    <div class="NAMESPACE-popconfirm">
+      <p class="NAMESPACE-popconfirm__main">
         <i
           v-if="!hideIcon"
           :class="icon"
-          class="el-popconfirm__icon"
+          class="NAMESPACE-popconfirm__icon"
           :style="{color: iconColor}"
         ></i>
         {{ title }}
       </p>
-      <div class="el-popconfirm__action">
-        <el-button
+      <div class="NAMESPACE-popconfirm__action">
+        <NAMESPACE-button
           size="mini"
           :type="cancelButtonType"
           @click="cancel"
         >
           {{ cancelButtonText_ }}
-        </el-button>
-        <el-button
+        </NAMESPACE-button>
+        <NAMESPACE-button
           size="mini"
           :type="confirmButtonType"
           @click="confirm"
         >
           {{ confirmButtonText_ }}
-        </el-button>
+        </NAMESPACE-button>
       </div>
     </div>
     <template #trigger>
       <slot name="reference"></slot>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue'
-import ElButton from '@element-plus/button'
-import ElPopper from '@element-plus/popper'
+import NAMESPACEButton from '@element-plus/button'
+import NAMESPACEPopper from '@element-plus/popper'
 import { t } from '../../locale'
 
 export default defineComponent({
-  name: 'ElPopconfirm',
+  name: 'NAMESPACEPopconfirm',
 
   components: {
-    ElButton,
-    ElPopper,
+    NAMESPACEButton,
+    NAMESPACEPopper,
   },
 
   props: {
@@ -73,7 +73,7 @@ export default defineComponent({
     },
     icon: {
       type: String,
-      default: 'el-icon-question',
+      default: 'NAMESPACE-icon-question',
     },
     iconColor: {
       type: String,

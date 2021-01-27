@@ -1,9 +1,9 @@
 <template>
   <form
-    class="el-form"
+    class="NAMESPACE-form"
     :class="[
-      labelPosition ? 'el-form--label-' + labelPosition : '',
-      { 'el-form--inline': inline }
+      labelPosition ? 'NAMESPACE-form--label-' + labelPosition : '',
+      { 'NAMESPACE-form--inline': inline }
     ]"
   >
     <slot></slot>
@@ -63,7 +63,7 @@ interface Callback {
 }
 
 export default defineComponent({
-  name: 'ElForm',
+  name: 'NAMESPACEForm',
   props: {
     model: Object,
     rules: Object,

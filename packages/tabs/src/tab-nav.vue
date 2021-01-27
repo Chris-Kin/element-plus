@@ -15,7 +15,7 @@ interface Scrollable {
 }
 
 export default defineComponent({
-  name: 'ElTabNav',
+  name: 'NAMESPACETabNav',
   components: {
     TabBar,
   },
@@ -46,7 +46,7 @@ export default defineComponent({
   setup() {
     const rootTabs = inject<RootTabs>('rootTabs')
     if (!rootTabs) {
-      throw new Error(`ElTabNav must use with ElTabs`)
+      throw new Error(`NAMESPACETabNav must use with NAMESPACETabs`)
     }
 
     const scrollable = ref<boolean | Scrollable>(false)
@@ -285,18 +285,18 @@ export default defineComponent({
       h(
         'span',
         {
-          class: ['el-tabs__nav-prev', scrollable.prev ? '' : 'is-disabled'],
+          class: ['NAMESPACE-tabs__nav-prev', scrollable.prev ? '' : 'is-disabled'],
           onClick: scrollPrev,
         },
-        [h('i', { class: 'el-icon-arrow-left' })],
+        [h('i', { class: 'NAMESPACE-icon-arrow-left' })],
       ),
       h(
         'span',
         {
-          class: ['el-tabs__nav-next', scrollable.next ? '' : 'is-disabled'],
+          class: ['NAMESPACE-tabs__nav-next', scrollable.next ? '' : 'is-disabled'],
           onClick: scrollNext,
         },
-        [h('i', { class: 'el-icon-arrow-right' })],
+        [h('i', { class: 'NAMESPACE-icon-arrow-right' })],
       ),
     ] : null
 
@@ -310,7 +310,7 @@ export default defineComponent({
         h(
           'span',
           {
-            class: 'el-icon-close',
+            class: 'NAMESPACE-icon-close',
             onClick: ev => { onTabRemove(pane, ev) },
           },
         ) : null
@@ -322,7 +322,7 @@ export default defineComponent({
         'div',
         {
           class: {
-            'el-tabs__item': true,
+            'NAMESPACE-tabs__item': true,
             [`is-${ rootTabs.props.tabPosition }`]: true,
             'is-active': pane.active,
             'is-disabled': pane.props.disabled,
@@ -349,21 +349,21 @@ export default defineComponent({
       'div',
       {
         ref: 'el$',
-        class: ['el-tabs__nav-wrap', scrollable ? 'is-scrollable' : '', `is-${ rootTabs.props.tabPosition }`],
+        class: ['NAMESPACE-tabs__nav-wrap', scrollable ? 'is-scrollable' : '', `is-${ rootTabs.props.tabPosition }`],
       },
       [
         scrollBtn,
         h(
           'div',
           {
-            class: 'el-tabs__nav-scroll',
+            class: 'NAMESPACE-tabs__nav-scroll',
             ref: 'navScroll$',
           },
           [
             h(
               'div',
               {
-                class: ['el-tabs__nav', `is-${ rootTabs.props.tabPosition }`, stretch && ['top', 'bottom'].includes(rootTabs.props.tabPosition) ? 'is-stretch' : ''],
+                class: ['NAMESPACE-tabs__nav', `is-${ rootTabs.props.tabPosition }`, stretch && ['top', 'bottom'].includes(rootTabs.props.tabPosition) ? 'is-stretch' : ''],
                 ref: 'nav$',
                 style: navStyle,
                 role: 'tablist',

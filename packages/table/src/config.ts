@@ -12,7 +12,7 @@ export const cellStarts = {
     minWidth: 48,
     realWidth: 48,
     order: '',
-    className: 'el-table-column--selection',
+    classname: 'NAMESPACE-table-column--selection',
   },
   expand: {
     width: 48,
@@ -102,9 +102,9 @@ export const cellForced = {
     renderCell: function({ row: row_, store: store_ }) {
       const store = store_ as Store
       const row = row_ as AnyObject
-      const classes = ['el-table__expand-icon']
+      const classes = ['NAMESPACE-table__expand-icon']
       if (store.states.expandRows.value.indexOf(row) > -1) {
-        classes.push('el-table__expand-icon--expanded')
+        classes.push('NAMESPACE-table__expand-icon--expanded')
       }
       const callback = function(e) {
         e.stopPropagation()
@@ -118,14 +118,14 @@ export const cellForced = {
         },
         [
           h('i', {
-            class: 'el-icon el-icon-arrow-right',
+            class: 'NAMESPACE-icon NAMESPACE-icon-arrow-right',
           }),
         ],
       )
     },
     sortable: false,
     resizable: false,
-    className: 'el-table__expand-column',
+    classname: 'NAMESPACE-table__expand-column',
   },
 }
 
@@ -163,19 +163,19 @@ export function treeCellPrefix({
   if (treeNode.indent) {
     ele.push(
       h('span', {
-        class: 'el-table__indent',
+        class: 'NAMESPACE-table__indent',
         style: { 'padding-left': treeNode.indent + 'px' },
       }),
     )
   }
   if (typeof treeNode.expanded === 'boolean' && !treeNode.noLazyChildren) {
     const expandClasses = [
-      'el-table__expand-icon',
-      treeNode.expanded ? 'el-table__expand-icon--expanded' : '',
+      'NAMESPACE-table__expand-icon',
+      treeNode.expanded ? 'NAMESPACE-table__expand-icon--expanded' : '',
     ]
-    let iconClasses = ['el-icon-arrow-right']
+    let iconClasses = ['NAMESPACE-icon-arrow-right']
     if (treeNode.loading) {
-      iconClasses = ['el-icon-loading']
+      iconClasses = ['NAMESPACE-icon-loading']
     }
 
     ele.push(
@@ -195,7 +195,7 @@ export function treeCellPrefix({
   } else {
     ele.push(
       h('span', {
-        class: 'el-table__placeholder',
+        class: 'NAMESPACE-table__placeholder',
       }),
     )
   }

@@ -1,14 +1,14 @@
 <template>
   <template v-if="uiLoading">
-    <div :class="['el-skeleton', animated ? 'is-animated' : '', ]" v-bind="$attrs">
+    <div :class="['NAMESPACE-skeleton', animated ? 'is-animated' : '', ]" v-bind="$attrs">
       <template v-for="i in count" :key="i">
         <slot v-if="loading" name="template">
-          <el-skeleton-item class="is-first" variant="p" />
-          <el-skeleton-item
+          <NAMESPACE-skeleton-item class="is-first" variant="p" />
+          <NAMESPACE-skeleton-item
             v-for="item in rows"
             :key="item"
             :class="{
-              'el-skeleton__paragraph': true,
+              'NAMESPACE-skeleton__paragraph': true,
               'is-last': item === rows && rows > 1,
             }"
             variant="p"
@@ -28,7 +28,7 @@ import SkeletonItem from '@element-plus/skeleton-item'
 import { useThrottleRender } from '@element-plus/hooks'
 
 export default defineComponent({
-  name: 'ElSkeleton',
+  name: 'NAMESPACESkeleton',
   components: {
     [SkeletonItem.name]: SkeletonItem,
   },

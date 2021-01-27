@@ -1,5 +1,5 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     ref="refPopper"
     v-model:visible="pickerVisible"
     manual-mode
@@ -7,7 +7,7 @@
     pure
     trigger="click"
     v-bind="$attrs"
-    :popper-class="`el-picker__popper ${popperClass}`"
+    :popper-class="`NAMESPACE-picker__popper ${popperClass}`"
     transition="el-zoom-in-top"
     :gpu-acceleration="false"
     :stop-popper-mouse-event="false"
@@ -16,7 +16,7 @@
     @after-leave="pickerActualVisible = false"
   >
     <template #trigger>
-      <el-input
+      <NAMESPACE-input
         v-if="!isRangeInput"
         v-clickoutside="onClickOutside"
         :model-value="displayValue"
@@ -24,8 +24,8 @@
         :size="pickerSize"
         :disabled="pickerDisabled"
         :placeholder="placeholder"
-        class="el-date-editor"
-        :class="'el-date-editor--' + type"
+        class="NAMESPACE-date-editor"
+        :class="'NAMESPACE-date-editor--' + type"
         :readonly="!editable || readonly || isDatesPicker || type === 'week'"
         @input="onUserInput"
         @focus="handleFocus"
@@ -36,7 +36,7 @@
       >
         <template #prefix>
           <i
-            class="el-input__icon"
+            class="NAMESPACE-input__icon"
             :class="triggerClass"
             @click="handleFocus"
           >
@@ -44,20 +44,20 @@
         </template>
         <template #suffix>
           <i
-            class="el-input__icon"
+            class="NAMESPACE-input__icon"
             :class="[showClose ? '' + clearIcon : '']"
             @click="onClearIconClick"
           >
           </i>
         </template>
-      </el-input>
+      </NAMESPACE-input>
       <div
         v-else
         v-clickoutside="onClickOutside"
-        class="el-date-editor el-range-editor el-input__inner"
+        class="NAMESPACE-date-editor NAMESPACE-range-editor NAMESPACE-input__inner"
         :class="[
-          'el-date-editor--' + type,
-          pickerSize ? `el-range-editor--${ pickerSize }` : '',
+          'NAMESPACE-date-editor--' + type,
+          pickerSize ? `NAMESPACE-range-editor--${ pickerSize }` : '',
           pickerDisabled ? 'is-disabled' : '',
           pickerVisible ? 'is-active' : ''
         ]"
@@ -66,7 +66,7 @@
         @mouseleave="onMouseLeave"
         @keydown="handleKeydown"
       >
-        <i :class="['el-input__icon', 'el-range__icon', triggerClass]"></i>
+        <i :class="['NAMESPACE-input__icon', 'NAMESPACE-range__icon', triggerClass]"></i>
         <input
           autocomplete="off"
           :name="name && name[0]"
@@ -74,13 +74,13 @@
           :value="displayValue && displayValue[0]"
           :disabled="pickerDisabled"
           :readonly="!editable || readonly"
-          class="el-range-input"
+          class="NAMESPACE-range-input"
           @input="handleStartInput"
           @change="handleStartChange"
           @focus="handleFocus"
         >
         <slot name="range-separator">
-          <span class="el-range-separator">{{ rangeSeparator }}</span>
+          <span class="NAMESPACE-range-separator">{{ rangeSeparator }}</span>
         </slot>
         <input
           autocomplete="off"
@@ -89,14 +89,14 @@
           :value="displayValue && displayValue[1]"
           :disabled="pickerDisabled"
           :readonly="!editable || readonly"
-          class="el-range-input"
+          class="NAMESPACE-range-input"
           @focus="handleFocus"
           @input="handleEndInput"
           @change="handleEndChange"
         >
         <i
           :class="[showClose ? '' + clearIcon : '']"
-          class="el-input__icon el-range__close-icon"
+          class="NAMESPACE-input__icon NAMESPACE-range__close-icon"
           @click="onClearIconClick"
         >
         </i>
@@ -117,7 +117,7 @@
         @mousedown.stop
       ></slot>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 <script lang='ts'>
 import {
@@ -130,8 +130,8 @@ import {
 } from 'vue'
 import dayjs from 'dayjs'
 import { ClickOutside } from '@element-plus/directives'
-import ElInput from '@element-plus/input'
-import ElPopper from '@element-plus/popper'
+import NAMESPACEInput from '@element-plus/input'
+import NAMESPACEPopper from '@element-plus/popper'
 import { EVENT_CODE } from '@element-plus/utils/aria'
 import { useGlobalConfig } from '@element-plus/utils/util'
 import { elFormKey, elFormItemKey } from '@element-plus/form'
@@ -180,8 +180,8 @@ const valueEquals = function(a, b) {
 export default defineComponent({
   name: 'Picker',
   components: {
-    ElInput,
-    ElPopper,
+    NAMESPACEInput,
+    NAMESPACEPopper,
   },
   directives: { clickoutside: ClickOutside },
   props: defaultProps,
@@ -314,7 +314,7 @@ export default defineComponent({
     })
 
     const triggerClass = computed(() => {
-      return props.prefixIcon || (isTimeLikePicker.value ? 'el-icon-time' : 'el-icon-date')
+      return props.prefixIcon || (isTimeLikePicker.value ? 'NAMESPACE-icon-time' : 'NAMESPACE-icon-date')
     })
     const showClose = ref(false)
     const onClearIconClick = event => {

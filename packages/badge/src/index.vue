@@ -1,12 +1,12 @@
 <template>
-  <div class="el-badge">
+  <div class="NAMESPACE-badge">
     <slot></slot>
-    <transition name="el-zoom-in-center">
+    <transition name="NAMESPACE-zoom-in-center">
       <sup
         v-show="!hidden && (content || content === 0 || isDot)"
-        class="el-badge__content"
+        class="NAMESPACE-badge__content"
         :class="[
-          'el-badge__content--' + type,
+          'NAMESPACE-badge__content--' + type,
           {
             'is-fixed': $slots.default,
             'is-dot': isDot
@@ -34,7 +34,7 @@ interface IBadgeSetups {
   content: number | string
 }
 export default defineComponent({
-  name: 'ElBadge',
+  name: 'NAMESPACEBadge',
   props: {
     value: {
       type: [String, Number],

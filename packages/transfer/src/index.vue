@@ -1,5 +1,5 @@
 <template>
-  <div class="el-transfer">
+  <div class="NAMESPACE-transfer">
     <transfer-panel
       ref="leftPanel"
       :data="sourceData"
@@ -15,25 +15,25 @@
     >
       <slot name="left-footer"></slot>
     </transfer-panel>
-    <div class="el-transfer__buttons">
-      <el-button
+    <div class="NAMESPACE-transfer__buttons">
+      <NAMESPACE-button
         type="primary"
-        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['NAMESPACE-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         :disabled="rightChecked.length === 0"
         @click="addToLeft"
       >
-        <i class="el-icon-arrow-left"></i>
+        <i class="NAMESPACE-icon-arrow-left"></i>
         <span v-if="buttonTexts[0] !== undefined">{{ buttonTexts[0] }}</span>
-      </el-button>
-      <el-button
+      </NAMESPACE-button>
+      <NAMESPACE-button
         type="primary"
-        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['NAMESPACE-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         :disabled="leftChecked.length === 0"
         @click="addToRight"
       >
         <span v-if="buttonTexts[1] !== undefined">{{ buttonTexts[1] }}</span>
-        <i class="el-icon-arrow-right"></i>
-      </el-button>
+        <i class="NAMESPACE-icon-arrow-right"></i>
+      </NAMESPACE-button>
     </div>
     <transfer-panel
       ref="rightPanel"
@@ -59,7 +59,7 @@ import {
   reactive, ref, toRefs, watch,
 } from 'vue'
 import { t } from '@element-plus/locale'
-import ElButton from '@element-plus/button'
+import NAMESPACEButton from '@element-plus/button'
 import TransferPanel from './transfer-panel.vue'
 import { useComputedData } from './useComputedData'
 import { useCheckedChange } from './useCheckedChange'
@@ -80,11 +80,11 @@ import type {
 export const CHANGE_EVENT = 'change'
 
 export default defineComponent({
-  name: 'ElTransfer',
+  name: 'NAMESPACETransfer',
 
   components: {
     TransferPanel,
-    ElButton,
+    NAMESPACEButton,
   },
 
   props: {

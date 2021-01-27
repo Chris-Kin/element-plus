@@ -2,7 +2,7 @@
   <div
     v-show="node.visible"
     ref="node$"
-    class="el-tree-node"
+    class="NAMESPACE-tree-node"
     :class="{
       'is-expanded': expanded,
       'is-current': node.isCurrent,
@@ -25,7 +25,7 @@
     @drop.stop="handleDrop"
   >
     <div
-      class="el-tree-node__content"
+      class="NAMESPACE-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.props.indent + 'px' }"
     >
       <span
@@ -34,13 +34,13 @@
             'is-leaf': node.isLeaf,
             expanded: !node.isLeaf && expanded,
           },
-          'el-tree-node__expand-icon',
-          tree.props.iconClass ? tree.props.iconClass : 'el-icon-caret-right',
+          'NAMESPACE-tree-node__expand-icon',
+          tree.props.iconClass ? tree.props.iconClass : 'NAMESPACE-icon-caret-right',
         ]"
         @click.stop="handleExpandIconClick"
       >
       </span>
-      <el-checkbox
+      <NAMESPACE-checkbox
         v-if="showCheckbox"
         :model-value="node.checked"
         :indeterminate="node.indeterminate"
@@ -50,20 +50,20 @@
       />
       <span
         v-if="node.loading"
-        class="el-tree-node__loading-icon el-icon-loading"
+        class="NAMESPACE-tree-node__loading-icon NAMESPACE-icon-loading"
       >
       </span>
       <node-content :node="node" :render-content="renderContent" />
     </div>
-    <el-collapse-transition>
+    <NAMESPACE-collapse-transition>
       <div
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
-        class="el-tree-node__children"
+        class="NAMESPACE-tree-node__children"
         role="group"
         :aria-expanded="expanded"
       >
-        <el-tree-node
+        <NAMESPACE-tree-node
           v-for="child in node.childNodes"
           :key="getNodeKey(child)"
           :render-content="renderContent"
@@ -73,13 +73,13 @@
           @node-expand="handleChildNodeExpand"
         />
       </div>
-    </el-collapse-transition>
+    </NAMESPACE-collapse-transition>
   </div>
 </template>
 <script lang='ts'>
 import { defineComponent, getCurrentInstance, ref, watch, nextTick, inject, provide, PropType, ComponentInternalInstance } from 'vue'
-import ElCollapseTransition from '@element-plus/collapse-transition'
-import ElCheckbox from '@element-plus/checkbox'
+import NAMESPACECollapseTransition from '@element-plus/collapse-transition'
+import NAMESPACECheckbox from '@element-plus/checkbox'
 import NodeContent from './tree-node-content.vue'
 import { getNodeKey as getNodeKeyUtil } from './model/util'
 import { useNodeExpandEventBroadcast } from './model/useNodeExpandEventBroadcast'
@@ -88,10 +88,10 @@ import Node from './model/node'
 import { TreeOptionProps, TreeNodeData, RootTreeType } from './tree.type'
 
 export default defineComponent({
-  name: 'ElTreeNode',
+  name: 'NAMESPACETreeNode',
   components: {
-    ElCollapseTransition,
-    ElCheckbox,
+    NAMESPACECollapseTransition,
+    NAMESPACECheckbox,
     NodeContent,
   },
   props: {

@@ -1,8 +1,8 @@
 <template>
   <label
-    class="el-radio-button"
+    class="NAMESPACE-radio-button"
     :class="[
-      size ? 'el-radio-button--' + size : '',
+      size ? 'NAMESPACE-radio-button--' + size : '',
       { 'is-active': value === label,
         'is-disabled': isDisabled,
         'is-focus': focus,
@@ -16,7 +16,7 @@
   >
     <input
       v-model="value"
-      class="el-radio-button__orig-radio"
+      class="NAMESPACE-radio-button__orig-radio"
       :value="label"
       type="radio"
       :name="name"
@@ -26,7 +26,7 @@
       @blur="focus = false"
     >
     <span
-      class="el-radio-button__inner"
+      class="NAMESPACE-radio-button__inner"
       :style="value === label ? activeStyle : null"
       @keydown.stop
     >
@@ -41,7 +41,7 @@ import { computed, defineComponent } from 'vue'
 import { useRadio, useRadioAttrs } from './useRadio'
 
 export default defineComponent({
-  name: 'ElRadioButton',
+  name: 'NAMESPACERadioButton',
 
   props: {
     label: {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-switch"
+    class="NAMESPACE-switch"
     :class="{ 'is-disabled': switchDisabled, 'is-checked': checked }"
     role="switch"
     :aria-checked="checked"
@@ -10,7 +10,7 @@
     <input
       :id="id"
       ref="input"
-      class="el-switch__input"
+      class="NAMESPACE-switch__input"
       type="checkbox"
       :name="name"
       :true-value="activeValue"
@@ -21,19 +21,19 @@
     >
     <span
       v-if="inactiveIconClass || inactiveText"
-      :class="['el-switch__label', 'el-switch__label--left', !checked ? 'is-active' : '']"
+      :class="['NAMESPACE-switch__label', 'NAMESPACE-switch__label--left', !checked ? 'is-active' : '']"
     >
       <i v-if="inactiveIconClass" :class="[inactiveIconClass]"></i>
       <span v-if="!inactiveIconClass && inactiveText" :aria-hidden="checked">{{ inactiveText }}</span>
     </span>
-    <span ref="core" class="el-switch__core" :style="{ 'width': coreWidth + 'px' }">
-      <div class="el-switch__action">
-        <i v-if="loading" class="el-icon-loading"></i>
+    <span ref="core" class="NAMESPACE-switch__core" :style="{ 'width': coreWidth + 'px' }">
+      <div class="NAMESPACE-switch__action">
+        <i v-if="loading" class="NAMESPACE-icon-loading"></i>
       </div>
     </span>
     <span
       v-if="activeIconClass || activeText"
-      :class="['el-switch__label', 'el-switch__label--right', checked ? 'is-active' : '']"
+      :class="['NAMESPACE-switch__label', 'NAMESPACE-switch__label--right', checked ? 'is-active' : '']"
     >
       <i v-if="activeIconClass" :class="[activeIconClass]"></i>
       <span v-if="!activeIconClass && activeText" :aria-hidden="!checked">{{ activeText }}</span>
@@ -69,7 +69,7 @@ interface ISwitchProps {
 }
 
 export default defineComponent({
-  name: 'ElSwitch',
+  name: 'NAMESPACESwitch',
   props: {
     modelValue: {
       type: [Boolean, String, Number],

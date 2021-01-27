@@ -1,6 +1,6 @@
 <template>
   <transition name="fade-in-linear" @after-leave="$emit('vanish')">
-    <el-overlay
+    <NAMESPACE-overlay
       v-show="visible"
       :z-index="state.zIndex"
       :overlay-class="['is-message-box', modalClass]"
@@ -13,26 +13,26 @@
         :aria-label="title || 'dialog'"
         aria-modal="true"
         :class="[
-          'el-message-box',
+          'NAMESPACE-message-box',
           customClass,
-          { 'el-message-box--center': center },
+          { 'NAMESPACE-message-box--center': center },
         ]"
       >
         <div
           v-if="title !== null && title !== undefined"
-          class="el-message-box__header"
+          class="NAMESPACE-message-box__header"
         >
-          <div class="el-message-box__title">
+          <div class="NAMESPACE-message-box__title">
             <div
               v-if="icon && center"
-              :class="['el-message-box__status', icon]"
+              :class="['NAMESPACE-message-box__status', icon]"
             ></div>
             <span>{{ title }}</span>
           </div>
           <button
             v-if="showClose"
             type="button"
-            class="el-message-box__headerbtn"
+            class="NAMESPACE-message-box__headerbtn"
             aria-label="Close"
             @click="
               handleAction(distinguishCancelAndClose ? 'close' : 'cancel')
@@ -41,24 +41,24 @@
               handleAction(distinguishCancelAndClose ? 'close' : 'cancel')
             "
           >
-            <i class="el-message-box__close el-icon-close"></i>
+            <i class="NAMESPACE-message-box__close NAMESPACE-icon-close"></i>
           </button>
         </div>
-        <div class="el-message-box__content">
-          <div class="el-message-box__container">
+        <div class="NAMESPACE-message-box__content">
+          <div class="NAMESPACE-message-box__container">
             <div
               v-if="icon && !center && hasMessage"
-              :class="['el-message-box__status', icon]"
+              :class="['NAMESPACE-message-box__status', icon]"
             ></div>
-            <div v-if="hasMessage" class="el-message-box__message">
+            <div v-if="hasMessage" class="NAMESPACE-message-box__message">
               <slot>
                 <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
                 <p v-else v-html="message"></p>
               </slot>
             </div>
           </div>
-          <div v-show="showInput" class="el-message-box__input">
-            <el-input
+          <div v-show="showInput" class="NAMESPACE-message-box__input">
+            <NAMESPACE-input
               ref="inputRef"
               v-model="state.inputValue"
               :type="inputType"
@@ -67,7 +67,7 @@
               @keydown.prevent.enter="handleInputEnter"
             />
             <div
-              class="el-message-box__errormsg"
+              class="NAMESPACE-message-box__errormsg"
               :style="{
                 visibility: !!state.editorErrorMessage ? 'visible' : 'hidden',
               }"
@@ -76,8 +76,8 @@
             </div>
           </div>
         </div>
-        <div class="el-message-box__btns">
-          <el-button
+        <div class="NAMESPACE-message-box__btns">
+          <NAMESPACE-button
             v-if="showCancelButton"
             :loading="state.cancelButtonLoading"
             :class="[cancelButtonClass]"
@@ -87,8 +87,8 @@
             @keydown.enter="handleAction('cancel')"
           >
             {{ state.cancelButtonText || t('el.messagebox.cancel') }}
-          </el-button>
-          <el-button
+          </NAMESPACE-button>
+          <NAMESPACE-button
             v-show="showConfirmButton"
             ref="confirmRef"
             :loading="state.confirmButtonLoading"
@@ -100,10 +100,10 @@
             @keydown.enter="handleAction('confirm')"
           >
             {{ state.confirmButtonText || t('el.messagebox.confirm') }}
-          </el-button>
+          </NAMESPACE-button>
         </div>
       </div>
-    </el-overlay>
+    </NAMESPACE-overlay>
   </transition>
 </template>
 <script lang="ts">
@@ -117,10 +117,10 @@ import {
   reactive,
   ref,
 } from 'vue'
-import ElButton from '@element-plus/button'
-import ElInput from '@element-plus/input'
+import NAMESPACEButton from '@element-plus/button'
+import NAMESPACEInput from '@element-plus/input'
 import { t } from '@element-plus/locale'
-import { Overlay as ElOverlay } from '@element-plus/overlay'
+import { Overlay as NAMESPACEOverlay } from '@element-plus/overlay'
 import { useModal, useLockScreen, useRestoreActive, usePreventGlobal } from '@element-plus/hooks'
 import { TrapFocus } from '@element-plus/directives'
 import PopupManager from '@element-plus/utils/popup-manager'
@@ -138,11 +138,11 @@ const TypeMap: Indexable<string> = {
 }
 
 export default defineComponent({
-  name: 'ElMessageBox',
+  name: 'NAMESPACEMessageBox',
   components: {
-    ElButton,
-    ElInput,
-    ElOverlay,
+    NAMESPACEButton,
+    NAMESPACEInput,
+    NAMESPACEOverlay,
   },
   directives: {
     TrapFocus,
@@ -251,12 +251,12 @@ export default defineComponent({
       validateError: false,
       zIndex: PopupManager.nextZIndex(),
     })
-    const icon = computed(() => props.iconClass || (props.type && TypeMap[props.type] ? `el-icon-${TypeMap[props.type]}` : ''))
+    const icon = computed(() => props.iconClass || (props.type && TypeMap[props.type] ? `NAMESPACE-icon-${TypeMap[props.type]}` : ''))
     const hasMessage = computed(() => !!props.message)
     const inputRef = ref<ComponentPublicInstance>(null)
     const confirmRef = ref<ComponentPublicInstance>(null)
 
-    const confirmButtonClasses = computed(() => `el-button--primary ${props.confirmButtonClass}`)
+    const confirmButtonClasses = computed(() => `NAMESPACE-button--primary ${props.confirmButtonClass}`)
 
     watch(() => state.inputValue, async val => {
       await nextTick()

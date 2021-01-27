@@ -1,8 +1,8 @@
 <template>
   <div
     :class="[
-      'el-input-number',
-      inputNumberSize ? 'el-input-number--' + inputNumberSize : '',
+      'NAMESPACE-input-number',
+      inputNumberSize ? 'NAMESPACE-input-number--' + inputNumberSize : '',
       { 'is-disabled': inputNumberDisabled },
       { 'is-without-controls': !controls },
       { 'is-controls-right': controlsAtRight },
@@ -12,24 +12,24 @@
     <span
       v-if="controls"
       v-repeat-click="decrease"
-      class="el-input-number__decrease"
+      class="NAMESPACE-input-number__decrease"
       role="button"
       :class="{ 'is-disabled': minDisabled }"
       @keydown.enter="decrease"
     >
-      <i :class="`el-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
+      <i :class="`NAMESPACE-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
     </span>
     <span
       v-if="controls"
       v-repeat-click="increase"
-      class="el-input-number__increase"
+      class="NAMESPACE-input-number__increase"
       role="button"
       :class="{ 'is-disabled': maxDisabled }"
       @keydown.enter="increase"
     >
-      <i :class="`el-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
+      <i :class="`NAMESPACE-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
     </span>
-    <el-input
+    <NAMESPACE-input
       ref="input"
       :model-value="displayValue"
       :placeholder="placeholder"
@@ -60,7 +60,7 @@ import {
   onUpdated,
 } from 'vue'
 import { RepeatClick } from '@element-plus/directives'
-import ElInput from '@element-plus/input'
+import NAMESPACEInput from '@element-plus/input'
 import { useGlobalConfig } from '@element-plus/utils/util'
 import { isValidComponentSize } from '@element-plus/utils/validators'
 import { elFormKey, elFormItemKey } from '@element-plus/form'
@@ -75,9 +75,9 @@ interface IData {
 }
 
 export default defineComponent({
-  name: 'ElInputNumber',
+  name: 'NAMESPACEInputNumber',
   components: {
-    ElInput,
+    NAMESPACEInput,
   },
   directives: {
     RepeatClick,

@@ -305,7 +305,7 @@ export function createTablePopper(
 ) {
   function renderContent(): HTMLDivElement {
     const content = document.createElement('div')
-    content.className = 'el-tooltip__popper is-dark'
+    content.className = 'NAMESPACE-tooltip__popper is-dark'
     content.innerHTML = popperContent
     content.style.zIndex = String(PopupManager.nextZIndex())
     document.body.appendChild(content)
@@ -313,7 +313,7 @@ export function createTablePopper(
   }
   function renderArrow(): HTMLDivElement {
     const arrow = document.createElement('div')
-    arrow.className = 'el-popper__arrow'
+    arrow.className = 'NAMESPACE-popper__arrow'
     arrow.style.bottom = '-4px'
     return arrow
   }

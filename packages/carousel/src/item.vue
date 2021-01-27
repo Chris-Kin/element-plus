@@ -1,10 +1,10 @@
 <template>
   <div
     v-show="data.ready"
-    class="el-carousel__item"
+    class="NAMESPACE-carousel__item"
     :class="{
       'is-active': data.active,
-      'el-carousel__item--card': type === 'card',
+      'NAMESPACE-carousel__item--card': type === 'card',
       'is-in-stage': data.inStage,
       'is-hover': data.hover,
       'is-animating': data.animating,
@@ -15,7 +15,7 @@
     <div
       v-if="type === 'card'"
       v-show="!data.active"
-      class="el-carousel__mask"
+      class="NAMESPACE-carousel__mask"
     ></div>
     <slot></slot>
   </div>
@@ -39,7 +39,7 @@ import { InjectCarouselScope, ICarouselItemProps } from './carousel'
 
 const CARD_SCALE = 0.83
 export default defineComponent({
-  name: 'ElCarouselItem',
+  name: 'NAMESPACECarouselItem',
   props: {
     name: { type: String, default: '' },
     label: {

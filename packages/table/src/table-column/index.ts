@@ -10,16 +10,16 @@ import {
 } from 'vue'
 import { cellStarts } from '../config'
 import { mergeOptions, compose } from '../util'
-import ElCheckbox from '@element-plus/checkbox'
+import NAMESPACECheckbox from '@element-plus/checkbox'
 import { TableColumnCtx, TableColumn } from '../table.type'
 import useWatcher from './watcher-helper'
 import useRender from './render-helper'
 
 let columnIdSeed = 1
 export default defineComponent({
-  name: 'ElTableColumn',
+  name: 'NAMESPACETableColumn',
   components: {
-    ElCheckbox,
+    NAMESPACECheckbox,
   },
   props: {
     type: {

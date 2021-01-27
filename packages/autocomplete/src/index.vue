@@ -1,9 +1,9 @@
 <template>
-  <el-popper
+  <NAMESPACE-popper
     ref="popper"
     v-model:visible="suggestionVisible"
     :placement="placement"
-    :popper-class="`el-autocomplete__popper ${popperClass}`"
+    :popper-class="`NAMESPACE-autocomplete__popper ${popperClass}`"
     :append-to-body="popperAppendToBody"
     pure
     manual-mode
@@ -15,14 +15,14 @@
     <template #trigger>
       <div
         v-clickoutside="close"
-        :class="['el-autocomplete', $attrs.class]"
+        :class="['NAMESPACE-autocomplete', $attrs.class]"
         :style="$attrs.style"
         role="combobox"
         aria-haspopup="listbox"
         :aria-expanded="suggestionVisible"
         :aria-owns="id"
       >
-        <el-input
+        <NAMESPACE-input
           ref="inputRef"
           v-bind="attrs"
           :model-value="modelValue"
@@ -48,23 +48,23 @@
           <template v-if="$slots.suffix" #suffix>
             <slot name="suffix"></slot>
           </template>
-        </el-input>
+        </NAMESPACE-input>
       </div>
     </template>
     <template #default>
       <div
         ref="regionRef"
-        :class="['el-autocomplete-suggestion', suggestionLoading && 'is-loading']"
+        :class="['NAMESPACE-autocomplete-suggestion', suggestionLoading && 'is-loading']"
         :style="{ width: dropdownWidth, outline: 'none' }"
         role="region"
       >
-        <el-scrollbar
+        <NAMESPACE-scrollbar
           tag="ul"
-          wrap-class="el-autocomplete-suggestion__wrap"
-          view-class="el-autocomplete-suggestion__list"
+          wrap-class="NAMESPACE-autocomplete-suggestion__wrap"
+          view-class="NAMESPACE-autocomplete-suggestion__list"
         >
           <li v-if="suggestionLoading">
-            <i class="el-icon-loading"></i>
+            <i class="NAMESPACE-icon-loading"></i>
           </li>
           <template v-else>
             <li
@@ -79,10 +79,10 @@
               <slot :item="item">{{ item[valueKey] }}</slot>
             </li>
           </template>
-        </el-scrollbar>
+        </NAMESPACE-scrollbar>
       </div>
     </template>
-  </el-popper>
+  </NAMESPACE-popper>
 </template>
 
 <script lang="ts">
@@ -98,18 +98,18 @@ import { ClickOutside } from '@element-plus/directives'
 import { generateId, isArray } from '@element-plus/utils/util'
 import { UPDATE_MODEL_EVENT } from '@element-plus/utils/constants'
 import throwError from '@element-plus/utils/error'
-import ElInput from '@element-plus/input'
-import ElScrollbar from '@element-plus/scrollbar'
-import ElPopper from '@element-plus/popper'
+import NAMESPACEInput from '@element-plus/input'
+import NAMESPACEScrollbar from '@element-plus/scrollbar'
+import NAMESPACEPopper from '@element-plus/popper'
 
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElAutocomplete',
+  name: 'NAMESPACEAutocomplete',
   components: {
-    ElPopper,
-    ElInput,
-    ElScrollbar,
+    NAMESPACEPopper,
+    NAMESPACEInput,
+    NAMESPACEScrollbar,
   },
   directives: {
     clickoutside: ClickOutside,
@@ -178,7 +178,7 @@ export default defineComponent({
     const popper = ref(null)
 
     const id = computed(() => {
-      return `el-autocomplete-${generateId()}`
+      return `NAMESPACE-autocomplete-${generateId()}`
     })
     const suggestionVisible = computed(() => {
       const isValidData = isArray(suggestions.value) && suggestions.value.length > 0
@@ -201,7 +201,7 @@ export default defineComponent({
       inputRef.value.inputOrTextarea.setAttribute('aria-autocomplete', 'list')
       inputRef.value.inputOrTextarea.setAttribute('aria-controls', 'id')
       inputRef.value.inputOrTextarea.setAttribute('aria-activedescendant', `${id.value}-item-${highlightedIndex.value}`)
-      const $ul = regionRef.value.querySelector('.el-autocomplete-suggestion__list')
+      const $ul = regionRef.value.querySelector('.NAMESPACE-autocomplete-suggestion__list')
       $ul.setAttribute('role', 'listbox')
       $ul.setAttribute('id', id.value)
     })
@@ -297,8 +297,8 @@ export default defineComponent({
       if (index >= suggestions.value.length) {
         index = suggestions.value.length - 1
       }
-      const suggestion = regionRef.value.querySelector('.el-autocomplete-suggestion__wrap')
-      const suggestionList = suggestion.querySelectorAll('.el-autocomplete-suggestion__list li')
+      const suggestion = regionRef.value.querySelector('.NAMESPACE-autocomplete-suggestion__wrap')
+      const suggestionList = suggestion.querySelectorAll('.NAMESPACE-autocomplete-suggestion__list li')
       const highlightItem = suggestionList[index]
       const scrollTop = suggestion.scrollTop
       const offsetTop = highlightItem.offsetTop

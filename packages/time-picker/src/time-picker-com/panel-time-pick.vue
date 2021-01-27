@@ -1,7 +1,7 @@
 <template>
   <transition :name="transitionName">
-    <div v-if="actualVisible || visible" class="el-time-panel">
-      <div class="el-time-panel__content" :class="{ 'has-seconds': showSeconds }">
+    <div v-if="actualVisible || visible" class="NAMESPACE-time-panel">
+      <div class="NAMESPACE-time-panel__content" :class="{ 'has-seconds': showSeconds }">
         <time-spinner
           ref="spinner"
           :role="datetimeRole || 'start'"
@@ -17,17 +17,17 @@
           @select-range="setSelectionRange"
         />
       </div>
-      <div class="el-time-panel__footer">
+      <div class="NAMESPACE-time-panel__footer">
         <button
           type="button"
-          class="el-time-panel__btn cancel"
+          class="NAMESPACE-time-panel__btn cancel"
           @click="handleCancel"
         >
           {{ t('el.datepicker.cancel') }}
         </button>
         <button
           type="button"
-          class="el-time-panel__btn confirm"
+          class="NAMESPACE-time-panel__btn confirm"
           @click="handleConfirm()"
         >
           {{ t('el.datepicker.confirm') }}
@@ -82,7 +82,7 @@ export default defineComponent({
     const oldValue = ref(props.parsedValue)
     // computed
     const transitionName = computed(() => {
-      return props.actualVisible === undefined ? 'el-zoom-in-top' : ''
+      return props.actualVisible === undefined ? 'NAMESPACE-zoom-in-top' : ''
     })
     const showSeconds = computed(() => {
       return props.format.includes('ss')

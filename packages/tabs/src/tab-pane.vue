@@ -3,7 +3,7 @@
     v-if="shouldBeRender"
     v-show="active"
     :id="`pane-${paneName}`"
-    class="el-tab-pane"
+    class="NAMESPACE-tab-pane"
     role="tabpanel"
     :aria-hidden="!active"
     :aria-labelledby="`tab-${paneName}`"
@@ -16,7 +16,7 @@ import { defineComponent, ref, computed, inject, getCurrentInstance } from 'vue'
 import { RootTabs, UpdatePaneStateCallback, IEPaneProps } from './tabs.vue'
 
 export default defineComponent({
-  name: 'ElTabPane',
+  name: 'NAMESPACETabPane',
   props: {
     label: {
       type: String,
@@ -37,7 +37,7 @@ export default defineComponent({
     const updatePaneState = inject<UpdatePaneStateCallback>('updatePaneState')
 
     if (!rootTabs || !updatePaneState) {
-      throw new Error(`ElTabPane must use with ElTabs`)
+      throw new Error(`NAMESPACETabPane must use with NAMESPACETabs`)
     }
 
     const isClosable = computed(() => {

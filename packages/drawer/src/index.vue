@@ -1,12 +1,12 @@
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition
-      name="el-drawer-fade"
+      name="NAMESPACE-drawer-fade"
       @after-enter="afterEnter"
       @after-leave="afterLeave"
       @before-leave="beforeLeave"
     >
-      <el-overlay
+      <NAMESPACE-overlay
         v-show="visible"
         :mask="modal"
         :overlay-class="modalClass"
@@ -19,7 +19,7 @@
           aria-modal="true"
           aria-labelledby="el-drawer__title"
           :aria-label="title"
-          :class="['el-drawer', direction, customClass]"
+          :class="['NAMESPACE-drawer', direction, customClass]"
           :style="isHorizontal ? 'width: ' + drawerSize : 'height: ' + drawerSize"
           role="dialog"
           @click.stop
@@ -27,7 +27,7 @@
           <header
             v-if="withHeader"
             id="el-drawer__title"
-            class="el-drawer__header"
+            class="NAMESPACE-drawer__header"
           >
             <slot name="title">
               <span role="heading" :title="title">
@@ -37,20 +37,20 @@
             <button
               v-if="showClose"
               :aria-label="'close ' + (title || 'drawer')"
-              class="el-drawer__close-btn"
+              class="NAMESPACE-drawer__close-btn"
               type="button"
               @click="handleClose"
             >
-              <i class="el-drawer__close el-icon el-icon-close"></i>
+              <i class="NAMESPACE-drawer__close NAMESPACE-icon NAMESPACE-icon-close"></i>
             </button>
           </header>
           <template v-if="rendered">
-            <section class="el-drawer__body">
+            <section class="NAMESPACE-drawer__body">
               <slot></slot>
             </section>
           </template>
         </div>
-      </el-overlay>
+      </NAMESPACE-overlay>
     </transition>
   </teleport>
 </template>
@@ -71,7 +71,7 @@ type Hide = (cancel: boolean) => void
 type DrawerDirection = 'ltr' | 'rtl' | 'ttb' | 'btt'
 
 export default defineComponent({
-  name: 'ElDrawer',
+  name: 'NAMESPACEDrawer',
   components: {
     [Overlay.name]: Overlay,
   },

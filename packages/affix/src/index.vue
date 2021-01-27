@@ -1,6 +1,6 @@
 <template>
-  <div ref="root" class="el-affix" :style="rootStyle">
-    <div :class="{'el-affix--fixed': state.fixed}" :style="affixStyle">
+  <div ref="root" class="NAMESPACE-affix" :style="rootStyle">
+    <div :class="{'NAMESPACE-affix--fixed': state.fixed}" :style="affixStyle">
       <slot></slot>
     </div>
   </div>
@@ -13,7 +13,7 @@ import { addResizeListener, removeResizeListener } from '@element-plus/utils/res
 type Position = 'top' | 'bottom'
 
 export default defineComponent({
-  name: 'ElAffix',
+  name: 'NAMESPACEAffix',
   props: {
     zIndex: {
       type: Number,

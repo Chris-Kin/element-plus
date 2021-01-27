@@ -1,7 +1,7 @@
 <template>
   <table
     :class="{
-      'el-calendar-table': true,
+      'NAMESPACE-calendar-table': true,
       'is-range': isInRange
     }"
     cellspacing="0"
@@ -15,8 +15,8 @@
         v-for="(row, index) in rows"
         :key="index"
         :class="{
-          'el-calendar-table__row': true,
-          'el-calendar-table__row--hide-border': index === 0 && hideHeader
+          'NAMESPACE-calendar-table__row': true,
+          'NAMESPACE-calendar-table__row--hide-border': index === 0 && hideHeader
         }"
       >
         <td
@@ -25,7 +25,7 @@
           :class="getCellClass(cell)"
           @click="pickDay(cell)"
         >
-          <div class="el-calendar-day">
+          <div class="NAMESPACE-calendar-day">
             <slot
               name="dateCell"
               :data="getSlotData(cell)"

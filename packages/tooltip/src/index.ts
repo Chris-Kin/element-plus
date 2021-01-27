@@ -1,5 +1,5 @@
 import { defineComponent, h, ref } from 'vue'
-import ElPopper from '@element-plus/popper'
+import NAMESPACEPopper from '@element-plus/popper'
 import { UPDATE_MODEL_EVENT } from '@element-plus/utils/constants'
 import throwError from '@element-plus/utils/error'
 
@@ -19,7 +19,7 @@ import type {
 export default defineComponent({
   name: 'NAMESPACETooltip',
   components: {
-    ElPopper,
+    NAMESPACEPopper,
   },
   props: {
     effect: {
@@ -141,7 +141,7 @@ export default defineComponent({
       stopPopperMouseEvent,
     } = this
     const popper = h(
-      ElPopper,
+      NAMESPACEPopper,
       {
         ref: 'popper',
         appendToBody: true,
@@ -158,7 +158,7 @@ export default defineComponent({
         stopPopperMouseEvent,
         transition,
         trigger,
-        popperOptions, // Breakings!: Once popperOptions is provided, the whole popper is under user's control, ElPopper nolonger generates the default options for popper, this is by design if the user wants the full control on @PopperJS, read the doc @https://popper.js.org/docs/v2/
+        popperOptions, // Breakings!: Once popperOptions is provided, the whole popper is under user's control, NAMESPACEPopper nolonger generates the default options for popper, this is by design if the user wants the full control on @PopperJS, read the doc @https://popper.js.org/docs/v2/
         visible: this.modelValue,
         'onUpdate:visible': onUpdateVisible,
       },

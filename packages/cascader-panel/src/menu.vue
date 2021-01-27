@@ -1,18 +1,18 @@
 <template>
-  <el-scrollbar
+  <NAMESPACE-scrollbar
     :id="menuId"
     tag="ul"
     role="menu"
-    class="el-cascader-menu"
-    wrap-class="el-cascader-menu__wrap"
+    class="NAMESPACE-cascader-menu"
+    wrap-class="NAMESPACE-cascader-menu__wrap"
     :view-class="[
-      'el-cascader-menu__list',
+      'NAMESPACE-cascader-menu__list',
       isEmpty && 'is-empty'
     ]"
     @mousemove="handleMouseMove"
     @mouseleave="clearHoverZone"
   >
-    <el-cascader-node
+    <NAMESPACE-cascader-node
       v-for="node in nodes"
       :key="node.uid"
       :node="node"
@@ -21,16 +21,16 @@
     />
     <div
       v-if="isEmpty"
-      class="el-cascader-menu__empty-text"
+      class="NAMESPACE-cascader-menu__empty-text"
     >
       {{ t('el.cascader.noData') }}
     </div>
     <svg
       v-else-if="panel.isHoverMenu"
       ref="hoverZone"
-      class="el-cascader-menu__hover-zone"
+      class="NAMESPACE-cascader-menu__hover-zone"
     />
-  </el-scrollbar>
+  </NAMESPACE-scrollbar>
 </template>
 
 <script lang="ts">
@@ -38,8 +38,8 @@ import {
   computed, defineComponent, getCurrentInstance,
   inject, ref,
 } from 'vue'
-import ElScrollbar from '@element-plus/scrollbar'
-import ElCascaderNode from './node.vue'
+import NAMESPACEScrollbar from '@element-plus/scrollbar'
+import NAMESPACECascaderNode from './node.vue'
 import { t } from '@element-plus/locale'
 import { generateId } from '@element-plus/utils/util'
 import {
@@ -50,11 +50,11 @@ import {
 import type { PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ElCascaderMenu',
+  name: 'NAMESPACECascaderMenu',
 
   components: {
-    ElScrollbar,
-    ElCascaderNode,
+    NAMESPACEScrollbar,
+    NAMESPACECascaderNode,
   },
 
   props: {

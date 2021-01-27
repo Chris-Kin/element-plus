@@ -1,11 +1,11 @@
 <template>
-  <div v-if="actualVisible" class="el-time-range-picker el-picker-panel">
-    <div class="el-time-range-picker__content">
-      <div class="el-time-range-picker__cell">
-        <div class="el-time-range-picker__header">{{ t('el.datepicker.startTime') }}</div>
+  <div v-if="actualVisible" class="NAMESPACE-time-range-picker NAMESPACE-picker-panel">
+    <div class="NAMESPACE-time-range-picker__content">
+      <div class="NAMESPACE-time-range-picker__cell">
+        <div class="NAMESPACE-time-range-picker__header">{{ t('el.datepicker.startTime') }}</div>
         <div
           :class="{ 'has-seconds': showSeconds, 'is-arrow': arrowControl }"
-          class="el-time-range-picker__body el-time-panel__content"
+          class="NAMESPACE-time-range-picker__body NAMESPACE-time-panel__content"
         >
           <time-spinner
             ref="minSpinner"
@@ -23,11 +23,11 @@
           />
         </div>
       </div>
-      <div class="el-time-range-picker__cell">
-        <div class="el-time-range-picker__header">{{ t('el.datepicker.endTime') }}</div>
+      <div class="NAMESPACE-time-range-picker__cell">
+        <div class="NAMESPACE-time-range-picker__header">{{ t('el.datepicker.endTime') }}</div>
         <div
           :class="{ 'has-seconds': showSeconds, 'is-arrow': arrowControl }"
-          class="el-time-range-picker__body el-time-panel__content"
+          class="NAMESPACE-time-range-picker__body NAMESPACE-time-panel__content"
         >
           <time-spinner
             ref="maxSpinner"
@@ -46,17 +46,17 @@
         </div>
       </div>
     </div>
-    <div class="el-time-panel__footer">
+    <div class="NAMESPACE-time-panel__footer">
       <button
         type="button"
-        class="el-time-panel__btn cancel"
+        class="NAMESPACE-time-panel__btn cancel"
         @click="handleCancel()"
       >
         {{ t('el.datepicker.cancel') }}
       </button>
       <button
         type="button"
-        class="el-time-panel__btn confirm"
+        class="NAMESPACE-time-panel__btn confirm"
         :disabled="btnConfirmDisabled"
         @click="handleConfirm()"
       >

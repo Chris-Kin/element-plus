@@ -86,7 +86,7 @@ export const initDropdownDomEvent = (dropdownChildren, triggerElm, _instance) =>
     if (!_instance.props.splitButton) {
       triggerElm.setAttribute('role', 'button')
       triggerElm.setAttribute('tabindex', _instance.props.tabindex)
-      addClass(triggerElm, 'el-dropdown-selfdefine')
+      addClass(triggerElm, 'NAMESPACE-dropdown-selfdefine')
     }
   }
 
