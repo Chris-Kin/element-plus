@@ -1,94 +1,94 @@
 import type { App } from 'vue'
-import ElAffix from '@element-plus/affix'
-import ElAlert from '@element-plus/alert'
-import ElAside from '@element-plus/aside'
-import ElAutocomplete from '@element-plus/autocomplete'
-import ElAvatar from '@element-plus/avatar'
-import ElBacktop from '@element-plus/backtop'
-import ElBadge from '@element-plus/badge'
-import ElBreadcrumb from '@element-plus/breadcrumb'
-import ElBreadcrumbItem from '@element-plus/breadcrumb-item'
-import ElButton from '@element-plus/button'
-import ElButtonGroup from '@element-plus/button-group'
-import ElCalendar from '@element-plus/calendar'
-import ElCard from '@element-plus/card'
-import ElCarousel from '@element-plus/carousel'
-import ElCarouselItem from '@element-plus/carousel-item'
-import ElCascader from '@element-plus/cascader'
-import ElCascaderPanel from '@element-plus/cascader-panel'
-import ElCheckbox from '@element-plus/checkbox'
-import ElCheckboxButton from '@element-plus/checkbox-button'
-import ElCheckboxGroup from '@element-plus/checkbox-group'
-import ElCol from '@element-plus/col'
-import ElCollapse from '@element-plus/collapse'
-import ElCollapseItem from '@element-plus/collapse-item'
-import ElCollapseTransition from '@element-plus/collapse-transition'
-import ElColorPicker from '@element-plus/color-picker'
-import ElContainer from '@element-plus/container'
-import ElDatePicker from '@element-plus/date-picker'
-import ElDialog from '@element-plus/dialog'
-import ElDivider from '@element-plus/divider'
-import ElDrawer from '@element-plus/drawer'
-import ElDropdown from '@element-plus/dropdown'
-import ElDropdownItem from '@element-plus/dropdown-item'
-import ElDropdownMenu from '@element-plus/dropdown-menu'
-import ElEmpty from '@element-plus/empty'
-import ElFooter from '@element-plus/footer'
-import ElForm from '@element-plus/form'
-import ElFormItem from '@element-plus/form-item'
-import ElHeader from '@element-plus/header'
-import ElIcon from '@element-plus/icon'
-import ElImage from '@element-plus/image'
-import ElImageViewer from '@element-plus/image-viewer'
-import ElInfiniteScroll from '@element-plus/infinite-scroll'
-import ElInput from '@element-plus/input'
-import ElInputNumber from '@element-plus/input-number'
-import ElLink from '@element-plus/link'
-import ElLoading from '@element-plus/loading'
-import ElMain from '@element-plus/main'
-import ElMenu from '@element-plus/menu'
-import ElMenuItem from '@element-plus/menu-item'
-import ElMenuItemGroup from '@element-plus/menu-item-group'
-import ElMessage from '@element-plus/message'
-import ElMessageBox from '@element-plus/message-box'
-import ElNotification from '@element-plus/notification'
-import ElOption from '@element-plus/option'
-import ElOptionGroup from '@element-plus/option-group'
-import ElPageHeader from '@element-plus/page-header'
-import ElPagination from '@element-plus/pagination'
-import ElPopconfirm from '@element-plus/popconfirm'
-import ElPopover from '@element-plus/popover'
-import ElPopper from '@element-plus/popper'
-import ElProgress from '@element-plus/progress'
-import ElRadio from '@element-plus/radio'
-import ElRadioButton from '@element-plus/radio-button'
-import ElRadioGroup from '@element-plus/radio-group'
-import ElRate from '@element-plus/rate'
-import ElRow from '@element-plus/row'
-import ElScrollbar from '@element-plus/scrollbar'
-import ElSelect from '@element-plus/select'
-import ElSlider from '@element-plus/slider'
-import ElStep from '@element-plus/step'
-import ElSteps from '@element-plus/steps'
-import ElSubmenu from '@element-plus/submenu'
-import ElSwitch from '@element-plus/switch'
-import ElTabPane from '@element-plus/tab-pane'
-import ElTable from '@element-plus/table'
-import ElTableColumn from '@element-plus/table-column'
-import ElTabs from '@element-plus/tabs'
-import ElTag from '@element-plus/tag'
-import ElTimePicker from '@element-plus/time-picker'
-import ElTimeSelect from '@element-plus/time-select'
-import ElTimeline from '@element-plus/timeline'
-import ElTimelineItem from '@element-plus/timeline-item'
-import ElTooltip from '@element-plus/tooltip'
-import ElTransfer from '@element-plus/transfer'
-import ElTree from '@element-plus/tree'
-import ElUpload from '@element-plus/upload'
-import ElVirtualList from '@element-plus/virtual-list'
-import ElSpace from '@element-plus/space'
-import ElSkeleton from '@element-plus/skeleton'
-import ElSkeletonItem from '@element-plus/skeleton-item'
+import Affix from '@element-plus/affix'
+import Alert from '@element-plus/alert'
+import Aside from '@element-plus/aside'
+import Autocomplete from '@element-plus/autocomplete'
+import Avatar from '@element-plus/avatar'
+import Backtop from '@element-plus/backtop'
+import Badge from '@element-plus/badge'
+import Breadcrumb from '@element-plus/breadcrumb'
+import BreadcrumbItem from '@element-plus/breadcrumb-item'
+import Button from '@element-plus/button'
+import ButtonGroup from '@element-plus/button-group'
+import Calendar from '@element-plus/calendar'
+import Card from '@element-plus/card'
+import Carousel from '@element-plus/carousel'
+import CarouselItem from '@element-plus/carousel-item'
+import Cascader from '@element-plus/cascader'
+import CascaderPanel from '@element-plus/cascader-panel'
+import Checkbox from '@element-plus/checkbox'
+import CheckboxButton from '@element-plus/checkbox-button'
+import CheckboxGroup from '@element-plus/checkbox-group'
+import Col from '@element-plus/col'
+import Collapse from '@element-plus/collapse'
+import CollapseItem from '@element-plus/collapse-item'
+import CollapseTransition from '@element-plus/collapse-transition'
+import ColorPicker from '@element-plus/color-picker'
+import Container from '@element-plus/container'
+import DatePicker from '@element-plus/date-picker'
+import Dialog from '@element-plus/dialog'
+import Divider from '@element-plus/divider'
+import Drawer from '@element-plus/drawer'
+import Dropdown from '@element-plus/dropdown'
+import DropdownItem from '@element-plus/dropdown-item'
+import DropdownMenu from '@element-plus/dropdown-menu'
+import Empty from '@element-plus/empty'
+import Footer from '@element-plus/footer'
+import Form from '@element-plus/form'
+import FormItem from '@element-plus/form-item'
+import Header from '@element-plus/header'
+import Icon from '@element-plus/icon'
+import Image from '@element-plus/image'
+import ImageViewer from '@element-plus/image-viewer'
+import InfiniteScroll from '@element-plus/infinite-scroll'
+import Input from '@element-plus/input'
+import InputNumber from '@element-plus/input-number'
+import Link from '@element-plus/link'
+import Loading from '@element-plus/loading'
+import Main from '@element-plus/main'
+import Menu from '@element-plus/menu'
+import MenuItem from '@element-plus/menu-item'
+import MenuItemGroup from '@element-plus/menu-item-group'
+import Message from '@element-plus/message'
+import MessageBox from '@element-plus/message-box'
+import Notification from '@element-plus/notification'
+import Option from '@element-plus/option'
+import OptionGroup from '@element-plus/option-group'
+import PageHeader from '@element-plus/page-header'
+import Pagination from '@element-plus/pagination'
+import Popconfirm from '@element-plus/popconfirm'
+import Popover from '@element-plus/popover'
+import Popper from '@element-plus/popper'
+import Progress from '@element-plus/progress'
+import Radio from '@element-plus/radio'
+import RadioButton from '@element-plus/radio-button'
+import RadioGroup from '@element-plus/radio-group'
+import Rate from '@element-plus/rate'
+import Row from '@element-plus/row'
+import Scrollbar from '@element-plus/scrollbar'
+import Select from '@element-plus/select'
+import Slider from '@element-plus/slider'
+import Step from '@element-plus/step'
+import Steps from '@element-plus/steps'
+import Submenu from '@element-plus/submenu'
+import Switch from '@element-plus/switch'
+import TabPane from '@element-plus/tab-pane'
+import Table from '@element-plus/table'
+import TableColumn from '@element-plus/table-column'
+import Tabs from '@element-plus/tabs'
+import Tag from '@element-plus/tag'
+import TimePicker from '@element-plus/time-picker'
+import TimeSelect from '@element-plus/time-select'
+import Timeline from '@element-plus/timeline'
+import TimelineItem from '@element-plus/timeline-item'
+import Tooltip from '@element-plus/tooltip'
+import Transfer from '@element-plus/transfer'
+import Tree from '@element-plus/tree'
+import Upload from '@element-plus/upload'
+import VirtualList from '@element-plus/virtual-list'
+import Space from '@element-plus/space'
+import Skeleton from '@element-plus/skeleton'
+import SkeletonItem from '@element-plus/skeleton-item'
 import { use, i18n } from '@element-plus/locale'
 // if you encountered problems alike "Can't resolve './version'"
 // please run `yarn bootstrap` first
@@ -113,99 +113,99 @@ const defaultInstallOpt: InstallOptions = {
 }
 
 const components = [
-  ElAffix,
-  ElAlert,
-  ElAside,
-  ElAutocomplete,
-  ElAvatar,
-  ElBacktop,
-  ElBadge,
-  ElBreadcrumb,
-  ElBreadcrumbItem,
-  ElButton,
-  ElButtonGroup,
-  ElCalendar,
-  ElCard,
-  ElCarousel,
-  ElCarouselItem,
-  ElCascader,
-  ElCascaderPanel,
-  ElCheckbox,
-  ElCheckboxButton,
-  ElCheckboxGroup,
-  ElCol,
-  ElCollapse,
-  ElCollapseItem,
-  ElCollapseTransition,
-  ElColorPicker,
-  ElContainer,
-  ElDatePicker,
-  ElDialog,
-  ElDivider,
-  ElDrawer,
-  ElDropdown,
-  ElDropdownItem,
-  ElDropdownMenu,
-  ElEmpty,
-  ElFooter,
-  ElForm,
-  ElFormItem,
-  ElHeader,
-  ElIcon,
-  ElImage,
-  ElImageViewer,
-  ElInput,
-  ElInputNumber,
-  ElLink,
-  ElMain,
-  ElMenu,
-  ElMenuItem,
-  ElMenuItemGroup,
-  ElOption,
-  ElOptionGroup,
-  ElPageHeader,
-  ElPagination,
-  ElPopconfirm,
-  ElPopover,
-  ElPopper,
-  ElProgress,
-  ElRadio,
-  ElRadioButton,
-  ElRadioGroup,
-  ElRate,
-  ElRow,
-  ElScrollbar,
-  ElSelect,
-  ElSlider,
-  ElStep,
-  ElSteps,
-  ElSubmenu,
-  ElSwitch,
-  ElTabPane,
-  ElTable,
-  ElTableColumn,
-  ElTabs,
-  ElTag,
-  ElTimePicker,
-  ElTimeSelect,
-  ElTimeline,
-  ElTimelineItem,
-  ElTooltip,
-  ElTransfer,
-  ElTree,
-  ElUpload,
-  ElVirtualList,
-  ElSpace,
-  ElSkeleton,
-  ElSkeletonItem,
+  Affix,
+  Alert,
+  Aside,
+  Autocomplete,
+  Avatar,
+  Backtop,
+  Badge,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  ButtonGroup,
+  Calendar,
+  Card,
+  Carousel,
+  CarouselItem,
+  Cascader,
+  CascaderPanel,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Col,
+  Collapse,
+  CollapseItem,
+  CollapseTransition,
+  ColorPicker,
+  Container,
+  DatePicker,
+  Dialog,
+  Divider,
+  Drawer,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Empty,
+  Footer,
+  Form,
+  FormItem,
+  Header,
+  Icon,
+  Image,
+  ImageViewer,
+  Input,
+  InputNumber,
+  Link,
+  Main,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  Option,
+  OptionGroup,
+  PageHeader,
+  Pagination,
+  Popconfirm,
+  Popover,
+  Popper,
+  Progress,
+  Radio,
+  RadioButton,
+  RadioGroup,
+  Rate,
+  Row,
+  Scrollbar,
+  Select,
+  Slider,
+  Step,
+  Steps,
+  Submenu,
+  Switch,
+  TabPane,
+  Table,
+  TableColumn,
+  Tabs,
+  Tag,
+  TimePicker,
+  TimeSelect,
+  Timeline,
+  TimelineItem,
+  Tooltip,
+  Transfer,
+  Tree,
+  Upload,
+  VirtualList,
+  Space,
+  Skeleton,
+  SkeletonItem,
 ]
 
 const plugins = [
-  ElInfiniteScroll,
-  ElLoading,
-  ElMessage,
-  ElMessageBox,
-  ElNotification,
+  InfiniteScroll,
+  Loading,
+  Message,
+  MessageBox,
+  Notification,
 ]
 
 const install = (app: App, opt: InstallOptions): void => {
@@ -227,96 +227,96 @@ const install = (app: App, opt: InstallOptions): void => {
 }
 
 export {
-  ElAffix,
-  ElAlert,
-  ElAside,
-  ElAutocomplete,
-  ElAvatar,
-  ElBacktop,
-  ElBadge,
-  ElBreadcrumb,
-  ElBreadcrumbItem,
-  ElButton,
-  ElButtonGroup,
-  ElCalendar,
-  ElCard,
-  ElCarousel,
-  ElCarouselItem,
-  ElCascader,
-  ElCascaderPanel,
-  ElCheckbox,
-  ElCheckboxButton,
-  ElCheckboxGroup,
-  ElCol,
-  ElCollapse,
-  ElCollapseItem,
-  ElCollapseTransition,
-  ElColorPicker,
-  ElContainer,
-  ElDatePicker,
-  ElDialog,
-  ElDivider,
-  ElDrawer,
-  ElDropdown,
-  ElDropdownItem,
-  ElDropdownMenu,
-  ElEmpty,
-  ElFooter,
-  ElForm,
-  ElFormItem,
-  ElHeader,
-  ElIcon,
-  ElImage,
-  ElImageViewer,
-  ElInfiniteScroll,
-  ElInput,
-  ElInputNumber,
-  ElLink,
-  ElLoading,
-  ElMain,
-  ElMenu,
-  ElMenuItem,
-  ElMenuItemGroup,
-  ElMessage,
-  ElMessageBox,
-  ElNotification,
-  ElOption,
-  ElOptionGroup,
-  ElPageHeader,
-  ElPagination,
-  ElPopconfirm,
-  ElPopover,
-  ElPopper,
-  ElProgress,
-  ElRadio,
-  ElRadioButton,
-  ElRadioGroup,
-  ElRate,
-  ElRow,
-  ElScrollbar,
-  ElSelect,
-  ElSlider,
-  ElStep,
-  ElSteps,
-  ElSubmenu,
-  ElSwitch,
-  ElTabPane,
-  ElTable,
-  ElTableColumn,
-  ElTabs,
-  ElTag,
-  ElTimePicker,
-  ElTimeSelect,
-  ElTimeline,
-  ElTimelineItem,
-  ElTooltip,
-  ElTransfer,
-  ElTree,
-  ElUpload,
-  ElVirtualList,
-  ElSpace,
-  ElSkeleton,
-  ElSkeletonItem,
+  Affix,
+  Alert,
+  Aside,
+  Autocomplete,
+  Avatar,
+  Backtop,
+  Badge,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  ButtonGroup,
+  Calendar,
+  Card,
+  Carousel,
+  CarouselItem,
+  Cascader,
+  CascaderPanel,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Col,
+  Collapse,
+  CollapseItem,
+  CollapseTransition,
+  ColorPicker,
+  Container,
+  DatePicker,
+  Dialog,
+  Divider,
+  Drawer,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Empty,
+  Footer,
+  Form,
+  FormItem,
+  Header,
+  Icon,
+  Image,
+  ImageViewer,
+  InfiniteScroll,
+  Input,
+  InputNumber,
+  Link,
+  Loading,
+  Main,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  Message,
+  MessageBox,
+  Notification,
+  Option,
+  OptionGroup,
+  PageHeader,
+  Pagination,
+  Popconfirm,
+  Popover,
+  Popper,
+  Progress,
+  Radio,
+  RadioButton,
+  RadioGroup,
+  Rate,
+  Row,
+  Scrollbar,
+  Select,
+  Slider,
+  Step,
+  Steps,
+  Submenu,
+  Switch,
+  TabPane,
+  Table,
+  TableColumn,
+  Tabs,
+  Tag,
+  TimePicker,
+  TimeSelect,
+  Timeline,
+  TimelineItem,
+  Tooltip,
+  Transfer,
+  Tree,
+  Upload,
+  VirtualList,
+  Space,
+  Skeleton,
+  SkeletonItem,
   version,
   install,
   locale,

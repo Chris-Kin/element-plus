@@ -42,7 +42,7 @@ const config = {
     publicPath: '/',
     filename: isFullMode ? 'index.full.js' : 'index.js',
     libraryTarget: 'umd',
-    library: 'ElementPlus',
+    library: 'HostElementPlus',
     umdNamedDefine: true,
     globalObject: 'typeof self !== \'undefined\' ? self : this',
   },

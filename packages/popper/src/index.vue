@@ -22,7 +22,7 @@ import defaultProps from './use-popper/defaults'
 import { renderPopper, renderTrigger, renderArrow } from './renderers'
 import { ClickOutside } from '@element-plus/directives'
 
-const compName = 'ElPopper'
+const compName = 'NAMESPACEPopper'
 const UPDATE_VISIBLE_EVENT = 'update:visible'
 
 export default defineComponent({
