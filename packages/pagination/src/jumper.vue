@@ -2,6 +2,7 @@
   <span class="NAMESPACE-pagination__jump">
     {{ t('el.pagination.goto') }}
     <NAMESPACE-input
+      size="mini"
       class="NAMESPACE-pagination__editor is-in-pagination"
       :min="1"
       :max="pageCount"
