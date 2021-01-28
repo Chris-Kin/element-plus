@@ -16,7 +16,7 @@
       effect="light"
       pure
       trigger="click"
-      transition="el-zoom-in-top"
+      transition="NAMESPACE-zoom-in-top"
       :stop-popper-mouse-event="false"
       :gpu-acceleration="false"
       @before-enter="handleMenuEnter"

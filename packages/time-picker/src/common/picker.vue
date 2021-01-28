@@ -8,7 +8,7 @@
     trigger="click"
     v-bind="$attrs"
     :popper-class="`NAMESPACE-picker__popper ${popperClass}`"
-    transition="el-zoom-in-top"
+    transition="NAMESPACE-zoom-in-top"
     :gpu-acceleration="false"
     :stop-popper-mouse-event="false"
     append-to-body

@@ -7,7 +7,7 @@
     :popper-class="`NAMESPACE-cascader__dropdown ${popperClass}`"
     :popper-options="popperOptions"
     :stop-popper-mouse-event="false"
-    transition="el-zoom-in-top"
+    transition="NAMESPACE-zoom-in-top"
     :gpu-acceleration="false"
     effect="light"
     pure

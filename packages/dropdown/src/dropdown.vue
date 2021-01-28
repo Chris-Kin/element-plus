@@ -9,7 +9,7 @@
     :trigger="[trigger]"
     popper-class="NAMESPACE-dropdown__popper"
     append-to-body
-    transition="el-zoom-in-top"
+    transition="NAMESPACE-zoom-in-top"
     :stop-popper-mouse-event="false"
     :gpu-acceleration="false"
   >

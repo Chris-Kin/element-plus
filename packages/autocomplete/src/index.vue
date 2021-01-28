@@ -9,7 +9,7 @@
     manual-mode
     effect="light"
     trigger="click"
-    transition="el-zoom-in-top"
+    transition="NAMESPACE-zoom-in-top"
     :gpu-acceleration="false"
   >
     <template #trigger>

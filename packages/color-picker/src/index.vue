@@ -7,7 +7,7 @@
     trigger="click"
     :show-arrow="false"
     :offset="0"
-    transition="el-zoom-in-top"
+    transition="NAMESPACE-zoom-in-top"
     :gpu-acceleration="false"
     :popper-class="`NAMESPACE-color-picker__panel NAMESPACE-color-dropdown ${popperClass}`"
     :stop-popper-mouse-event="false"

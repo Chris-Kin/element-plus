@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
+const G = require('../global.config')
+
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -33,7 +35,7 @@ const config = {
             loader: 'string-replace-loader',
             options: {
               search: /NAMESPACE/g,
-              replace: 'xxl',
+              replace: G.NAMESPACE,
             },
           },
         ],
@@ -47,7 +49,7 @@ const config = {
             loader: 'string-replace-loader',
             options: {
               search: /NAMESPACE/g,
-              replace: 'xxl',
+              replace: G.NAMESPACE,
             },
           },
         ],
@@ -70,7 +72,7 @@ const config = {
             loader: 'string-replace-loader',
             options: {
               search: /NAMESPACE/g,
-              replace: 'xxl',
+              replace: G.NAMESPACE,
             },
           },
         ],

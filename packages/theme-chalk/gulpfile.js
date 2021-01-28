@@ -6,6 +6,8 @@ const autoprefixer = require('gulp-autoprefixer')
 const cssmin = require('gulp-cssmin')
 const rename = require('gulp-rename')
 
+const config = require('../../global.config')
+
 const noElPrefixFile = /(index|base|display)/
 
 function compile() {
@@ -15,7 +17,7 @@ function compile() {
     .pipe(cssmin())
     .pipe(rename(function (path) {
       if(!noElPrefixFile.test(path.basename)) {
-        path.basename = `NAMESPACE-${path.basename}`
+        path.basename = `${config.NAMESPACE}-${path.basename}`
       }
     }))
     .pipe(dest('./lib'))

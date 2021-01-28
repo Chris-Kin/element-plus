@@ -7,6 +7,10 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const vue = require('rollup-plugin-vue')
 const rollup = require('rollup')
 const typescript = require('rollup-plugin-typescript2')
+const replace = require('@rollup/plugin-replace')
+
+const G = require('../global.config')
+
 const { noElPrefixFile } = require('./common')
 
 const deps = Object.keys(pkg.dependencies)
@@ -46,6 +50,11 @@ const runBuild = async () => {
           },
           abortOnError: false,
         }),
+        replace({
+          exclude: 'node_modules/**',
+          NAMESPACE: G.NAMESPACE,
+          delimiters: ['', '']
+        })
       ],
       external(id) {
         return /^vue/.test(id)

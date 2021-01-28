@@ -303,7 +303,7 @@ export default defineComponent({
 
     const calcIconOffset = place => {
       const { el } = instance.vnode
-      const elList: HTMLSpanElement[] = Array.from(el.querySelectorAll(`.el-input__${place}`))
+      const elList: HTMLSpanElement[] = Array.from(el.querySelectorAll(`.NAMESPACE-input__${place}`))
       const target = elList.find(item => item.parentNode === el)
 
       if (!target) return
@@ -311,7 +311,7 @@ export default defineComponent({
       const pendant = PENDANT_MAP[place]
 
       if (ctx.slots[pendant]) {
-        target.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${el.querySelector(`.el-input-group__${pendant}`).offsetWidth}px)`
+        target.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${el.querySelector(`.NAMESPACE-input-group__${pendant}`).offsetWidth}px)`
       } else {
         target.removeAttribute('style')
       }

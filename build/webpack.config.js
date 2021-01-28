@@ -50,12 +50,31 @@ const config = {
     rules: [
       {
         test: /\.vue$/,
-        use: 'vue-loader',
+        use: [
+          'vue-loader',
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /NAMESPACE/g,
+              replace: 'xxl',
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        // loader: 'babel-loader',
+        use: [
+          'babel-loader',
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /NAMESPACE/g,
+              replace: 'xxl',
+            },
+          },
+        ],
       },
     ],
   },
