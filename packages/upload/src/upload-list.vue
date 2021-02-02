@@ -9,8 +9,8 @@
     name="NAMESPACE-list"
   >
     <li
-      v-for="(file, idx) in files"
-      :key="idx"
+      v-for="file in files"
+      :key="file"
       :class="['NAMESPACE-upload-list__item', 'is-' + file.status, focusing ? 'focusing' : '']"
       tabindex="0"
       @keydown.delete="!disabled && handleRemove($event, file)"
