@@ -1,8 +1,8 @@
 <script>
 import { defineComponent, h, computed, watch, getCurrentInstance, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
-import { ElScrollbar } from 'element-plus'
-import { ElMessageBox } from 'element-plus'
+import { Scrollbar } from 'element-plus'
+import { MessageBox } from 'element-plus'
 import MainHeader from './components/header'
 import MainFooter from './components/footer'
 import { use } from '@element-plus/locale'
@@ -53,7 +53,7 @@ export default defineComponent({
       if (cnHref || preferGithub) return
       setTimeout(() => {
         if (lang.value !== Language.CN) return
-        ElMessageBox.confirm('建议大陆用户访问部署在国内的站点，是否跳转？', '提示')
+        MessageBox.confirm('建议大陆用户访问部署在国内的站点，是否跳转？', '提示')
           .then(() => {
             location.replace('https://element-plus.gitee.io')
           })
@@ -96,7 +96,7 @@ export default defineComponent({
     }, [h(RouterView)]), mainFooter]
 
     const contentWrapper = notComponent
-      ? h(ElScrollbar, null, { default: () => content })
+      ? h(Scrollbar, null, { default: () => content })
       : content
 
     return h('div', {

@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+const G = require('./global.config')
+
 module.exports = {
   // ATTENTION!!
   // Preset ordering is reversed, so `@babel/typescript` will called first
@@ -18,6 +21,14 @@ module.exports = {
     '@babel/proposal-class-properties',
     '@babel/transform-runtime',
     'lodash',
+    ['search-and-replace', {
+      rules: [
+        {
+          search: /NAMESPACE/,
+          replace: G.NAMESPACE,
+        },
+      ],
+    }],
   ],
   overrides: [
     {

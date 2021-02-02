@@ -16,15 +16,15 @@
 
 <script>
   import { defineComponent, h } from 'vue'
-  import { ElMessage } from 'element-plus'
+  import { Message } from 'element-plus'
   export default defineComponent ({
     setup() {
       return {
         open() {
-          ElMessage('只是一条消息提示')
+          Message('只是一条消息提示')
         },
         openVn() {
-          ElMessage({
+          Message({
             message: h('p', null, [
               h('span', null, '内容可以是 '),
               h('i', { style: 'color: teal' }, 'VNode')
@@ -53,27 +53,27 @@
 
 <script>
   import { defineComponent } from 'vue'
-  import { ElMessage } from 'element-plus'
+  import { Message } from 'element-plus'
   export default defineComponent({
     setup() {
       return {
         open1() {
-          ElMessage.success({
+          Message.success({
             message: '恭喜你，这是一条成功消息',
             type: 'success'
           });
         },
         open2() {
-          ElMessage.warning({
+          Message.warning({
             message: '警告哦，这是一条警告消息',
             type: 'warning'
           });
         },
         open3() {
-          ElMessage('这是一条消息提示');
+          Message('这是一条消息提示');
         },
         open4() {
-          ElMessage.error('错了哦，这是一条错误消息');
+          Message.error('错了哦，这是一条错误消息');
         }
       }
     }
@@ -97,20 +97,20 @@
 
 <script>
   import { defineComponent } from 'vue'
-  import { ElMessage } from 'element-plus'
+  import { Message } from 'element-plus'
 
   export default defineComponent({
     setup() {
       return {
         open1() {
-          ElMessage({
+          Message({
             showClose: true,
             message: '这是一条消息提示'
           });
         },
 
         open2() {
-          ElMessage({
+          Message({
             showClose: true,
             message: '恭喜你，这是一条成功消息',
             type: 'success'
@@ -118,7 +118,7 @@
         },
 
         open3() {
-          ElMessage({
+          Message({
             showClose: true,
             message: '警告哦，这是一条警告消息',
             type: 'warning'
@@ -126,7 +126,7 @@
         },
 
         open4() {
-          ElMessage({
+          Message({
             showClose: true,
             message: '错了哦，这是一条错误消息',
             type: 'error'
@@ -151,12 +151,12 @@
 
 <script>
   import { defineComponent } from 'vue'
-  import { ElMessage } from 'element-plus'
+  import { Message } from 'element-plus'
   export default defineComponent({
     setup() {
       return {
         openCenter() {
-          ElMessage({
+          Message({
             message: '居中的文字',
             center: true
           });
@@ -180,12 +180,12 @@
 
 <script>
   import { defineComponent } from 'vue'
-  import { ElMessage } from 'element-plus'
+  import { Message } from 'element-plus'
   export default defineComponent({
     setup() {
       return {
         openHTML() {
-          ElMessage({
+          Message({
             dangerouslyUseHTMLString: true,
             message: '<strong>这是 <i>HTML</i> 片段</strong>'
           });
@@ -203,15 +203,15 @@
 
 ### 全局方法
 
-Element Plus 为 `app.config.globalProperties` 添加了全局方法 $message。因此在 vue instance 中可以采用在 method 中调用 `this.$message` 方法唤起 `ElMessage`。
+Element Plus 为 `app.config.globalProperties` 添加了全局方法 $message。因此在 vue instance 中可以采用在 method 中调用 `this.$message` 方法唤起 `Message`。
 
 ### 单独引用
 
 ```javascript
-import { ElMessage } from 'element-plus';
+import { Message } from 'element-plus';
 ```
 
-此时调用方法为 `ElMessage(options)`。我们也为每个 type 定义了各自的方法，如 `ElMessage.success(options)`。并且可以调用 `ElMessage.closeAll()` 手动关闭所有实例。
+此时调用方法为 `Message(options)`。我们也为每个 type 定义了各自的方法，如 `Message.success(options)`。并且可以调用 `Message.closeAll()` 手动关闭所有实例。
 
 ### Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
@@ -228,7 +228,7 @@ import { ElMessage } from 'element-plus';
 | offset | Message 距离窗口顶部的偏移量 | number | — | 20 |
 
 ### 方法
-调用 `ElMessage` 或 `this.$message` 会返回当前 Message 的实例。如果需要手动关闭实例，可以调用它的 `close` 方法。
+调用 `Message` 或 `this.$message` 会返回当前 Message 的实例。如果需要手动关闭实例，可以调用它的 `close` 方法。
 | 方法名 | 说明 |
 | ---- | ---- |
 | close | 关闭当前的 Message |

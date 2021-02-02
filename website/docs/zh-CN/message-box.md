@@ -287,10 +287,10 @@
 如果单独引入 `MessageBox`：
 
 ```javascript
-import { ElMessageBox } from 'element-plus';
+import { MessageBox } from 'element-plus';
 ```
 
-那么对应于上述四个全局方法的调用方法依次为：ElMessageBox, ElMessageBox.alert, ElMessageBox.confirm 和 ElMessageBox.prompt，调用参数与全局方法相同。
+那么对应于上述四个全局方法的调用方法依次为：MessageBox, MessageBox.alert, MessageBox.confirm 和 MessageBox.prompt，调用参数与全局方法相同。
 
 ### Options
 

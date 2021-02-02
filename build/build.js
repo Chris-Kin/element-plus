@@ -7,6 +7,7 @@ const vue = require('rollup-plugin-vue')
 const rollup = require('rollup')
 const typescript = require('rollup-plugin-typescript2')
 const { noElPrefixFile } = require('./common');
+const G = require('../global.config');
 
 const deps = Object.keys(pkg.dependencies)
 
@@ -59,7 +60,7 @@ const run = async (name, input, isRoot = false) => {
   const getPaths = (id) => {
     if (isPkg(id)) {
       if (isExcluded(id)) return replacePrefix(isRoot ? './' : '../', id)
-      return replacePrefix(isRoot ? './el-' : '../el-', id)
+      return replacePrefix(isRoot ? `./${G.NAMESPACE}-` : `../${G.NAMESPACE}-`, id)
     }
   }
   const esm = {

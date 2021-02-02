@@ -67,7 +67,7 @@ const runBuild = async () => {
       if(noElPrefixFile.test(name)) {
         return `lib/${compName}/index.js`
       }
-      return `lib/el-${compName}/index.js`
+      return `lib/${G.NAMESPACE}-${compName}/index.js`
     }
     const outOptions = {
       format: 'es',
@@ -75,7 +75,7 @@ const runBuild = async () => {
       paths(id) {
         if (/^@element-plus/.test(id)) {
           if (noElPrefixFile.test(id)) return id.replace('@element-plus', '..')
-          return id.replace('@element-plus/', '../el-')
+          return id.replace('@element-plus/', `../${G.NAMESPACE}-`)
         }
       },
     }

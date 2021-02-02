@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @deprecated use node api build
  */
@@ -10,6 +11,9 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import path from 'path'
 import { getPackagesSync } from '@lerna/project'
 import pkg from '../package.json'
+const G = require('../global.config')
+import replace from '@rollup/plugin-replace'
+
 const deps = Object.keys(pkg.dependencies)
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const vue = require('./plugin.js')
@@ -59,6 +63,11 @@ export default inputs.map(name => ({
     vue({
       target: 'browser',
       css: false,
+    }),
+    replace({
+      exclude: 'node_modules/**',
+      NAMESPACE: G.NAMESPACE,
+      delimiters: ['', ''],
     }),
   ],
   external(id) {

@@ -1,4 +1,5 @@
 /* eslint-disable */
+const G = require('../global.config')
 
 // name came from the terminal as `./packages/*` notation, so when resolve the name, we'd like
 // to add a `..` to do so. because the current file is under `build/`, `packages/` is at the
@@ -10,7 +11,7 @@ if (!compPath) {
   process.exit(1)
 }
 
-const outPutPrefix = ['hooks', 'directives'].some((p) => compPath.includes(p)) ? '' : 'el-';
+const outPutPrefix = ['hooks', 'directives'].some((p) => compPath.includes(p)) ? '' : `${G.NAMESPACE}-`;
 const compName = compPath.split('/').pop()
 
 run(`${outPutPrefix}${compName}/index.js`, compPath)

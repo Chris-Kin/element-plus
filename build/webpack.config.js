@@ -2,6 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
+const G = require('../global.config')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const libMode = process.env.LIBMODE
@@ -56,7 +57,7 @@ const config = {
             loader: 'string-replace-loader',
             options: {
               search: /NAMESPACE/g,
-              replace: 'xxl',
+              replace: G.NAMESPACE,
             },
           },
         ],
@@ -71,7 +72,7 @@ const config = {
             loader: 'string-replace-loader',
             options: {
               search: /NAMESPACE/g,
-              replace: 'xxl',
+              replace: G.NAMESPACE,
             },
           },
         ],

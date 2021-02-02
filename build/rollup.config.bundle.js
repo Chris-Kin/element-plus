@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // import vue from 'rollup-plugin-vue'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import path from 'path'
@@ -5,9 +6,11 @@ import path from 'path'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from '../package.json'
+const G = require('../global.config')
 const deps = Object.keys(pkg.dependencies)
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const vue = require('rollup-plugin-vue')
+import replace from '@rollup/plugin-replace'
 
 export default [
   {
@@ -37,6 +40,11 @@ export default [
           ],
         },
         abortOnError: false,
+      }),
+      replace({
+        exclude: 'node_modules/**',
+        NAMESPACE: G.NAMESPACE,
+        delimiters: ['', ''],
       }),
     ],
     external(id) {
