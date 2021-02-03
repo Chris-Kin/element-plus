@@ -1,7 +1,7 @@
 {
   "name": "host-element-plus",
   "private": false,
-  "version": "0.0.0-development-2",
+  "version": "0.0.0-development-3",
   "scripts": {
     "cz": "npx git-cz",
     "test": "jest",
@@ -13,6 +13,8 @@
     "clean:lib": "rimraf lib && rimraf es",
     "build:lib": "cross-env LIBMODE=core webpack --config ./build/webpack.config.js",
     "build:lib-full": "cross-env LIBMODE=full webpack --config ./build/webpack.config.js",
+    "build:single": "cross-env webpack --config ./build/webpack.config.single.js",
+    "build:single-full": "cross-env LIBMODE=full webpack --config ./build/webpack.config.single.js",
     "build:esm-bundle": "rollup --config ./build/rollup.config.bundle.js && yarn build:type",
     "build:type": "node build/gen-type.js",
     "build:esm": "node ./build/bincomp.js",
@@ -146,6 +148,7 @@
   "files": [
     "lib",
     "es",
+    "single",
     "packages",
     "vetur"
   ],
