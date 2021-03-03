@@ -10,36 +10,29 @@
       @click.stop="handleClick"
     >
       <slot>
-        <i class="el-icon-caret-top"></i>
+        <el-icon class="el-icon-caret-top" name="online" />
       </slot>
     </div>
   </transition>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, computed, onMounted, onBeforeUnmount } from 'vue'
+<script>
 import throttle from 'lodash/throttle'
-import { on, off } from '@element-plus/utils/dom'
-import { easeInOutCubic } from '@element-plus/utils/animation'
+import ElIcon from '@element-plus/icon'
 
-interface IElBacktopProps {
-  visibilityHeight: number
-  target: string
-  right: number
-  bottom: number
-}
-
-export default defineComponent({
+export default {
   name: 'ElBacktop',
+
+  components: {
+    ElIcon,
+  },
+
   props: {
     visibilityHeight: {
       type: Number,
       default: 200,
     },
-    target: {
-      type: String,
-      default: '',
-    },
+    target: [String],
     right: {
       type: Number,
       default: 40,
@@ -49,63 +42,68 @@ export default defineComponent({
       default: 40,
     },
   },
+
   emits: ['click'],
-  setup(props: IElBacktopProps, ctx) {
-    const el = ref(null)
-    const container = ref(null)
-    const visible = ref(false)
-    const styleBottom = computed(() => `${props.bottom}px`)
-    const styleRight = computed(() => `${props.right}px`)
 
-    const scrollToTop = () => {
-      const beginTime = Date.now()
-      const beginValue = el.value.scrollTop
-      const rAF = window.requestAnimationFrame || (func => setTimeout(func, 16))
-      const frameFunc = () => {
-        const progress = (Date.now() - beginTime) / 500
-        if (progress < 1) {
-          el.value.scrollTop = beginValue * (1 - easeInOutCubic(progress))
-          rAF(frameFunc)
-        } else {
-          el.value.scrollTop = 0
-        }
-      }
-      rAF(frameFunc)
-    }
-    const onScroll = () => {
-      visible.value = el.value.scrollTop >= props.visibilityHeight
-    }
-    const handleClick = event => {
-      scrollToTop()
-      ctx.emit('click', event)
-    }
-
-    const throttledScrollHandler = throttle(onScroll, 300)
-
-    onMounted(() => {
-      container.value = document
-      el.value = document.documentElement
-      if (props.target) {
-        el.value = document.querySelector(props.target)
-        if (!el.value) {
-          throw new Error(`target is not existed: ${props.target}`)
-        }
-        container.value = el.value
-      }
-      on(container.value, 'scroll', throttledScrollHandler)
-    })
-    onBeforeUnmount(() => {
-      off(container.value, 'scroll', throttledScrollHandler)
-    })
-
+  data() {
     return {
-      el,
-      container,
-      visible,
-      styleBottom,
-      styleRight,
-      handleClick,
+      el: null,
+      container: null,
+      visible: false,
     }
   },
-})
+
+  computed: {
+    styleBottom() {
+      return `${this.bottom}px`
+    },
+    styleRight() {
+      return `${this.right}px`
+    },
+  },
+
+  mounted() {
+    this.init()
+    this.throttledScrollHandler = throttle(this.onScroll)
+    this.container.addEventListener('scroll', this.throttledScrollHandler)
+  },
+
+  beforeUnmount() {
+    this.container.removeEventListener('scroll', this.throttledScrollHandler)
+  },
+
+  methods: {
+    init() {
+      this.container = document
+      this.el = document.documentElement
+      if (this.target) {
+        this.el = document.querySelector(this.target)
+        if (!this.el) {
+          throw new Error(`target is not existed: ${this.target}`)
+        }
+        this.container = this.el
+      }
+    },
+    onScroll() {
+      const scrollTop = this.el.scrollTop
+      this.visible = scrollTop >= this.visibilityHeight
+    },
+    handleClick(e) {
+      this.scrollToTop()
+      this.$emit('click', e)
+    },
+    scrollToTop() {
+      let el = this.el
+      let step = 0
+      let interval = setInterval(() => {
+        if (el.scrollTop <= 0) {
+          clearInterval(interval)
+          return
+        }
+        step += 10
+        el.scrollTop -= step
+      }, 20)
+    },
+  },
+}
 </script>

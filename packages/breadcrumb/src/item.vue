@@ -2,72 +2,48 @@
   <span class="el-breadcrumb__item">
     <span
       ref="link"
-      :class="['el-breadcrumb__inner', to ? 'is-link' : '']"
+      :class="['el-breadcrumb__inner', to ? 'is-link' : '', disabled ? 'is-disabled': '']"
       role="link"
     >
       <slot></slot>
     </span>
-    <i
-      v-if="separatorClass"
-      class="el-breadcrumb__separator"
-      :class="separatorClass"
-    ></i>
-    <span v-else class="el-breadcrumb__separator" role="presentation">{{
-      separator
-    }}</span>
+    <i v-if="separatorClass" class="el-breadcrumb__separator" :class="separatorClass"></i>
+    <span v-else class="el-breadcrumb__separator" role="presentation">{{ separator }}</span>
   </span>
 </template>
-
-<script lang="ts">
-import {
-  defineComponent,
-  inject,
-  ref,
-  onMounted,
-  getCurrentInstance,
-} from 'vue'
-
-interface IBreadcrumbInject {
-  separator: string
-  separatorClass: string
-}
-
-interface IBreadcrumbItemProps {
-  to: string | Record<string, unknown>
-  replace: boolean
-}
-
-export default defineComponent({
+<script>
+export default {
   name: 'ElBreadcrumbItem',
+
+  inject: ['elBreadcrumb'],
   props: {
     to: {
-      type: [String, Object],
-      default: '',
+      type: Object,
     },
-    replace: {
-      type: Boolean,
+    replace: Boolean,
+    disabled: {
       default: false,
+      type: Boolean,
     },
   },
-  setup(props: IBreadcrumbItemProps) {
-    const link = ref(null)
-    const parent: IBreadcrumbInject = inject('breadcrumb')
-    const instance = getCurrentInstance()
-    const router = instance.appContext.config.globalProperties.$router
-
-    onMounted(() => {
-      link.value.setAttribute('role', 'link')
-      link.value.addEventListener('click', () => {
-        if (!props.to || !router) return
-        props.replace ? router.replace(props.to) : router.push(props.to)
-      })
-    })
-
+  data() {
     return {
-      link,
-      separator: parent?.separator,
-      separatorClass: parent?.separatorClass,
+      separator: '',
+      separatorClass: '',
     }
   },
-})
+
+  mounted() {
+    this.separator = this.elBreadcrumb.separator
+    this.separatorClass = this.elBreadcrumb.separatorClass
+    const link = this.$refs.link
+    link.setAttribute('role', 'link')
+    link.addEventListener('click', () => {
+      if (this.disabled) return
+      const { to, $router } = this
+      if (!to || !$router) return
+      this.replace ? $router.replace(to) : $router.push(to)
+    })
+  },
+}
 </script>
