@@ -1,7 +1,10 @@
 <template>
   <button
+    class="el-buttomm el-button"
+    :disabled="buttonDisabled || loading"
+    :autofocus="autofocus"
+    :type="nativeType"
     :class="[
-      'el-button',
       type ? 'el-button--' + type : '',
       buttonSize ? 'el-button--' + buttonSize : '',
       {
@@ -9,114 +12,84 @@
         'is-loading': loading,
         'is-plain': plain,
         'is-round': round,
-        'is-circle': circle
-      }
+        'is-square': square,
+        'is-icon': (icon || loading) && $slots.default
+      },
     ]"
-    :disabled="buttonDisabled || loading"
-    :autofocus="autofocus"
-    :type="nativeType"
     @click="handleClick"
   >
-    <i v-if="loading" class="el-icon-loading"></i>
-    <i v-if="icon && !loading" :class="icon"></i>
-    <span v-if="$slots.default"><slot></slot></span>
+    <span class="el-button-flex">
+      <i v-if="loading" class="el-icon-loading"></i>
+      <i v-if="icon && !loading" :class="icon"></i>
+      <span v-if="$slots.default" class="el-button-flex el-button-slot"><slot></slot></span>
+    </span>
   </button>
 </template>
+<script>
 
-<script lang='ts'>
-import { computed, inject, defineComponent } from 'vue'
-import { useGlobalConfig } from '@element-plus/utils/util'
-import { isValidComponentSize } from '@element-plus/utils/validators'
-import { elFormKey, elFormItemKey } from '@element-plus/form'
+const ELEMENT_DEFAULT = {}
 
-import type { PropType } from 'vue'
-import type { ElFormContext, ElFormItemContext } from '@element-plus/form'
-
-type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default'>
-type IButtonNativeType = PropType<'button' | 'submit' | 'reset'>
-
-interface IButtonProps {
-  type: string
-  size: string
-  icon: string
-  nativeType: string
-  loading: boolean
-  disabled: boolean
-  plain: boolean
-  autofocus: boolean
-  round: boolean
-  circle: boolean
-}
-
-type EmitFn = (evt: Event) => void
-
-export default defineComponent({
+export default {
   name: 'ElButton',
 
+  inject: {
+    elForm: {
+      default: '',
+    },
+    elFormItem: {
+      default: '',
+    },
+  },
+  // directives: {
+  //   ripple
+  // },
   props: {
     type: {
-      type: String as IButtonType,
+      type: String,
       default: 'default',
-      validator: (val: string) => {
-        return [
-          'default',
-          'primary',
-          'success',
-          'warning',
-          'info',
-          'danger',
-          'text',
-        ].includes(val)
-      },
     },
-    size: {
-      type: String as PropType<ComponentSize>,
-      validator: isValidComponentSize,
-    },
+    size: String,
     icon: {
       type: String,
       default: '',
     },
     nativeType: {
-      type: String as IButtonNativeType,
+      type: String,
       default: 'button',
-      validator: (val: string) => {
-        return ['button', 'submit', 'reset'].includes(val)
-      },
     },
     loading: Boolean,
     disabled: Boolean,
     plain: Boolean,
     autofocus: Boolean,
     round: Boolean,
-    circle: Boolean,
+    square: Boolean,
   },
 
   emits: ['click'],
 
-  setup(props, ctx) {
-    const $ELEMENT = useGlobalConfig()
-
-    const elForm = inject(elFormKey, {} as ElFormContext)
-    const elFormItem = inject(elFormItemKey, {} as ElFormItemContext)
-
-    const buttonSize = computed(() => {
-      return props.size || elFormItem.size || $ELEMENT.size
-    })
-    const buttonDisabled = computed(() => {
-      return props.disabled || elForm.disabled
-    })
-
-    //methods
-    const handleClick = evt => {
-      ctx.emit('click', evt)
-    }
-
-    return {
-      buttonSize,
-      buttonDisabled,
-      handleClick,
-    }
+  computed: {
+    _elFormItemSize() {
+      return (this.elFormItem || {}).elFormItemSize
+    },
+    ripple() {
+      return (this.$ELEMENT || ELEMENT_DEFAULT).ripple
+    },
+    buttonSize() {
+      return (
+        this.size ||
+        this._elFormItemSize ||
+        (this.$ELEMENT || ELEMENT_DEFAULT).size
+      )
+    },
+    buttonDisabled() {
+      return this.disabled || (this.elForm || {}).disabled
+    },
   },
-})
+
+  methods: {
+    handleClick(evt) {
+      this.$emit('click', evt)
+    },
+  },
+}
 </script>
