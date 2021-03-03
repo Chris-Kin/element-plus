@@ -1,44 +1,54 @@
 <template>
-  <transition name="el-alert-fade">
+  <transition name="el-zoom-in-top">
     <div
       v-show="visible"
       class="el-alert"
-      :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
+      :class="[typeClass, center ? 'is-center' : '', 'is-' + effect,isClosable, isIcon, isTitle, mini && `el-alert--mini`]"
       role="alert"
     >
-      <i v-if="showIcon" class="el-alert__icon" :class="[ iconClass, isBigIcon ]"></i>
+      <i v-if="showIcon" class="el-alert__icon" :class="[ iconClass ]"></i>
       <div class="el-alert__content">
-        <span v-if="title || $slots.title" class="el-alert__title" :class="[ isBoldTitle ]">
+        <span v-if="title || $slots.title" class="el-alert__title" :class="[ isBoldTitle, isTitle ]">
           <slot name="title">{{ title }}</slot>
         </span>
-        <p v-if="$slots.default || !!description" class="el-alert__description">
-          <slot>
-            {{ description }}
-          </slot>
+        <div
+          v-if="$slots.default && !description"
+          class="el-alert__description"
+          :class="{
+            hasTitle: title || $slots.title
+          }"
+        >
+          <slot></slot>
+        </div>
+        <p
+          v-if="description && !$slots.default"
+          class="el-alert__description"
+          :class="{
+            hasTitle: title || $slots.title
+          }"
+        >
+          {{ description }}
         </p>
         <i
-          v-if="closable"
+          v-show="closable"
           class="el-alert__closebtn"
-          :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
-          @click="close"
-        >
-          {{ closeText }}
-        </i>
+          :class="{ 'is-customed': closeText !== '', 'sys-icon-close': closeText === '' }"
+          @click="close()"
+        >{{ closeText }}</i>
       </div>
     </div>
   </transition>
 </template>
-<script lang='ts'>
-import { defineComponent, computed, ref, PropType } from 'vue'
 
+<script type="text/babel">
 const TYPE_CLASSES_MAP = {
-  'success': 'el-icon-success',
-  'warning': 'el-icon-warning',
-  'error': 'el-icon-error',
+  'success': 'sys-icon-checkbox-circle-fill',
+  'warning': 'sys-icon-error-warning-fill',
+  'error': 'sys-icon-close-circle-fill',
 }
-
-export default defineComponent({
+export default {
   name: 'ElAlert',
+
   props: {
     title: {
       type: String,
@@ -49,7 +59,7 @@ export default defineComponent({
       default: '',
     },
     type: {
-      type: String as PropType<'success' | 'info' | 'error' | 'warning'>,
+      type: String,
       default: 'info',
     },
     closable: {
@@ -65,34 +75,56 @@ export default defineComponent({
     effect: {
       type: String,
       default: 'light',
-      validator: (value: string): boolean => ['light', 'dark'].indexOf(value) > -1,
+      validator: function(value) {
+        return ['light', 'dark'].indexOf(value) !== -1
+      },
+    },
+    // size: {
+    //   type: String,
+    //   default: 'medium',
+    //   validator: function(value) {
+    //     return ['medium', 'small'].indexOf(value) !== -1;
+    //   }
+    // }
+    mini: Boolean,
+  },
+
+  emits: ['close'],
+
+  data() {
+    return {
+      visible: true,
+    }
+  },
+
+  computed: {
+    typeClass() {
+      return `el-alert--${ this.type }`
+    },
+
+    iconClass() {
+      return TYPE_CLASSES_MAP[this.type] || 'sys-icon-information-fill'
+    },
+
+    isBoldTitle() {
+      return (this.description || this.$slots.default) ? 'is-bold' : ''
+    },
+    isTitle() {
+      return (this.description || this.$slots.default) ? 'is-title' : ''
+    },
+    isClosable() {
+      return this.closable ? 'is-closable' : ''
+    },
+    isIcon() {
+      return this.showIcon ? 'is-icon' : ''
     },
   },
-  emits: ['close'],
-  setup(props, ctx) {
-    // state
-    const visible = ref(true)
 
-    // computed
-    const typeClass = computed(() => `el-alert--${ props.type }`)
-    const iconClass = computed(() => TYPE_CLASSES_MAP[props.type] || 'el-icon-info')
-    const isBigIcon = computed(() => props.description || ctx.slots.default ? 'is-big' : '')
-    const isBoldTitle = computed(() => props.description || ctx.slots.default ? 'is-bold' : '')
-
-    // methods
-    const close = evt => {
-      visible.value = false
-      ctx.emit('close', evt)
-    }
-
-    return {
-      visible,
-      typeClass,
-      iconClass,
-      isBigIcon,
-      isBoldTitle,
-      close,
-    }
+  methods: {
+    close() {
+      this.visible = false
+      this.$emit('close')
+    },
   },
-})
+}
 </script>

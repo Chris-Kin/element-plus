@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import type { SFCWithInstall } from '@element-plus/utils/types'
-import Avatar from './src/index.vue'
+import Avatar from './src/index.jsx'
 
 Avatar.install = (app: App): void => {
   app.component(Avatar.name, Avatar)
